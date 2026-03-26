@@ -1,0 +1,49 @@
+---
+import type { Locale } from '../i18n/index';
+import { t } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const stats = [
+  { value: t(locale, 'about.stats.projects'), label: t(locale, 'about.stats.projectsLabel') },
+  { value: t(locale, 'about.stats.agents'), label: t(locale, 'about.stats.agentsLabel') },
+  { value: t(locale, 'about.stats.years'), label: t(locale, 'about.stats.yearsLabel') },
+  { value: t(locale, 'about.stats.languages'), label: t(locale, 'about.stats.languagesLabel') },
+];
+---
+
+<section id="about" class="section-container">
+  <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+    <span class="gradient-text">{t(locale, 'about.title')}</span>
+  </h2>
+
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <!-- Bio -->
+    <div class="space-y-4">
+      <p class="text-slate-300 leading-relaxed text-base md:text-lg">
+        {t(locale, 'about.bio')}
+      </p>
+      <p class="text-slate-400 leading-relaxed text-base md:text-lg">
+        {t(locale, 'about.bio2')}
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 gap-4">
+      {stats.map((stat) => (
+        <div class="card text-center">
+          <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">
+            {stat.value}
+          </div>
+          <div class="text-sm text-slate-400">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
