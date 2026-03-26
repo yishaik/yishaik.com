@@ -9,21 +9,21 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Yishai Kaminsky",
-    "title": "Software Developer & AI Architect",
-    "subtitle": "Building intelligent systems with AI agents, multi-agent orchestration, and full-stack development. Creator of 70+ projects spanning cybersecurity, automation, and cutting-edge AI.",
+    "title": "IT Manager & Technology Specialist",
+    "subtitle": "17+ years of experience in IT management, cloud infrastructure, cybersecurity, and enterprise support. Building AI-powered tools and automation in my spare time.",
     "cta": "View Projects",
     "contact": "Get in Touch"
   },
   "about": {
     "title": "About Me",
-    "bio": "I'm a software developer with a passion for AI and intelligent automation. Currently at Profero (CyberProof) working on cybersecurity platforms, I spend my time building AI-powered systems that solve real problems — from multi-agent orchestration platforms with 50+ specialized agents to smart CRM systems, collaborative task managers, and automated research tools.",
-    "bio2": "With experience at Microsoft and a background spanning full-stack development, mobile apps, and AI/ML, I bridge the gap between complex AI capabilities and practical, user-friendly applications. I'm especially passionate about Hebrew-first AI tools and making technology accessible.",
+    "bio": "I'm an IT professional with 17+ years of experience spanning IT management, cloud services, cybersecurity, and enterprise support. My career includes roles at Profero, abra, Claroty, Microsoft, and Secure Islands — working with organizations from startups to major enterprises across Israel and internationally.",
+    "bio2": "Beyond my professional IT work, I'm passionate about AI and building intelligent automation tools. I develop projects involving multi-agent systems, smart CRMs, and AI-powered applications. I'm especially excited about Hebrew-first AI tools and making technology accessible.",
     "stats": {
       "projects": "70+",
       "projectsLabel": "Projects Built",
       "agents": "50+",
       "agentsLabel": "AI Agents Created",
-      "years": "8+",
+      "years": "17+",
       "yearsLabel": "Years Experience",
       "languages": "3",
       "languagesLabel": "Programming Languages"

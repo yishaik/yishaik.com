@@ -8,86 +8,168 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: { en: 'Profero (CyberProof)', he: 'פרופרו (סייברפרוף)' },
-    role: { en: 'Software Developer', he: 'מפתח תוכנה' },
-    period: '2022 — Present',
+    company: { en: 'Profero', he: 'פרופרו' },
+    role: { en: 'IT Manager', he: 'מנהל IT' },
+    period: 'Jun 2024 — Aug 2025',
     description: {
-      en: 'Developing cybersecurity platform tools and automation systems.',
-      he: 'פיתוח כלי פלטפורמת אבטחת סייבר ומערכות אוטומציה.',
+      en: 'Managing IT operations and infrastructure.',
+      he: 'ניהול תפעול IT ותשתיות.',
     },
     highlights: {
       en: [
-        'Building security automation and orchestration tools',
-        'Full-stack development with modern web technologies',
-        'Integrating AI capabilities into security workflows',
+        'IT management and operations oversight',
+        'Remote team coordination',
       ],
       he: [
-        'בניית כלי אוטומציה ותיאום אבטחה',
-        'פיתוח Full-Stack עם טכנולוגיות ווב מודרניות',
-        'שילוב יכולות AI בתהליכי אבטחה',
+        'ניהול IT ופיקוח על תפעול',
+        'תיאום צוות מרחוק',
+      ],
+    },
+  },
+  {
+    company: { en: 'abra', he: 'אברא' },
+    role: { en: 'IT Specialist', he: 'מומחה IT' },
+    period: 'Sep 2020 — May 2024',
+    description: {
+      en: 'Providing cloud IT and security services for small and medium businesses.',
+      he: 'מתן שירותי IT ענן ואבטחה לעסקים קטנים ובינוניים.',
+    },
+    highlights: {
+      en: [
+        'Cloud IT and security services for SMBs',
+        'Infrastructure management and support',
+      ],
+      he: [
+        'שירותי IT ענן ואבטחה לעסקים קטנים ובינוניים',
+        'ניהול תשתיות ותמיכה',
+      ],
+    },
+  },
+  {
+    company: { en: 'Claroty', he: 'קלרוטי' },
+    role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה שכבה 3' },
+    period: 'Sep 2017 — Oct 2019',
+    description: {
+      en: 'Top-tier technical support for industrial cybersecurity solutions.',
+      he: 'תמיכה טכנית ברמה הגבוהה ביותר לפתרונות אבטחת סייבר תעשייתיים.',
+    },
+    highlights: {
+      en: [
+        'Advanced troubleshooting and escalation handling',
+        'Industrial cybersecurity domain expertise',
+      ],
+      he: [
+        'פתרון תקלות מתקדם וטיפול באסקלציות',
+        'מומחיות בתחום אבטחת סייבר תעשייתית',
       ],
     },
   },
   {
     company: { en: 'Microsoft', he: 'מיקרוסופט' },
     role: { en: 'Support Engineer', he: 'מהנדס תמיכה' },
-    period: '2016 — 2017',
+    period: 'Jan 2016 — Dec 2016',
     description: {
-      en: 'Technical support engineering for enterprise customers.',
-      he: 'הנדסת תמיכה טכנית ללקוחות ארגוניים.',
+      en: 'Top level support to major enterprises and premier customers according to SLA.',
+      he: 'תמיכה ברמה הגבוהה ביותר לארגונים גדולים ולקוחות פרימיום בהתאם ל-SLA.',
     },
     highlights: {
       en: [
-        'Resolved complex technical issues for enterprise clients',
-        'Collaborated with product teams on customer feedback',
-        'Developed internal tools to improve support efficiency',
+        'Enterprise and premier customer support per SLA',
+        'Built a support knowledge center',
+        'Managed migration from start-up to enterprise processes',
       ],
       he: [
-        'פתרון בעיות טכניות מורכבות ללקוחות ארגוניים',
-        'שיתוף פעולה עם צוותי מוצר על משוב לקוחות',
-        'פיתוח כלים פנימיים לשיפור יעילות התמיכה',
+        'תמיכה ללקוחות ארגוניים ופרימיום בהתאם ל-SLA',
+        'הקמת מרכז ידע לתמיכה',
+        'ניהול מעבר מתהליכי סטארט-אפ לארגון',
       ],
     },
   },
   {
-    company: { en: 'Secure Islands', he: 'Secure Islands' },
-    role: { en: 'QA & Integration Engineer', he: 'מהנדס QA ואינטגרציה' },
-    period: '2014 — 2016',
+    company: { en: 'Secure Islands Technologies (acquired by Microsoft)', he: 'Secure Islands (נרכשה ע״י מיקרוסופט)' },
+    role: { en: 'Post Sales Engineer', he: 'מהנדס פוסט-סייל' },
+    period: 'Sep 2012 — Jul 2016',
     description: {
-      en: 'Quality assurance, system integration, and technical support for data security products.',
-      he: 'אבטחת איכות, אינטגרציית מערכות ותמיכה טכנית למוצרי אבטחת מידע.',
+      en: 'Implementation and integration of data security software in major international financial and legal institutions.',
+      he: 'הטמעה ואינטגרציה של תוכנת אבטחת מידע במוסדות פיננסיים ומשפטיים בינלאומיים מובילים.',
     },
     highlights: {
       en: [
-        'Led QA processes for enterprise security solutions',
-        'Managed system integration projects',
-        'Provided technical support and customer training',
+        'Integration and implementation at international financial and legal institutions',
+        'B2B client support in Israel and abroad',
+        'Manual software testing',
+        'On-site integration and high-level client support',
       ],
       he: [
-        'הובלת תהליכי QA לפתרונות אבטחה ארגוניים',
-        'ניהול פרויקטי אינטגרציית מערכות',
-        'מתן תמיכה טכנית והדרכת לקוחות',
+        'אינטגרציה והטמעה במוסדות פיננסיים ומשפטיים בינלאומיים',
+        'תמיכת לקוחות B2B בישראל ובחו״ל',
+        'בדיקות תוכנה ידניות',
+        'אינטגרציה באתר הלקוח ותמיכה ברמה גבוהה',
       ],
     },
   },
   {
-    company: { en: 'Elevation Academy', he: 'אלבשן אקדמי' },
-    role: { en: 'Full-Stack Web Development', he: 'פיתוח ווב Full-Stack' },
-    period: '2017',
+    company: { en: 'Ajax Union Inc', he: 'Ajax Union Inc' },
+    role: { en: 'IT and Networks', he: 'IT ורשתות' },
+    period: 'Feb 2011 — Feb 2012',
     description: {
-      en: 'Intensive full-stack web development bootcamp covering JavaScript, HTML, CSS, and MEAN Stack.',
-      he: 'בוטקמפ אינטנסיבי לפיתוח ווב Full-Stack הכולל JavaScript, HTML, CSS ו-MEAN Stack.',
+      en: 'IT infrastructure and network management.',
+      he: 'ניהול תשתיות IT ורשתות.',
     },
     highlights: {
       en: [
-        'JavaScript, HTML, CSS, MEAN Stack',
-        'Full-stack project development',
-        'Agile development methodologies',
+        'Network monitoring',
+        'VoIP implementation',
+        'Data center environment setup',
+        'Cloud and Google Apps management',
       ],
       he: [
-        'JavaScript, HTML, CSS, MEAN Stack',
-        'פיתוח פרויקטים Full-Stack',
-        'מתודולוגיות פיתוח Agile',
+        'ניטור רשתות',
+        'הטמעת VoIP',
+        'הקמת סביבת מרכז נתונים',
+        'ניהול ענן ו-Google Apps',
+      ],
+    },
+  },
+  {
+    company: { en: 'Malam', he: 'מלם' },
+    role: { en: 'PC and Network Technical Support', he: 'תמיכה טכנית מחשבים ורשתות' },
+    period: 'Oct 2008 — Aug 2010',
+    description: {
+      en: 'Technical troubleshooting within a large government office with over 500 workstations.',
+      he: 'פתרון תקלות טכניות במשרד ממשלתי גדול עם למעלה מ-500 תחנות עבודה.',
+    },
+    highlights: {
+      en: [
+        'Image creation, system crashes, and data recoveries',
+        'System and network issue resolution in high-stress environment',
+        'Authored user-friendly guide for non-IT users',
+        'Researched rare troubleshooting problems',
+      ],
+      he: [
+        'יצירת תמונות מערכת, טיפול בקריסות ושחזור נתונים',
+        'פתרון תקלות מערכת ורשת בסביבה לחוצה',
+        'כתיבת מדריך ידידותי למשתמשים שאינם אנשי IT',
+        'מחקר בעיות פתרון תקלות נדירות',
+      ],
+    },
+  },
+  {
+    company: { en: 'B.H. Comtec', he: 'B.H. Comtec' },
+    role: { en: 'PC Hardware Technician', he: 'טכנאי חומרה' },
+    period: 'Dec 2007 — Sep 2008',
+    description: {
+      en: 'Identification and repair of hardware malfunctions in desktop and laptop computers.',
+      he: 'זיהוי ותיקון תקלות חומרה במחשבים נייחים וניידים.',
+    },
+    highlights: {
+      en: [
+        'Hardware malfunction diagnosis and repair',
+        'Software and hardware installation',
+      ],
+      he: [
+        'אבחון ותיקון תקלות חומרה',
+        'התקנת תוכנה וחומרה',
       ],
     },
   },
