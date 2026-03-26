@@ -9,15 +9,15 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Yishai Kaminsky",
-    "title": "IT Manager & Technology Specialist",
-    "subtitle": "17+ years of experience in IT management, cloud infrastructure, cybersecurity, and enterprise support. Building AI-powered tools and automation in my spare time.",
-    "cta": "View Projects",
-    "contact": "Get in Touch"
+    "title": "AI Automation Builder & IT Systems Specialist",
+    "subtitle": "I build practical AI systems, automation workflows, and modern internal tools that help teams move faster and operate with less friction.",
+    "cta": "View My Work",
+    "contact": "Contact Me"
   },
   "about": {
     "title": "About Me",
-    "bio": "I'm an IT professional with 17+ years of experience spanning IT management, cloud services, cybersecurity, and enterprise support. My career includes roles at Profero, abra, Claroty, Microsoft, and Secure Islands — working with organizations from startups to major enterprises across Israel and internationally.",
-    "bio2": "Beyond my professional IT work, I'm passionate about AI and building intelligent automation tools. I develop projects involving multi-agent systems, smart CRMs, and AI-powered applications. I'm especially excited about Hebrew-first AI tools and making technology accessible.",
+    "bio": "I'm an IT and systems professional focused on turning complex operations into reliable, practical workflows. My background spans IT leadership, cloud services, cybersecurity, enterprise support, and hands-on delivery across organizations like Profero, abra, Claroty, Microsoft, and Secure Islands.",
+    "bio2": "Alongside my professional IT work, I build AI-powered tools, automation systems, and Hebrew-first products designed to solve real business problems. I care most about systems that are useful, clear, and ready to work in the real world.",
     "stats": {
       "projects": "70+",
       "projectsLabel": "Projects Built",
