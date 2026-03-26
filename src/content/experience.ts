@@ -8,71 +8,115 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: { en: 'Profero (CyberProof)', he: 'פרופרו (סייברפרוף)' },
-    role: { en: 'Software Developer', he: 'מפתח תוכנה' },
-    period: '2022 — Present',
+    company: { en: 'Profero', he: 'פרופרו' },
+    role: { en: 'IT Manager', he: 'מנהל IT' },
+    period: 'Jun 2024 — Aug 2025',
     description: {
-      en: 'Developing cybersecurity platform tools and automation systems.',
-      he: 'פיתוח כלי פלטפורמת אבטחת סייבר ומערכות אוטומציה.',
+      en: 'IT management and cybersecurity operations.',
+      he: 'ניהול IT ופעילות אבטחת סייבר.',
     },
     highlights: {
       en: [
-        'Building security automation and orchestration tools',
-        'Full-stack development with modern web technologies',
-        'Integrating AI capabilities into security workflows',
+        'Managed IT infrastructure and security operations',
+        'Oversaw cybersecurity tools and automation systems',
+        'Integrated AI capabilities into security workflows',
       ],
       he: [
-        'בניית כלי אוטומציה ותיאום אבטחה',
-        'פיתוח Full-Stack עם טכנולוגיות ווב מודרניות',
+        'ניהול תשתיות IT ופעולות אבטחה',
+        'פיקוח על כלי אבטחת סייבר ומערכות אוטומציה',
         'שילוב יכולות AI בתהליכי אבטחה',
+      ],
+    },
+  },
+  {
+    company: { en: 'abra', he: 'אברה' },
+    role: { en: 'IT Specialist', he: 'מומחה IT' },
+    period: 'Sep 2020 — May 2024',
+    description: {
+      en: 'Providing cloud IT and security services for small and medium businesses.',
+      he: 'מתן שירותי IT ואבטחת ענן לעסקים קטנים ובינוניים.',
+    },
+    highlights: {
+      en: [
+        'Delivered cloud IT and security services to SMBs',
+        'Managed multi-client environments and infrastructure',
+        'Implemented security best practices across client systems',
+      ],
+      he: [
+        'מתן שירותי IT ואבטחת ענן ללקוחות SMB',
+        'ניהול סביבות ותשתיות לקוחות מרובים',
+        'יישום שיטות עבודה מומלצות באבטחה במערכות לקוחות',
+      ],
+    },
+  },
+  {
+    company: { en: 'Claroty', he: 'קלרוטי' },
+    role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה Tier 3' },
+    period: 'Sep 2017 — Oct 2019',
+    description: {
+      en: 'Senior technical support engineering for an OT/IoT cybersecurity platform.',
+      he: 'הנדסת תמיכה טכנית בכירה לפלטפורמת אבטחת סייבר OT/IoT.',
+    },
+    highlights: {
+      en: [
+        'Provided Tier 3 escalation support for enterprise customers',
+        'Diagnosed and resolved complex platform and network issues',
+        'Collaborated with R&D on product bugs and improvements',
+      ],
+      he: [
+        'תמיכת Tier 3 ללקוחות ארגוניים',
+        'אבחון ופתרון בעיות פלטפורמה ורשת מורכבות',
+        'שיתוף פעולה עם R&D על באגים ושיפורי מוצר',
       ],
     },
   },
   {
     company: { en: 'Microsoft', he: 'מיקרוסופט' },
     role: { en: 'Support Engineer', he: 'מהנדס תמיכה' },
-    period: '2016 — 2017',
+    period: 'Jan 2016 — Dec 2016',
     description: {
-      en: 'Technical support engineering for enterprise customers.',
-      he: 'הנדסת תמיכה טכנית ללקוחות ארגוניים.',
+      en: 'Technical support engineering for enterprise and premier customers.',
+      he: 'הנדסת תמיכה טכנית ללקוחות ארגוניים ו-Premier.',
     },
     highlights: {
       en: [
-        'Resolved complex technical issues for enterprise clients',
+        'Provided top-level support to major enterprise and premier customers per SLA',
+        'Built a support knowledge center and led migration from startup to enterprise environment',
         'Collaborated with product teams on customer feedback',
-        'Developed internal tools to improve support efficiency',
       ],
       he: [
-        'פתרון בעיות טכניות מורכבות ללקוחות ארגוניים',
+        'תמיכה ברמה גבוהה ללקוחות ארגוניים ו-Premier לפי SLA',
+        'בניית מרכז ידע לתמיכה והובלת מעיבר מסביבת סטארטאפ לארגון',
         'שיתוף פעולה עם צוותי מוצר על משוב לקוחות',
-        'פיתוח כלים פנימיים לשיפור יעילות התמיכה',
       ],
     },
   },
   {
     company: { en: 'Secure Islands', he: 'Secure Islands' },
-    role: { en: 'QA & Integration Engineer', he: 'מהנדס QA ואינטגרציה' },
-    period: '2014 — 2016',
+    role: { en: 'Post Sales Engineer — Integration & Support', he: 'מהנדס פוסט-סיילס — אינטגרציה ותמיכה' },
+    period: 'Sep 2012 — Jul 2016',
     description: {
-      en: 'Quality assurance, system integration, and technical support for data security products.',
-      he: 'אבטחת איכות, אינטגרציית מערכות ותמיכה טכנית למוצרי אבטחת מידע.',
+      en: 'Implementation, integration, and support for data security software at major international institutions. (Company acquired by Microsoft.)',
+      he: 'יישום, אינטגרציה ותמיכה בתוכנת אבטחת מידע במוסדות בינלאומיים מרכזיים. (החברה נרכשה על ידי מיקרוסופט.)',
     },
     highlights: {
       en: [
-        'Led QA processes for enterprise security solutions',
-        'Managed system integration projects',
-        'Provided technical support and customer training',
+        'Implemented data security software at major international financial and legal institutions',
+        'Provided B2B support to clients in Israel and abroad',
+        'Conducted on-site integrations and high-level client support',
+        'Performed manual software testing and QA',
       ],
       he: [
-        'הובלת תהליכי QA לפתרונות אבטחה ארגוניים',
-        'ניהול פרויקטי אינטגרציית מערכות',
-        'מתן תמיכה טכנית והדרכת לקוחות',
+        'יישום תוכנת אבטחת מידע במוסדות פיננסיים ומשפטיים בינלאומיים מרכזיים',
+        'תמיכת B2B ללקוחות בישראל ובחו"ל',
+        'ביצוע אינטגרציות באתר ותמיכת לקוחות ברמה גבוהה',
+        'בדיקות תוכנה ידניות ו-QA',
       ],
     },
   },
   {
     company: { en: 'Elevation Academy', he: 'אלבשן אקדמי' },
-    role: { en: 'Full-Stack Web Development', he: 'פיתוח ווב Full-Stack' },
+    role: { en: 'Full-Stack Web Development Course', he: 'קורס פיתוח ווב Full-Stack' },
     period: '2017',
     description: {
       en: 'Intensive full-stack web development bootcamp covering JavaScript, HTML, CSS, and MEAN Stack.',
