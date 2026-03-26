@@ -27,40 +27,44 @@ export const experience: Experience[] = [
     },
   },
   {
-    company: { en: 'abra', he: 'אברא' },
+    company: { en: 'abra', he: 'אברה' },
     role: { en: 'IT Specialist', he: 'מומחה IT' },
     period: 'Sep 2020 — May 2024',
     description: {
       en: 'Providing cloud IT and security services for small and medium businesses.',
-      he: 'מתן שירותי IT ענן ואבטחה לעסקים קטנים ובינוניים.',
+      he: 'מתן שירותי IT ואבטחת ענן לעסקים קטנים ובינוניים.',
     },
     highlights: {
       en: [
-        'Cloud IT and security services for SMBs',
-        'Infrastructure management and support',
+        'Delivered cloud IT and security services to SMBs',
+        'Managed multi-client environments and infrastructure',
+        'Implemented security best practices across client systems',
       ],
       he: [
-        'שירותי IT ענן ואבטחה לעסקים קטנים ובינוניים',
-        'ניהול תשתיות ותמיכה',
+        'מתן שירותי IT ואבטחת ענן ללקוחות SMB',
+        'ניהול סביבות ותשתיות לקוחות מרובים',
+        'יישום שיטות עבודה מומלצות באבטחה במערכות לקוחות',
       ],
     },
   },
   {
     company: { en: 'Claroty', he: 'קלרוטי' },
-    role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה שכבה 3' },
+    role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה Tier 3' },
     period: 'Sep 2017 — Oct 2019',
     description: {
-      en: 'Top-tier technical support for industrial cybersecurity solutions.',
-      he: 'תמיכה טכנית ברמה הגבוהה ביותר לפתרונות אבטחת סייבר תעשייתיים.',
+      en: 'Senior technical support engineering for an OT/IoT cybersecurity platform.',
+      he: 'הנדסת תמיכה טכנית בכירה לפלטפורמת אבטחת סייבר OT/IoT.',
     },
     highlights: {
       en: [
-        'Advanced troubleshooting and escalation handling',
-        'Industrial cybersecurity domain expertise',
+        'Provided Tier 3 escalation support for enterprise customers',
+        'Diagnosed and resolved complex platform and network issues',
+        'Collaborated with R&D on product bugs and improvements',
       ],
       he: [
-        'פתרון תקלות מתקדם וטיפול באסקלציות',
-        'מומחיות בתחום אבטחת סייבר תעשייתית',
+        'תמיכת Tier 3 ללקוחות ארגוניים',
+        'אבחון ופתרון בעיות פלטפורמה ורשת מורכבות',
+        'שיתוף פעולה עם R&D על באגים ושיפורי מוצר',
       ],
     },
   },
