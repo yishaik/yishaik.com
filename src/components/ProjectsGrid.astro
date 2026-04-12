@@ -9,9 +9,7 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-
-// Sort: featured first
-const sortedProjects = [...projects].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+const sortedProjects = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
 
 const categories = [
   { key: 'all', label: t(locale, 'projects.filterAll') },
@@ -23,19 +21,18 @@ const categories = [
 ---
 
 <section id="projects" class="section-container">
-  <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-    <span class="gradient-text">{t(locale, 'projects.title')}</span>
-  </h2>
+  <div class="text-center mb-10">
+    <h2 class="section-title"><span class="gradient-text">{t(locale, 'projects.title')}</span></h2>
+  </div>
 
-  <!-- Filter tabs -->
   <div class="flex flex-wrap gap-2 justify-center mb-8" id="project-filters">
     {categories.map((cat) => (
       <button
         data-filter={cat.key}
-        class={`filter-btn px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+        class={`filter-btn px-4 py-2 text-sm font-medium rounded-lg border transition-all ${
           cat.key === 'all'
-            ? 'bg-accent text-white shadow-lg shadow-accent/25'
-            : 'bg-surface-light text-slate-300 hover:bg-surface-lighter border border-slate-700'
+            ? 'bg-accent text-white border-accent shadow-lg shadow-accent/20'
+            : 'bg-slate-900/40 border-slate-700 text-slate-300 hover:border-indigo-400/60 light:bg-white/80 light:border-slate-300 light:text-slate-700'
         }`}
       >
         {cat.label}
@@ -43,7 +40,6 @@ const categories = [
     ))}
   </div>
 
-  <!-- Projects grid -->
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
     {sortedProjects.map((project) => (
       <div data-category={project.category} class="project-item">
@@ -61,22 +57,17 @@ const categories = [
     btn.addEventListener('click', () => {
       const filter = (btn as HTMLElement).dataset.filter;
 
-      // Update active button
       buttons.forEach((b) => {
-        b.classList.remove('bg-accent', 'text-white', 'shadow-lg', 'shadow-accent/25');
-        b.classList.add('bg-surface-light', 'text-slate-300', 'border', 'border-slate-700');
+        b.classList.remove('bg-accent', 'text-white', 'border-accent', 'shadow-lg', 'shadow-accent/20');
+        b.classList.add('bg-slate-900/40', 'border-slate-700', 'text-slate-300', 'light:bg-white/80', 'light:border-slate-300', 'light:text-slate-700');
       });
-      btn.classList.add('bg-accent', 'text-white', 'shadow-lg', 'shadow-accent/25');
-      btn.classList.remove('bg-surface-light', 'text-slate-300', 'border', 'border-slate-700');
 
-      // Filter projects
+      btn.classList.add('bg-accent', 'text-white', 'border-accent', 'shadow-lg', 'shadow-accent/20');
+      btn.classList.remove('bg-slate-900/40', 'border-slate-700', 'text-slate-300', 'light:bg-white/80', 'light:border-slate-300', 'light:text-slate-700');
+
       items.forEach((item) => {
         const category = (item as HTMLElement).dataset.category;
-        if (filter === 'all' || category === filter) {
-          (item as HTMLElement).style.display = '';
-        } else {
-          (item as HTMLElement).style.display = 'none';
-        }
+        (item as HTMLElement).style.display = filter === 'all' || category === filter ? '' : 'none';
       });
     });
   });

@@ -17,31 +17,19 @@ const stats = [
 ---
 
 <section id="about" class="section-container">
-  <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-    <span class="gradient-text">{t(locale, 'about.title')}</span>
-  </h2>
+  <h2 class="section-title text-center"><span class="gradient-text">{t(locale, 'about.title')}</span></h2>
 
-  <div class="grid md:grid-cols-2 gap-12 items-center">
-    <!-- Bio -->
-    <div class="space-y-4">
-      <p class="text-slate-300 leading-relaxed text-base md:text-lg">
-        {t(locale, 'about.bio')}
-      </p>
-      <p class="text-slate-400 leading-relaxed text-base md:text-lg">
-        {t(locale, 'about.bio2')}
-      </p>
+  <div class="mt-10 grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-10 items-start">
+    <div class="surface-card p-6 md:p-8 space-y-4">
+      <p class="text-slate-200 light:text-slate-700 leading-relaxed text-base md:text-lg">{t(locale, 'about.bio')}</p>
+      <p class="text-slate-400 light:text-slate-600 leading-relaxed text-base md:text-lg">{t(locale, 'about.bio2')}</p>
     </div>
 
-    <!-- Stats Grid -->
     <div class="grid grid-cols-2 gap-4">
       {stats.map((stat) => (
         <div class="card text-center">
-          <div class="text-3xl md:text-4xl font-bold gradient-text mb-1">
-            {stat.value}
-          </div>
-          <div class="text-sm text-slate-400">
-            {stat.label}
-          </div>
+          <div class="text-3xl md:text-4xl font-black gradient-text mb-1">{stat.value}</div>
+          <div class="text-xs md:text-sm text-slate-400 light:text-slate-600">{stat.label}</div>
         </div>
       ))}
     </div>

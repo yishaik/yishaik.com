@@ -4,11 +4,27 @@
   --color-accent: #6366f1;
   --color-accent-light: #818cf8;
   --color-accent-dark: #4f46e5;
-  --color-surface: #0f172a;
-  --color-surface-light: #1e293b;
-  --color-surface-lighter: #334155;
+  --color-surface: #0b1020;
+  --color-surface-light: #131a2e;
+  --color-surface-lighter: #1d2742;
   --font-family-sans: 'Inter', system-ui, sans-serif;
   --font-family-hebrew: 'Heebo', system-ui, sans-serif;
+}
+
+:root {
+  --page-bg: radial-gradient(circle at 20% -10%, #1b2352 0%, #0b1020 45%, #070b17 100%);
+  --card-bg: rgba(19, 26, 46, 0.85);
+  --card-border: rgba(148, 163, 184, 0.2);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+}
+
+.light {
+  --page-bg: linear-gradient(to bottom right, #f8fafc 0%, #eef2ff 45%, #e2e8f0 100%);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(148, 163, 184, 0.3);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
 }
 
 html {
@@ -19,99 +35,117 @@ body {
   font-family: var(--font-family-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
 [dir="rtl"] body {
   font-family: var(--font-family-hebrew);
 }
 
-/* Dark mode (default) */
-body {
-  background-color: var(--color-surface);
-  color: #e2e8f0;
+.page-shell {
+  position: relative;
+  isolation: isolate;
 }
 
-/* Light mode */
-.light body {
-  background-color: #ffffff;
-  color: #1e293b;
+.page-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle at 80% 10%, rgba(99, 102, 241, 0.18), transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(168, 85, 247, 0.14), transparent 45%);
 }
 
-/* Reusable component classes */
 .section-container {
   max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 4rem 1rem;
+  margin-inline: auto;
+  padding: 5rem 1rem;
 }
 
 @media (min-width: 640px) {
   .section-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-inline: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-inline: 2rem;
   }
 }
 
+.section-title {
+  font-size: clamp(1.875rem, 1.5rem + 1.8vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  max-width: 42rem;
+}
+
+.surface-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.22);
+}
+
 .card {
-  background-color: var(--color-surface-light);
-  border-radius: 0.75rem;
-  border: 1px solid rgba(51, 65, 85, 0.5);
+  background: var(--card-bg);
+  border-radius: 0.9rem;
+  border: 1px solid var(--card-border);
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  border-color: rgba(99, 102, 241, 0.5);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
-}
-
-.light .card {
-  background-color: #f8fafc;
-  border-color: rgba(226, 232, 240, 1);
-}
-
-.light .card:hover {
-  border-color: rgba(99, 102, 241, 0.5);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.55);
+  box-shadow: 0 16px 30px rgba(79, 70, 229, 0.16);
 }
 
 .gradient-text {
-  background: linear-gradient(to right, var(--color-accent-light), #c084fc);
+  background: linear-gradient(105deg, #818cf8, #a78bfa 45%, #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .light .gradient-text {
-  background: linear-gradient(to right, var(--color-accent-dark), #7c3aed);
+  background: linear-gradient(105deg, #4338ca, #7c3aed 45%, #0891b2);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Animated gradient background for hero */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.14);
+  color: #c7d2fe;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+.light .pill {
+  color: #4338ca;
+  background: rgba(99, 102, 241, 0.08);
 }
 
-/* Fade in animation */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -120,7 +154,7 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.65s ease forwards;
   opacity: 0;
 }
 

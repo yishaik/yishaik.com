@@ -11,24 +11,20 @@ const { locale } = Astro.props;
 ---
 
 <section id="skills" class="section-container">
-  <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-    <span class="gradient-text">{t(locale, 'skills.title')}</span>
-  </h2>
+  <div class="text-center mb-10">
+    <h2 class="section-title"><span class="gradient-text">{t(locale, 'skills.title')}</span></h2>
+  </div>
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {skillCategories.map((category) => (
-      <div class="card group">
+      <div class="card">
         <div class="flex items-center gap-3 mb-4">
           <span class="text-2xl">{category.icon}</span>
-          <h3 class="text-lg font-semibold text-slate-200">
-            {category.name[locale]}
-          </h3>
+          <h3 class="text-lg font-semibold text-slate-100 light:text-slate-800">{category.name[locale]}</h3>
         </div>
         <div class="flex flex-wrap gap-2">
           {category.skills.map((skill) => (
-            <span class="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent-light border border-accent/20 group-hover:bg-accent/20 transition-colors">
-              {skill}
-            </span>
+            <span class="pill">{skill}</span>
           ))}
         </div>
       </div>

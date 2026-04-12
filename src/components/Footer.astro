@@ -10,15 +10,11 @@ const { locale } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-slate-800 mt-16">
+<footer class="mt-12 border-t border-slate-800/70 light:border-slate-300/80">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-slate-500">
-        &copy; {currentYear} {t(locale, 'hero.name')}. {t(locale, 'footer.rights')}
-      </p>
-      <p class="text-sm text-slate-600">
-        {t(locale, 'footer.built')}
-      </p>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-sm text-slate-500">&copy; {currentYear} {t(locale, 'hero.name')}. {t(locale, 'footer.rights')}</p>
+      <p class="text-sm text-slate-500">{t(locale, 'footer.built')}</p>
     </div>
   </div>
 </footer>

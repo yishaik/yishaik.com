@@ -20,97 +20,62 @@ const navItems = [
 ];
 ---
 
-<header
-  id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
->
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href={getLocalePath(locale)} class="text-xl font-bold gradient-text">
-        YK
-      </a>
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="surface-card flex items-center justify-between px-4 py-2.5 md:px-6">
+      <a href={getLocalePath(locale)} class="text-lg font-black tracking-tight gradient-text">YK</a>
 
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-6">
+      <div class="hidden md:flex items-center gap-5">
         {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm font-medium text-slate-300 hover:text-white dark:text-slate-300 dark:hover:text-white light:text-slate-600 light:hover:text-slate-900 transition-colors"
-          >
+          <a href={item.href} class="text-sm font-medium text-slate-300 hover:text-white light:text-slate-700 light:hover:text-slate-900 transition-colors">
             {t(locale, `nav.${item.key}`)}
           </a>
         ))}
-        <div class="flex items-center gap-3 ml-4 border-l border-slate-700 pl-4">
-          <ThemeToggle client:load />
-          <a
-            href={altPath}
-            class="text-sm font-medium px-3 py-1.5 rounded-lg bg-surface-light hover:bg-surface-lighter border border-slate-700 transition-colors"
-          >
-            {t(locale, 'lang.switch')}
-          </a>
-        </div>
+        <div class="h-6 w-px bg-slate-700/70 light:bg-slate-300"></div>
+        <ThemeToggle client:load />
+        <a href={altPath} class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-400/40 bg-indigo-500/10 text-indigo-200 light:text-indigo-700">
+          {t(locale, 'lang.switch')}
+        </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden p-2 text-slate-300 hover:text-white"
-        aria-label="Menu"
-      >
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white light:text-slate-700" aria-label="Menu">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
-      <div class="flex flex-col gap-2">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="mobile-nav-link block px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-surface-light rounded-lg transition-colors"
-          >
-            {t(locale, `nav.${item.key}`)}
-          </a>
-        ))}
-        <div class="flex items-center gap-3 px-4 pt-2 border-t border-slate-700 mt-2">
-          <ThemeToggle client:load />
-          <a
-            href={altPath}
-            class="text-sm font-medium px-3 py-1.5 rounded-lg bg-surface-light hover:bg-surface-lighter border border-slate-700 transition-colors"
-          >
-            {t(locale, 'lang.switch')}
-          </a>
-        </div>
+    <div id="mobile-menu" class="hidden md:hidden mt-2 surface-card p-2">
+      {navItems.map((item) => (
+        <a href={item.href} class="mobile-nav-link block px-3 py-2 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800/70 hover:text-white light:text-slate-700 light:hover:bg-slate-100">
+          {t(locale, `nav.${item.key}`)}
+        </a>
+      ))}
+      <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-700/60 light:border-slate-200">
+        <ThemeToggle client:load />
+        <a href={altPath} class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-400/40 bg-indigo-500/10 text-indigo-200 light:text-indigo-700">
+          {t(locale, 'lang.switch')}
+        </a>
       </div>
     </div>
   </nav>
 </header>
 
 <script>
-  // Mobile menu toggle
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-  });
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 
-  // Close mobile menu on link click
   document.querySelectorAll('.mobile-nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-    });
+    link.addEventListener('click', () => menu?.classList.add('hidden'));
   });
 
-  // Header background on scroll
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('bg-surface/80', 'backdrop-blur-lg', 'border-b', 'border-slate-800');
+    if (window.scrollY > 24) {
+      header?.classList.add('backdrop-blur-md');
     } else {
-      header?.classList.remove('bg-surface/80', 'backdrop-blur-lg', 'border-b', 'border-slate-800');
+      header?.classList.remove('backdrop-blur-md');
     }
   });
 </script>
