@@ -1,0 +1,16 @@
+# yishaik.com
+
+Yishai Kaminsky
+Software Developer & AI Architect
+
+Focus areas:
+- AI agents and orchestration
+- Full-stack development
+- Automation systems
+- Cybersecurity-adjacent tooling
+- Hebrew-first AI products
+
+Links:
+GitHub: https://github.com/yishaik
+LinkedIn: https://www.linkedin.com/in/yishaik/
+Email: yishai.kaminsky@gmail.com
