@@ -12,74 +12,58 @@ const altLocale = getAlternateLocale(locale);
 const altPath = getLocalePath(altLocale);
 
 const navItems = [
-  { key: 'about', href: '#about' },
-  { key: 'skills', href: '#skills' },
-  { key: 'projects', href: '#projects' },
+  { key: 'why', href: '#why-yishai' },
+  { key: 'work', href: '#selected-work' },
+  { key: 'code', href: '#repositories' },
   { key: 'experience', href: '#experience' },
   { key: 'contact', href: '#contact' },
 ];
 ---
 
-<header
-  id="site-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
->
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <a href={getLocalePath(locale)} class="text-xl font-bold gradient-text">
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-18 items-center justify-between">
+      <a href={getLocalePath(locale)} class="text-lg font-semibold tracking-[-0.03em] text-ink">
         YK
       </a>
 
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-6">
+      <div class="hidden items-center gap-6 md:flex">
         {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm font-medium text-slate-300 hover:text-white dark:text-slate-300 dark:hover:text-white light:text-slate-600 light:hover:text-slate-900 transition-colors"
-          >
+          <a href={item.href} class="text-sm font-medium text-muted transition-colors hover:text-accent-dark dark:hover:text-accent-light">
             {t(locale, `nav.${item.key}`)}
           </a>
         ))}
-        <div class="flex items-center gap-3 ml-4 border-l border-slate-700 pl-4">
+
+        <div class="ml-2 flex items-center gap-3 border-l border-black/8 pl-4 dark:border-white/10">
           <ThemeToggle client:load />
           <a
             href={altPath}
-            class="text-sm font-medium px-3 py-1.5 rounded-lg bg-surface-light hover:bg-surface-lighter border border-slate-700 transition-colors"
+            class="rounded-lg border border-black/8 px-3 py-2 text-sm font-medium text-muted transition-colors hover:border-blue-200 hover:text-accent-dark dark:border-white/10 dark:hover:border-blue-400/30 dark:hover:text-accent-light"
           >
             {t(locale, 'lang.switch')}
           </a>
         </div>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden p-2 text-slate-300 hover:text-white"
-        aria-label="Menu"
-      >
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <button id="mobile-menu-btn" class="rounded-lg border border-black/8 p-2 text-muted md:hidden dark:border-white/10" aria-label="Menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
-      <div class="flex flex-col gap-2">
+    <div id="mobile-menu" class="hidden pb-4 md:hidden">
+      <div class="space-y-2 rounded-2xl border border-black/8 bg-paper-soft/90 p-3 shadow-sm dark:border-white/10 dark:bg-surface-light/95">
         {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="mobile-nav-link block px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-surface-light rounded-lg transition-colors"
-          >
+          <a href={item.href} class="mobile-nav-link block rounded-lg px-4 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/60 hover:text-accent-dark dark:hover:bg-white/5 dark:hover:text-accent-light">
             {t(locale, `nav.${item.key}`)}
           </a>
         ))}
-        <div class="flex items-center gap-3 px-4 pt-2 border-t border-slate-700 mt-2">
+        <div class="mt-2 flex items-center gap-3 border-t border-black/8 px-2 pt-3 dark:border-white/10">
           <ThemeToggle client:load />
           <a
             href={altPath}
-            class="text-sm font-medium px-3 py-1.5 rounded-lg bg-surface-light hover:bg-surface-lighter border border-slate-700 transition-colors"
+            class="rounded-lg border border-black/8 px-3 py-2 text-sm font-medium text-muted transition-colors hover:border-blue-200 hover:text-accent-dark dark:border-white/10 dark:hover:border-blue-400/30 dark:hover:text-accent-light"
           >
             {t(locale, 'lang.switch')}
           </a>
@@ -90,27 +74,25 @@ const navItems = [
 </header>
 
 <script>
-  // Mobile menu toggle
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
   });
 
-  // Close mobile menu on link click
   document.querySelectorAll('.mobile-nav-link').forEach((link) => {
     link.addEventListener('click', () => {
       menu?.classList.add('hidden');
     });
   });
 
-  // Header background on scroll
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('bg-surface/80', 'backdrop-blur-lg', 'border-b', 'border-slate-800');
+    if (window.scrollY > 24) {
+      header?.classList.add('bg-paper/85', 'backdrop-blur-lg', 'border-b', 'border-black/8', 'shadow-sm');
+      header?.classList.remove('dark:bg-surface/90');
     } else {
-      header?.classList.remove('bg-surface/80', 'backdrop-blur-lg', 'border-b', 'border-slate-800');
+      header?.classList.remove('bg-paper/85', 'backdrop-blur-lg', 'border-b', 'border-black/8', 'shadow-sm');
     }
   });
 </script>
