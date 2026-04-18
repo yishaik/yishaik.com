@@ -1,44 +1,46 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    const dark = theme !== 'light';
-    setIsDark(dark);
+    const html = document.documentElement;
+    setIsDark(html.classList.contains('dark'));
   }, []);
 
   const toggle = () => {
-    const newDark = !isDark;
-    setIsDark(newDark);
     const html = document.documentElement;
-    if (newDark) {
-      html.classList.add('dark');
-      html.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      html.classList.remove('dark');
-      html.classList.add('light');
-      localStorage.setItem('theme', 'light');
-    }
+    const nextIsDark = !isDark;
+    setIsDark(nextIsDark);
+    html.classList.toggle('dark', nextIsDark);
+    html.classList.toggle('light', !nextIsDark);
+    localStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
   };
 
   return (
     <button
       onClick={toggle}
-      className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+      className="rounded-lg border border-black/8 px-2.5 py-2 text-slate-600 transition-colors hover:border-blue-200 hover:text-blue-700 dark:border-white/10 dark:text-zinc-300 dark:hover:border-blue-400/30 dark:hover:text-blue-200"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          />
         </svg>
       ) : (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
         </svg>
       )}
     </button>

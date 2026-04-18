@@ -3,6 +3,10 @@
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
+    "signals": "Signals",
+    "why": "Why Yishai",
+    "work": "Selected Work",
+    "code": "Code",
     "experience": "Experience",
     "contact": "Contact"
   },
@@ -10,9 +14,9 @@
     "greeting": "Hi, I'm",
     "name": "Yishai Kaminsky",
     "title": "AI Automation Builder & IT Systems Specialist",
-    "subtitle": "I build practical AI systems, automation workflows, and modern internal tools that help teams move faster and operate with less friction.",
-    "cta": "View My Work",
-    "contact": "Contact Me"
+    "subtitle": "I build systems that help teams move faster, reduce friction, and turn operational complexity into workflows people can actually use.",
+    "cta": "See selected work",
+    "contact": "Start a conversation"
   },
   "about": {
     "title": "About Me",
@@ -51,8 +55,8 @@
     "title": "Experience"
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Have a project in mind or want to collaborate? I'd love to hear from you.",
+    "title": "Get in touch",
+    "subtitle": "If you are hiring for AI, automation, internal tools, or technical operations work, I would be happy to talk.",
     "name": "Your Name",
     "email": "Your Email",
     "message": "Your Message",

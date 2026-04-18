@@ -1,0 +1,25 @@
+---
+import type { Locale } from '../i18n/index';
+import { homepageProof } from '../content/homepageProof';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section id="signals" class="section-container pt-0 lg:pt-0">
+  <div class="proof-grid rounded-[1.25rem] border border-black/8 bg-paper-soft/70 p-5 dark:border-white/10 dark:bg-surface-light/80 lg:p-6">
+    {homepageProof.map((item) => (
+      <article class="rounded-2xl border border-black/6 bg-white/60 p-4 dark:border-white/8 dark:bg-white/3">
+        <p class="text-sm font-semibold uppercase tracking-[0.12em] text-accent-dark dark:text-accent-light">
+          {item.value[locale]}
+        </p>
+        <p class="mt-2 text-sm leading-6 text-muted">
+          {item.label[locale]}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

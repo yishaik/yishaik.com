@@ -1,0 +1,71 @@
+---
+import type { Locale } from '../i18n/index';
+import { t } from '../i18n/index';
+import { selectedWorkContent } from '../content/selectedWork';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section id="selected-work" class="section-container">
+  <div class="max-w-3xl">
+    <div class="section-kicker">{selectedWorkContent.kicker[locale]}</div>
+    <h2 class="section-title mt-5">{selectedWorkContent.title[locale]}</h2>
+    <p class="section-lede mt-6">{selectedWorkContent.intro[locale]}</p>
+  </div>
+
+  <div class="mt-10 grid gap-6 lg:grid-cols-3">
+    {selectedWorkContent.items.map((item) => (
+      <article class:list={[
+        'card flex h-full flex-col justify-between',
+        item.featured && 'lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)] lg:gap-8',
+      ]}>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark dark:text-accent-light">
+            {item.eyebrow[locale]}
+          </p>
+          <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">{item.name}</h3>
+          <p class="mt-4 text-sm leading-7 text-muted sm:text-base">{item.summary[locale]}</p>
+        </div>
+
+        <div class:list={[
+          'mt-6',
+          item.featured && 'lg:mt-0 lg:border-l lg:border-black/8 lg:pl-8 dark:lg:border-white/10',
+        ]}>
+          <ul class="space-y-3">
+            {item.proofBullets[locale].map((bullet) => (
+              <li class="flex gap-3 text-sm leading-7 text-muted">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"></span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            {item.tags.map((tag) => (
+              <span class="meta-chip">{tag}</span>
+            ))}
+          </div>
+
+          {item.links && item.links.length > 0 && (
+            <div class="mt-6 flex flex-wrap gap-3 border-t border-black/8 pt-4 dark:border-white/10">
+              {item.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={link.label === 'repo' ? 'button-secondary' : 'button-primary'}
+                >
+                  {link.label === 'repo' ? t(locale, 'repositories.viewRepo') : t(locale, 'projects.viewLive')}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
