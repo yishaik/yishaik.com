@@ -7,12 +7,19 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
     "name": "Yishai Kaminsky",
-    "title": "AI Automation Builder & IT Systems Specialist",
-    "subtitle": "I build practical AI systems, automation workflows, and modern internal tools that help teams move faster and operate with less friction.",
-    "cta": "View My Work",
-    "contact": "Contact Me"
+    "kicker": "For teams hiring across AI, automation, internal tools, and technical operations",
+    "headline": "I build practical AI systems, automations, and internal tools that work in the real world.",
+    "title": "AI Automation Builder with deep IT, infrastructure, and operational experience",
+    "subtitle": "I help teams reduce friction, automate repetitive work, and ship useful systems by combining product-minded AI building with years of hands-on work across IT, cloud, cybersecurity, and enterprise support.",
+    "cta": "See Selected Work",
+    "contact": "Start a Conversation",
+    "proof": {
+      "years": "17+ years in IT, cloud, and technical operations",
+      "projects": "70+ projects built",
+      "agents": "50+ AI agents created",
+      "companies": "Microsoft • Claroty • Profero • abra"
+    }
   },
   "about": {
     "title": "About Me",

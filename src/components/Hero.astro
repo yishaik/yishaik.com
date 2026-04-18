@@ -7,59 +7,67 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+
+const proofItems = [
+  t(locale, 'hero.proof.years'),
+  t(locale, 'hero.proof.projects'),
+  t(locale, 'hero.proof.agents'),
+  t(locale, 'hero.proof.companies'),
+];
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Animated gradient background -->
+<section id="hero" class="relative flex min-h-screen items-center justify-center overflow-hidden">
   <div class="absolute inset-0 bg-gradient-to-br from-surface via-indigo-950/20 to-surface animate-gradient"></div>
-
-  <!-- Decorative grid -->
   <div class="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
-
-  <!-- Floating orbs -->
-  <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl"></div>
+  <div class="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl"></div>
 
   <div class="relative z-10 section-container text-center">
-    <!-- Greeting -->
-    <p class="text-lg md:text-xl text-slate-400 mb-2 animate-fade-in-up">
-      {t(locale, 'hero.greeting')}
+    <div class="mx-auto mb-4 inline-flex max-w-3xl items-center justify-center rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-light animate-fade-in-up">
+      {t(locale, 'hero.kicker')}
+    </div>
+
+    <p class="mb-3 text-sm font-medium uppercase tracking-[0.24em] text-slate-500 animate-fade-in-up animate-delay-100">
+      {t(locale, 'hero.name')}
     </p>
 
-    <!-- Name -->
-    <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in-up animate-delay-100">
-      <span class="gradient-text">{t(locale, 'hero.name')}</span>
+    <h1 class="mx-auto mb-5 max-w-5xl text-4xl font-bold leading-tight text-slate-50 sm:text-5xl md:text-7xl animate-fade-in-up animate-delay-200">
+      {t(locale, 'hero.headline')}
     </h1>
 
-    <!-- Title -->
-    <h2 class="text-xl sm:text-2xl md:text-3xl font-medium text-slate-200 mb-6 animate-fade-in-up animate-delay-200">
+    <p class="mx-auto mb-4 max-w-3xl text-lg font-medium text-slate-200 md:text-2xl animate-fade-in-up animate-delay-300">
       {t(locale, 'hero.title')}
-    </h2>
+    </p>
 
-    <!-- Subtitle -->
-    <p class="max-w-2xl mx-auto text-base md:text-lg text-slate-400 mb-10 animate-fade-in-up animate-delay-300">
+    <p class="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg animate-fade-in-up animate-delay-400">
       {t(locale, 'hero.subtitle')}
     </p>
 
-    <!-- CTA Buttons -->
-    <div class="flex flex-wrap gap-4 justify-center animate-fade-in-up animate-delay-400">
+    <div class="mb-10 flex flex-wrap justify-center gap-3 animate-fade-in-up animate-delay-500">
+      {proofItems.map((item) => (
+        <span class="rounded-full border border-slate-700/70 bg-surface-light/80 px-4 py-2 text-sm text-slate-300 shadow-sm shadow-black/10">
+          {item}
+        </span>
+      ))}
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up animate-delay-600">
       <a
-        href="#projects"
-        class="px-8 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25"
+        href="#repositories"
+        class="rounded-xl bg-accent px-8 py-3 font-medium text-white transition-all hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25"
       >
         {t(locale, 'hero.cta')}
       </a>
       <a
         href="#contact"
-        class="px-8 py-3 border border-slate-600 hover:border-accent text-slate-300 hover:text-white font-medium rounded-xl transition-all"
+        class="rounded-xl border border-slate-600 px-8 py-3 font-medium text-slate-300 transition-all hover:border-accent hover:text-white"
       >
         {t(locale, 'hero.contact')}
       </a>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
     </div>
