@@ -1,96 +1,69 @@
 ---
 import type { Locale } from '../i18n/index';
-import { projects } from '../content/projects';
+import { t } from '../i18n/index';
+import { selectedWorkContent } from '../content/selectedWork';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const selectedIds = ['tailorcv', 'taskhiburim', 'openclaw'];
-const selectedProjects = selectedIds
-  .map((id) => projects.find((project) => project.id === id))
-  .filter((project): project is NonNullable<(typeof projects)[number]> => Boolean(project));
-
-const proofMap = {
-  tailorcv: {
-    eyebrow: { en: 'Applied AI for hiring workflows', he: 'AI יישומי לתהליכי גיוס' },
-    bullets: {
-      en: [
-        'Maps job requirements to real candidate experience without fabrication.',
-        'Shows product thinking, guardrails, and recruiter-facing usability.',
-      ],
-      he: [
-        'ממפה דרישות משרה לניסיון אמיתי בלי להמציא עובדות.',
-        'מוכיח חשיבה מוצרית, guardrails, ושימושיות מול מגייסים.',
-      ],
-    },
-  },
-  taskhiburim: {
-    eyebrow: { en: 'Operational workflow system', he: 'מערכת תפעולית לניהול זרימות עבודה' },
-    bullets: {
-      en: [
-        'Combines dashboard, Telegram, scheduling, and workflow automation in one system.',
-        'Shows ability to ship useful internal tooling around real users and daily operations.',
-      ],
-      he: [
-        'משלב דשבורד, טלגרם, תזמון ואוטומציה מערכתית במוצר אחד.',
-        'מוכיח יכולת לבנות כלי עבודה שימושי סביב משתמשים ותפעול יומיומי.',
-      ],
-    },
-  },
-  openclaw: {
-    eyebrow: { en: 'Messaging-first AI assistant design', he: 'תכנון עוזר AI בגישת messaging-first' },
-    bullets: {
-      en: [
-        'Focuses on conversational workflows across real communication channels.',
-        'Demonstrates modular AI assistant architecture beyond a single interface.',
-      ],
-      he: [
-        'מתמקד בזרימות שיחה פרקטיות דרך ערוצי תקשורת אמיתיים.',
-        'מדגים ארכיטקטורה מודולרית לעוזר AI מעבר לממשק יחיד.',
-      ],
-    },
-  },
-} as const;
 ---
 
 <section id="selected-work" class="section-container">
   <div class="max-w-3xl">
-    <div class="section-kicker">{locale === 'he' ? 'עבודות נבחרות' : 'Selected work'}</div>
-    <h2 class="section-title mt-5">
-      {locale === 'he' ? 'הוכחות ממוקדות לסוג המערכות שאני בונה.' : 'A focused set of proof for the kinds of systems I build.'}
-    </h2>
-    <p class="section-lede mt-6">
-      {locale === 'he'
-        ? 'במקום גלריית פרויקטים כללית, ההומפייג׳ מציג כאן כמה דוגמאות שמוכיחות חשיבה מערכתית, delivery, ויכולת לחבר AI לעבודה אמיתית.'
-        : 'Instead of a generic gallery, the homepage highlights a few examples that show systems thinking, delivery, and the ability to connect AI to real operational work.'}
-    </p>
+    <div class="section-kicker">{selectedWorkContent.kicker[locale]}</div>
+    <h2 class="section-title mt-5">{selectedWorkContent.title[locale]}</h2>
+    <p class="section-lede mt-6">{selectedWorkContent.intro[locale]}</p>
   </div>
 
   <div class="mt-10 grid gap-6 lg:grid-cols-3">
-    {selectedProjects.map((project) => (
-      <article class="card flex h-full flex-col justify-between">
+    {selectedWorkContent.items.map((item) => (
+      <article class:list={[
+        'card flex h-full flex-col justify-between',
+        item.featured && 'lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)] lg:gap-8',
+      ]}>
         <div>
           <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark dark:text-accent-light">
-            {proofMap[project.id as keyof typeof proofMap].eyebrow[locale]}
+            {item.eyebrow[locale]}
           </p>
-          <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">{project.name}</h3>
-          <p class="mt-4 text-sm leading-7 text-muted sm:text-base">{project.description[locale]}</p>
-          <ul class="mt-5 space-y-3">
-            {proofMap[project.id as keyof typeof proofMap].bullets[locale].map((bullet) => (
+          <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">{item.name}</h3>
+          <p class="mt-4 text-sm leading-7 text-muted sm:text-base">{item.summary[locale]}</p>
+        </div>
+
+        <div class:list={[
+          'mt-6',
+          item.featured && 'lg:mt-0 lg:border-l lg:border-black/8 lg:pl-8 dark:lg:border-white/10',
+        ]}>
+          <ul class="space-y-3">
+            {item.proofBullets[locale].map((bullet) => (
               <li class="flex gap-3 text-sm leading-7 text-muted">
                 <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"></span>
                 <span>{bullet}</span>
               </li>
             ))}
           </ul>
-        </div>
 
-        <div class="mt-6 flex flex-wrap gap-2">
-          {project.tags.slice(0, 4).map((tag) => (
-            <span class="meta-chip">{tag}</span>
-          ))}
+          <div class="mt-6 flex flex-wrap gap-2">
+            {item.tags.map((tag) => (
+              <span class="meta-chip">{tag}</span>
+            ))}
+          </div>
+
+          {item.links && item.links.length > 0 && (
+            <div class="mt-6 flex flex-wrap gap-3 border-t border-black/8 pt-4 dark:border-white/10">
+              {item.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={link.label === 'repo' ? 'button-secondary' : 'button-primary'}
+                >
+                  {link.label === 'repo' ? t(locale, 'repositories.viewRepo') : t(locale, 'projects.viewLive')}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </article>
     ))}

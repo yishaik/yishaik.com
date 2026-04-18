@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/index';
-import { t } from '../i18n/index';
+import { contactContent } from '../content/homepageContent';
 
 interface Props {
   locale: Locale;
@@ -15,33 +15,36 @@ const mailtoBody = locale === 'he'
 const mailtoHref = `mailto:${emailAddress}?subject=${mailtoSubject}&body=${mailtoBody}`;
 
 const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/yishaik' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/yishaik/' },
+  { name: 'GitHub', href: 'https://github.com/yishaik' },
   { name: 'Telegram', href: 'https://t.me/yishai_k' },
   { name: 'Email', href: `mailto:${emailAddress}` },
 ];
-
-const contactIntro = locale === 'he'
-  ? 'פתוח לשיחות על תפקידי AI, אוטומציה, internal tools, technical operations, וגם פרויקטים ייעוציים ממוקדים.'
-  : 'Open to conversations about AI, automation, internal tools, technical operations, and focused consulting work.';
 ---
 
 <section id="contact" class="section-container">
   <div class="max-w-3xl">
-    <div class="section-kicker">{locale === 'he' ? 'השלב הבא' : 'Next step'}</div>
-    <h2 class="section-title mt-5">{t(locale, 'contact.title')}</h2>
-    <p class="section-lede mt-6">{contactIntro}</p>
+    <div class="section-kicker">{contactContent.kicker[locale]}</div>
+    <h2 class="section-title mt-5">{contactContent.title[locale]}</h2>
+    <p class="section-lede mt-6">{contactContent.intro[locale]}</p>
   </div>
 
   <div class="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.8fr)]">
     <div class="surface-panel p-6 lg:p-8">
       <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark dark:text-accent-light">
-        {locale === 'he' ? 'צור קשר ישירות' : 'Reach out directly'}
+        {contactContent.directLabel[locale]}
       </p>
       <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">
-        {locale === 'he' ? 'האימייל הוא הדרך הכי מהירה להתחיל שיחה.' : 'Email is the fastest way to start a conversation.'}
+        {contactContent.directTitle[locale]}
       </h3>
-      <p class="mt-4 text-sm leading-7 text-muted sm:text-base">{t(locale, 'contact.subtitle')}</p>
+      <ul class="mt-5 space-y-3">
+        {contactContent.opportunityTypes[locale].map((item) => (
+          <li class="flex gap-3 text-sm leading-7 text-muted sm:text-base">
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
       <a href={mailtoHref} class="button-primary mt-6 w-full sm:w-auto">
         {locale === 'he' ? 'פתח טיוטת אימייל' : 'Open email draft'}
       </a>
