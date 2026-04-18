@@ -42,6 +42,11 @@
     "viewCode": "View Code",
     "viewLive": "Live Demo"
   },
+  "repositories": {
+    "title": "Selected Repositories",
+    "subtitle": "A small curated set of repositories that best represents the kind of systems and products I want to be evaluated by.",
+    "viewRepo": "Open Repository"
+  },
   "experience": {
     "title": "Experience"
   },
