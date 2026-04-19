@@ -1,0 +1,59 @@
+---
+import type { Locale } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const sections = [
+  { code: '00', id: 'cover', en: 'Cover', he: 'פתיחה' },
+  { code: '01', id: 'about', en: 'About', he: 'אודות' },
+  { code: '02', id: 'work', en: 'Work', he: 'עבודות' },
+  { code: '03', id: 'experience', en: 'Experience', he: 'ניסיון' },
+  { code: '04', id: 'skills', en: 'Skills', he: 'מיומנויות' },
+  { code: '05', id: 'contact', en: 'Contact', he: 'צור קשר' },
+];
+---
+
+<nav class="section-index" aria-label="Section index">
+  {sections.map((s) => (
+    <a href={`#${s.id}`} data-section-link={s.id} data-active="false">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="code">{s.code}</span>
+      <span class="label">{locale === 'he' ? s.he : s.en}</span>
+    </a>
+  ))}
+</nav>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));
+  const sectionIds = links.map((l) => l.dataset.sectionLink!).filter(Boolean);
+
+  const setActive = (id: string | null) => {
+    for (const link of links) {
+      link.dataset.active = link.dataset.sectionLink === id ? 'true' : 'false';
+    }
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length > 0) {
+        setActive(visible[0].target.id);
+      }
+    },
+    {
+      rootMargin: '-40% 0px -45% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    }
+  );
+
+  for (const id of sectionIds) {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  }
+</script>

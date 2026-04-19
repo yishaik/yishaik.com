@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import ProofStrip from '../../components/ProofStrip.astro';
-import WhyYishai from '../../components/WhyYishai.astro';
+import About from '../../components/About.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
-import Repositories from '../../components/Repositories.astro';
-import ExperienceCredibility from '../../components/ExperienceCredibility.astro';
+import Timeline from '../../components/Timeline.astro';
+import Skills from '../../components/Skills.astro';
 import Contact from '../../components/Contact.astro';
 
 const locale = 'he' as const;
@@ -13,10 +12,9 @@ const locale = 'he' as const;
 
 <BaseLayout locale={locale}>
   <Hero locale={locale} />
-  <ProofStrip locale={locale} />
-  <WhyYishai locale={locale} />
+  <About locale={locale} />
   <SelectedWork locale={locale} />
-  <Repositories locale={locale} />
-  <ExperienceCredibility locale={locale} />
+  <Timeline locale={locale} />
+  <Skills locale={locale} />
   <Contact locale={locale} />
 </BaseLayout>

@@ -16,29 +16,24 @@ export interface SelectedWorkItem {
   };
   tags: string[];
   links?: WorkLink[];
-  featured?: boolean;
 }
 
 export const selectedWorkContent = {
-  kicker: {
-    en: 'Selected work',
-    he: 'עבודות נבחרות',
-  },
   title: {
-    en: 'A small set of proof for the kinds of systems I build.',
-    he: 'סט קטן וממוקד של הוכחות לסוג המערכות שאני בונה.',
+    en: 'A small set of proof — work and code to be evaluated by.',
+    he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שחשוב לי שיעריכו אצלי.',
   },
   intro: {
-    en: 'Instead of a generic gallery, this section highlights a few projects that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
-    he: 'במקום גלריית פרויקטים כללית, הסקשן הזה מציג כמה עבודות שמדגימות הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
+    en: 'Instead of a generic gallery, a few projects and repositories that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
+    he: 'במקום גלריית פרויקטים כללית, כמה עבודות וריפוזיטוריז שמדגימים הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
   },
   items: [
     {
       id: 'tailorcv',
       name: 'TailorCV',
       eyebrow: {
-        en: 'Applied AI for hiring workflows',
-        he: 'AI יישומי לתהליכי גיוס',
+        en: 'Applied AI · Hiring workflow',
+        he: 'AI יישומי · תהליך גיוס',
       },
       summary: {
         en: 'A recruiter-facing CV tailoring system that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
@@ -47,71 +42,78 @@ export const selectedWorkContent = {
       proofBullets: {
         en: [
           'Shows product thinking, guardrails, and credibility-aware AI output.',
-          'Demonstrates the ability to turn messy hiring inputs into a structured workflow.',
-          'Bridges applied AI with a clear business use case and an employer-facing audience.',
+          'Turns messy hiring inputs into a structured, repeatable workflow.',
+          'Bridges applied AI with a clear business use case.',
         ],
         he: [
-          'מוכיח חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
-          'מדגים יכולת להפוך קלט גיוסי מבולגן לזרימת עבודה מסודרת.',
-          'מחבר בין AI יישומי, צורך עסקי ברור, וקהל יעד של מגייסים ומעסיקים.',
+          'חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
+          'הופך קלט גיוסי מבולגן לזרימת עבודה מסודרת.',
+          'מחבר בין AI יישומי, צורך עסקי ברור וקהל יעד ברור.',
         ],
       },
-      tags: ['Python', 'FastAPI', 'React', 'Applied AI', 'Hiring Workflow'],
+      tags: ['Python', 'FastAPI', 'React', 'Gemini', 'Applied AI'],
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/TailorCV' },
         { label: 'live', href: 'https://tailor-cv-tau.vercel.app' },
       ],
-      featured: true,
     },
     {
-      id: 'taskhiburim',
-      name: 'TaskHiburim',
+      id: 'yishaik-com',
+      name: 'yishaik.com',
       eyebrow: {
-        en: 'Operational workflow system',
-        he: 'מערכת תפעולית לניהול זרימות עבודה',
+        en: 'Bilingual personal platform',
+        he: 'פלטפורמה אישית דו־לשונית',
       },
       summary: {
-        en: 'A collaborative task management system that combines dashboard workflows, Telegram automation, scheduling, and AI-assisted coordination.',
-        he: 'מערכת ניהול משימות שיתופית שמשלבת דשבורד, אוטומציית טלגרם, תזמון ותיאום בעזרת AI.',
+        en: 'My personal site — a bilingual surface where I curate positioning, work, and proof in a single clear place.',
+        he: 'האתר האישי שלי — פלטפורמה דו־לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
       },
       proofBullets: {
         en: [
-          'Connects multiple interfaces and automations into one working operational system.',
-          'Shows ability to build internal tooling around real users and recurring workflows.',
-          'Demonstrates delivery beyond a single front-end surface.',
+          'Attention to information design, bilingual UX, and clear positioning.',
+          'Built with Astro and Tailwind, tuned for accessibility and speed.',
+          'An ongoing personal product — not a static profile.',
         ],
         he: [
-          'מחבר כמה ממשקים ואוטומציות למערכת תפעולית אחת שעובדת בפועל.',
-          'מוכיח יכולת לבנות כלי עבודה סביב משתמשים אמיתיים וזרימות חוזרות.',
-          'מדגים delivery שחורג ממסך בודד של frontend.',
+          'דגש על עיצוב מידע, חוויית משתמש דו־לשונית ומיצוב ברור.',
+          'נבנה ב-Astro ו-Tailwind, עם דגש על נגישות וביצועים.',
+          'מוצר אישי מתפתח — לא פרופיל סטטי.',
         ],
       },
-      tags: ['Next.js', 'React', 'Telegram', 'Automation', 'Internal Tools'],
+      tags: ['Astro', 'Tailwind', 'Bilingual', 'SEO'],
+      links: [
+        { label: 'repo', href: 'https://github.com/yishaik/yishaik.com' },
+        { label: 'live', href: 'https://yishaik.com' },
+      ],
     },
     {
-      id: 'ai-agency',
-      name: 'AI Agency',
+      id: 'whatsai',
+      name: 'whatsai',
       eyebrow: {
-        en: 'Multi-agent orchestration',
-        he: 'תזמור מערכות multi-agent',
+        en: 'Messaging-native AI automation',
+        he: 'אוטומציית AI ממוקדת מסרים',
       },
       summary: {
-        en: 'A multi-agent platform with specialized AI roles, tool use, coordination patterns, and a system design lens rather than a single-bot mindset.',
-        he: 'פלטפורמת multi-agent עם תפקידים מתמחים, שימוש בכלים, דפוסי תיאום, וראיית מערכת במקום חשיבה של בוט יחיד.',
+        en: 'A messaging-focused AI assistant that brings conversational workflows and automation directly into WhatsApp.',
+        he: 'עוזר AI ממוקד מסרים שמביא תהליכי שיחה ואוטומציה ישירות לתוך WhatsApp.',
       },
       proofBullets: {
         en: [
-          'Shows architectural thinking around autonomous systems, specialization, and coordination.',
-          'Proves comfort with more complex AI system design than prompt-layer wrappers.',
-          'Supports the positioning around practical AI infrastructure and internal tooling.',
+          'Meets users on the platform they already use — no new surface to learn.',
+          'Connects messaging, automation, and AI response into one practical flow.',
+          'Applied AI aimed at real day-to-day workflows, not demos.',
         ],
         he: [
-          'מראה חשיבה ארכיטקטונית סביב מערכות אוטונומיות, התמחות ותיאום.',
-          'מוכיח נוחות עם תכנון מערכות AI מורכבות יותר מאשר wrapper של prompts.',
-          'תומך במיצוב של תשתיות AI פרקטיות וכלים פנימיים.',
+          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם — בלי ממשק חדש ללמוד.',
+          'מחבר מסרים, אוטומציה ותגובת AI לזרימה אחת פרקטית.',
+          'AI יישומי שמכוון לעבודה יומיומית אמיתית.',
         ],
       },
-      tags: ['Python', 'Multi-Agent', 'FastAPI', 'React', 'System Design'],
+      tags: ['TypeScript', 'WhatsApp', 'AI Assistant', 'Automation'],
+      links: [
+        { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
+        { label: 'live', href: 'https://whatsai.yishaik.com' },
+      ],
     },
   ] satisfies SelectedWorkItem[],
 };
