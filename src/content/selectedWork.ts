@@ -16,29 +16,24 @@ export interface SelectedWorkItem {
   };
   tags: string[];
   links?: WorkLink[];
-  featured?: boolean;
 }
 
 export const selectedWorkContent = {
-  kicker: {
-    en: 'Selected work',
-    he: 'עבודות נבחרות',
-  },
   title: {
-    en: 'A small set of proof — work and code I want to be evaluated by.',
+    en: 'A small set of proof — work and code to be evaluated by.',
     he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שחשוב לי שיעריכו אצלי.',
   },
   intro: {
-    en: 'Instead of a generic gallery, this section highlights a few projects and repositories that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
-    he: 'במקום גלריית פרויקטים כללית, הסקשן הזה מציג כמה עבודות וריפוזיטוריז שמדגימים הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
+    en: 'Instead of a generic gallery, a few projects and repositories that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
+    he: 'במקום גלריית פרויקטים כללית, כמה עבודות וריפוזיטוריז שמדגימים הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
   },
   items: [
     {
       id: 'tailorcv',
       name: 'TailorCV',
       eyebrow: {
-        en: 'Applied AI for hiring workflows',
-        he: 'AI יישומי לתהליכי גיוס',
+        en: 'Applied AI · Hiring workflow',
+        he: 'AI יישומי · תהליך גיוס',
       },
       summary: {
         en: 'A recruiter-facing CV tailoring system that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
@@ -47,46 +42,45 @@ export const selectedWorkContent = {
       proofBullets: {
         en: [
           'Shows product thinking, guardrails, and credibility-aware AI output.',
-          'Demonstrates the ability to turn messy hiring inputs into a structured workflow.',
-          'Bridges applied AI with a clear business use case and an employer-facing audience.',
+          'Turns messy hiring inputs into a structured, repeatable workflow.',
+          'Bridges applied AI with a clear business use case.',
         ],
         he: [
-          'מוכיח חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
-          'מדגים יכולת להפוך קלט גיוסי מבולגן לזרימת עבודה מסודרת.',
-          'מחבר בין AI יישומי, צורך עסקי ברור, וקהל יעד של מגייסים ומעסיקים.',
+          'חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
+          'הופך קלט גיוסי מבולגן לזרימת עבודה מסודרת.',
+          'מחבר בין AI יישומי, צורך עסקי ברור וקהל יעד ברור.',
         ],
       },
-      tags: ['Python', 'FastAPI', 'React', 'Applied AI', 'Hiring Workflow'],
+      tags: ['Python', 'FastAPI', 'React', 'Gemini', 'Applied AI'],
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/TailorCV' },
         { label: 'live', href: 'https://tailor-cv-tau.vercel.app' },
       ],
-      featured: true,
     },
     {
       id: 'yishaik-com',
       name: 'yishaik.com',
       eyebrow: {
         en: 'Bilingual personal platform',
-        he: 'פלטפורמה אישית דו-לשונית',
+        he: 'פלטפורמה אישית דו־לשונית',
       },
       summary: {
         en: 'My personal site — a bilingual surface where I curate positioning, work, and proof in a single clear place.',
-        he: 'האתר האישי שלי — פלטפורמה דו-לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
+        he: 'האתר האישי שלי — פלטפורמה דו־לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
       },
       proofBullets: {
         en: [
-          'Shows attention to information design, bilingual UX, and clear positioning.',
-          'Built with Astro and Tailwind, tuned for accessibility and performance.',
-          'Serves as an ongoing personal product — not a static profile.',
+          'Attention to information design, bilingual UX, and clear positioning.',
+          'Built with Astro and Tailwind, tuned for accessibility and speed.',
+          'An ongoing personal product — not a static profile.',
         ],
         he: [
-          'מראה דגש על עיצוב מידע, חוויית משתמש דו-לשונית ומיצוב ברור.',
+          'דגש על עיצוב מידע, חוויית משתמש דו־לשונית ומיצוב ברור.',
           'נבנה ב-Astro ו-Tailwind, עם דגש על נגישות וביצועים.',
-          'משמש כמוצר אישי מתפתח — לא פרופיל סטטי.',
+          'מוצר אישי מתפתח — לא פרופיל סטטי.',
         ],
       },
-      tags: ['Astro', 'Tailwind CSS', 'Bilingual', 'Personal Brand'],
+      tags: ['Astro', 'Tailwind', 'Bilingual', 'SEO'],
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/yishaik.com' },
         { label: 'live', href: 'https://yishaik.com' },
@@ -105,14 +99,14 @@ export const selectedWorkContent = {
       },
       proofBullets: {
         en: [
-          'Meets users on the platform they already use instead of forcing a new surface.',
+          'Meets users on the platform they already use — no new surface to learn.',
           'Connects messaging, automation, and AI response into one practical flow.',
-          'Demonstrates applied AI aimed at real day-to-day workflows.',
+          'Applied AI aimed at real day-to-day workflows, not demos.',
         ],
         he: [
-          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם במקום לדרוש ממשק חדש.',
+          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם — בלי ממשק חדש ללמוד.',
           'מחבר מסרים, אוטומציה ותגובת AI לזרימה אחת פרקטית.',
-          'מדגים AI יישומי שמכוון לעבודה יומיומית אמיתית.',
+          'AI יישומי שמכוון לעבודה יומיומית אמיתית.',
         ],
       },
       tags: ['TypeScript', 'WhatsApp', 'AI Assistant', 'Automation'],

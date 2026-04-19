@@ -20,27 +20,18 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="rounded-lg border border-black/8 px-2.5 py-2 text-slate-600 transition-colors hover:border-blue-200 hover:text-blue-700 dark:border-white/10 dark:text-zinc-300 dark:hover:border-blue-400/30 dark:hover:text-blue-200"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--color-rule)] text-ink transition-colors hover:border-[color:var(--color-accent)] hover:text-accent"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
-        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
+        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+          <circle cx="12" cy="12" r="4" />
+          <path strokeLinecap="round" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.2 5.2l1.1 1.1M17.7 17.7l1.1 1.1M5.2 18.8l1.1-1.1M17.7 6.3l1.1-1.1" />
         </svg>
       ) : (
-        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
+        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M20.5 15a8.5 8.5 0 1 1-11.5-11.5 7 7 0 0 0 11.5 11.5Z" />
         </svg>
       )}
     </button>

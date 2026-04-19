@@ -1,6 +1,5 @@
 ---
 import type { Locale } from '../i18n/index';
-import { t } from '../i18n/index';
 import { selectedWorkContent } from '../content/selectedWork';
 
 interface Props {
@@ -8,64 +7,72 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+const isHe = locale === 'he';
+
+const labels = isHe
+  ? { repo: 'ריפו', live: 'דמו חי', arrow: '←' }
+  : { repo: 'Repository', live: 'Live demo', arrow: '→' };
 ---
 
-<section id="selected-work" class="section-container">
-  <div class="max-w-3xl">
-    <div class="section-kicker">{selectedWorkContent.kicker[locale]}</div>
-    <h2 class="section-title mt-5">{selectedWorkContent.title[locale]}</h2>
-    <p class="section-lede mt-6">{selectedWorkContent.intro[locale]}</p>
+<section id="work" class="section page-shell">
+  <div class="mb-10 flex items-baseline justify-between gap-6">
+    <span class="section-code">§02 / {isHe ? 'עבודות נבחרות' : 'SELECTED WORK'}</span>
+    <span class="eyebrow hidden sm:inline">{isHe ? 'שלוש הוכחות' : 'Three proofs'}</span>
   </div>
 
-  <div class="mt-10 grid gap-6 lg:grid-cols-3">
-    {selectedWorkContent.items.map((item) => (
-      <article class:list={[
-        'card flex h-full flex-col justify-between',
-        item.featured && 'lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)] lg:gap-8',
-      ]}>
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark dark:text-accent-light">
-            {item.eyebrow[locale]}
-          </p>
-          <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-ink">{item.name}</h3>
-          <p class="mt-4 text-sm leading-7 text-muted sm:text-base">{item.summary[locale]}</p>
-        </div>
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)] lg:gap-16">
+    <div class="lg:sticky lg:top-28 lg:self-start">
+      <h2 class="display display-md">{selectedWorkContent.title[locale]}</h2>
+      <p class="prose-body mt-6 max-w-md">{selectedWorkContent.intro[locale]}</p>
+    </div>
 
-        <div class:list={[
-          'mt-6',
-          item.featured && 'lg:mt-0 lg:border-l lg:border-black/8 lg:pl-8 dark:lg:border-white/10',
-        ]}>
-          <ul class="space-y-3">
-            {item.proofBullets[locale].map((bullet) => (
-              <li class="flex gap-3 text-sm leading-7 text-muted">
-                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent"></span>
-                <span>{bullet}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div class="mt-6 flex flex-wrap gap-2">
-            {item.tags.map((tag) => (
-              <span class="meta-chip">{tag}</span>
-            ))}
+    <div>
+      {selectedWorkContent.items.map((item, i) => (
+        <article class="work-card">
+          <div>
+            <div class="mono text-[0.7rem] tracking-[0.18em] uppercase text-accent">
+              {String(i + 1).padStart(2, '0')} · {item.eyebrow[locale]}
+            </div>
+            <h3 class="display text-3xl lg:text-4xl mt-3 text-ink">{item.name}</h3>
+            <div class="mt-5 flex flex-wrap gap-1.5">
+              {item.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
           </div>
 
-          {item.links && item.links.length > 0 && (
-            <div class="mt-6 flex flex-wrap gap-3 border-t border-black/8 pt-4 dark:border-white/10">
-              {item.links.map((link) => (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class={link.label === 'repo' ? 'button-secondary' : 'button-primary'}
-                >
-                  {link.label === 'repo' ? t(locale, 'repositories.viewRepo') : t(locale, 'projects.viewLive')}
-                </a>
+          <div>
+            <p class="prose-body">{item.summary[locale]}</p>
+            <ul class="mt-5 space-y-2.5">
+              {item.proofBullets[locale].map((bullet) => (
+                <li class="flex gap-3 text-sm leading-6 text-muted">
+                  <span class="mono text-accent select-none" aria-hidden="true">—</span>
+                  <span>{bullet}</span>
+                </li>
               ))}
-            </div>
-          )}
-        </div>
-      </article>
-    ))}
+            </ul>
+
+            {item.links && item.links.length > 0 && (
+              <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+                {item.links.map((link) => (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group inline-flex items-baseline gap-2 text-sm link-underline"
+                  >
+                    <span class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted group-hover:text-accent transition-colors">
+                      {link.label === 'repo' ? labels.repo : labels.live}
+                    </span>
+                    <span class="text-ink">
+                      {link.href.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                    </span>
+                    <span aria-hidden="true" class="text-muted group-hover:text-accent transition-colors">↗</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   </div>
 </section>
