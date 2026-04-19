@@ -25,12 +25,12 @@ export const selectedWorkContent = {
     he: 'עבודות נבחרות',
   },
   title: {
-    en: 'A small set of proof for the kinds of systems I build.',
-    he: 'סט קטן וממוקד של הוכחות לסוג המערכות שאני בונה.',
+    en: 'A small set of proof — work and code I want to be evaluated by.',
+    he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שחשוב לי שיעריכו אצלי.',
   },
   intro: {
-    en: 'Instead of a generic gallery, this section highlights a few projects that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
-    he: 'במקום גלריית פרויקטים כללית, הסקשן הזה מציג כמה עבודות שמדגימות הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
+    en: 'Instead of a generic gallery, this section highlights a few projects and repositories that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
+    he: 'במקום גלריית פרויקטים כללית, הסקשן הזה מציג כמה עבודות וריפוזיטוריז שמדגימים הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
   },
   items: [
     {
@@ -64,54 +64,62 @@ export const selectedWorkContent = {
       featured: true,
     },
     {
-      id: 'taskhiburim',
-      name: 'TaskHiburim',
+      id: 'yishaik-com',
+      name: 'yishaik.com',
       eyebrow: {
-        en: 'Operational workflow system',
-        he: 'מערכת תפעולית לניהול זרימות עבודה',
+        en: 'Bilingual personal platform',
+        he: 'פלטפורמה אישית דו-לשונית',
       },
       summary: {
-        en: 'A collaborative task management system that combines dashboard workflows, Telegram automation, scheduling, and AI-assisted coordination.',
-        he: 'מערכת ניהול משימות שיתופית שמשלבת דשבורד, אוטומציית טלגרם, תזמון ותיאום בעזרת AI.',
+        en: 'My personal site — a bilingual surface where I curate positioning, work, and proof in a single clear place.',
+        he: 'האתר האישי שלי — פלטפורמה דו-לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
       },
       proofBullets: {
         en: [
-          'Connects multiple interfaces and automations into one working operational system.',
-          'Shows ability to build internal tooling around real users and recurring workflows.',
-          'Demonstrates delivery beyond a single front-end surface.',
+          'Shows attention to information design, bilingual UX, and clear positioning.',
+          'Built with Astro and Tailwind, tuned for accessibility and performance.',
+          'Serves as an ongoing personal product — not a static profile.',
         ],
         he: [
-          'מחבר כמה ממשקים ואוטומציות למערכת תפעולית אחת שעובדת בפועל.',
-          'מוכיח יכולת לבנות כלי עבודה סביב משתמשים אמיתיים וזרימות חוזרות.',
-          'מדגים delivery שחורג ממסך בודד של frontend.',
+          'מראה דגש על עיצוב מידע, חוויית משתמש דו-לשונית ומיצוב ברור.',
+          'נבנה ב-Astro ו-Tailwind, עם דגש על נגישות וביצועים.',
+          'משמש כמוצר אישי מתפתח — לא פרופיל סטטי.',
         ],
       },
-      tags: ['Next.js', 'React', 'Telegram', 'Automation', 'Internal Tools'],
+      tags: ['Astro', 'Tailwind CSS', 'Bilingual', 'Personal Brand'],
+      links: [
+        { label: 'repo', href: 'https://github.com/yishaik/yishaik.com' },
+        { label: 'live', href: 'https://yishaik.com' },
+      ],
     },
     {
-      id: 'ai-agency',
-      name: 'AI Agency',
+      id: 'whatsai',
+      name: 'whatsai',
       eyebrow: {
-        en: 'Multi-agent orchestration',
-        he: 'תזמור מערכות multi-agent',
+        en: 'Messaging-native AI automation',
+        he: 'אוטומציית AI ממוקדת מסרים',
       },
       summary: {
-        en: 'A multi-agent platform with specialized AI roles, tool use, coordination patterns, and a system design lens rather than a single-bot mindset.',
-        he: 'פלטפורמת multi-agent עם תפקידים מתמחים, שימוש בכלים, דפוסי תיאום, וראיית מערכת במקום חשיבה של בוט יחיד.',
+        en: 'A messaging-focused AI assistant that brings conversational workflows and automation directly into WhatsApp.',
+        he: 'עוזר AI ממוקד מסרים שמביא תהליכי שיחה ואוטומציה ישירות לתוך WhatsApp.',
       },
       proofBullets: {
         en: [
-          'Shows architectural thinking around autonomous systems, specialization, and coordination.',
-          'Proves comfort with more complex AI system design than prompt-layer wrappers.',
-          'Supports the positioning around practical AI infrastructure and internal tooling.',
+          'Meets users on the platform they already use instead of forcing a new surface.',
+          'Connects messaging, automation, and AI response into one practical flow.',
+          'Demonstrates applied AI aimed at real day-to-day workflows.',
         ],
         he: [
-          'מראה חשיבה ארכיטקטונית סביב מערכות אוטונומיות, התמחות ותיאום.',
-          'מוכיח נוחות עם תכנון מערכות AI מורכבות יותר מאשר wrapper של prompts.',
-          'תומך במיצוב של תשתיות AI פרקטיות וכלים פנימיים.',
+          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם במקום לדרוש ממשק חדש.',
+          'מחבר מסרים, אוטומציה ותגובת AI לזרימה אחת פרקטית.',
+          'מדגים AI יישומי שמכוון לעבודה יומיומית אמיתית.',
         ],
       },
-      tags: ['Python', 'Multi-Agent', 'FastAPI', 'React', 'System Design'],
+      tags: ['TypeScript', 'WhatsApp', 'AI Assistant', 'Automation'],
+      links: [
+        { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
+        { label: 'live', href: 'https://whatsai.yishaik.com' },
+      ],
     },
   ] satisfies SelectedWorkItem[],
 };
