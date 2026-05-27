@@ -12,40 +12,38 @@ export const experience: Experience[] = [
     role: { en: 'IT Manager', he: 'מנהל IT' },
     period: 'Jun 2024 — Aug 2025',
     description: {
-      en: 'Owned IT operations, infrastructure, and identity for a security company — supporting a distributed team and external auditors.',
-      he: 'אחריות על תפעול IT, תשתיות וניהול זהויות בחברת סייבר — תמיכה בצוות מבוזר ובמבדקי ביקורת חיצוניים.',
+      en: 'Managing IT operations and infrastructure at a cybersecurity incident-response firm.',
+      he: 'ניהול תפעול IT ותשתיות בחברת תגובה לאירועי סייבר.',
     },
     highlights: {
       en: [
-        'Day-to-day IT, endpoint, and identity management for a distributed team',
-        'Cloud and SaaS administration with security and compliance review in mind',
-        'Vendor coordination, procurement, and onboarding/offboarding processes',
+        'IT management and operations oversight',
+        'Cloud and endpoint administration for a distributed team',
       ],
       he: [
-        'ניהול IT שוטף, נקודות קצה וזהויות לצוות מבוזר',
-        'ניהול ענן ו־SaaS תוך התחשבות באבטחה ובדרישות compliance',
-        'תיאום ספקים, רכש ותהליכי קליטה ופרידה',
+        'ניהול IT ופיקוח על תפעול',
+        'ניהול ענן ונקודות קצה לצוות מבוזר',
       ],
     },
   },
   {
     company: { en: 'abra', he: 'אברה' },
-    role: { en: 'IT Specialist (MSP)', he: 'מומחה IT (MSP)' },
+    role: { en: 'IT Specialist', he: 'מומחה IT' },
     period: 'Sep 2020 — May 2024',
     description: {
-      en: 'Delivered cloud IT and security services to SMB clients across multiple industries — combining hands-on delivery with customer-facing work.',
-      he: 'מתן שירותי IT ואבטחת ענן ללקוחות SMB במגוון תחומים — שילוב של ביצוע hands-on ועבודה ישירה מול לקוחות.',
+      en: 'Delivered cloud IT and security services to SMB clients — combining hands-on delivery with customer-facing work.',
+      he: 'מתן שירותי IT ואבטחת ענן ללקוחות SMB — שילוב של ביצוע hands-on ועבודה ישירה מול לקוחות.',
     },
     highlights: {
       en: [
-        'Multi-client cloud IT and security delivery across Microsoft 365 and Google Workspace',
-        'Owned client relationships end-to-end: scoping, implementation, ongoing operations',
-        'Implemented MFA, conditional access, and endpoint hardening across client tenants',
+        'Delivered cloud IT and security services to SMBs',
+        'Managed multi-client environments and infrastructure',
+        'Implemented security best practices across client systems',
       ],
       he: [
-        'מתן שירותי IT ואבטחת ענן ללקוחות מרובים על Microsoft 365 ו־Google Workspace',
-        'ניהול קשרי לקוח מקצה לקצה: אפיון, יישום ותפעול שוטף',
-        'יישום MFA, conditional access והקשחת נקודות קצה בסביבות לקוח',
+        'מתן שירותי IT ואבטחת ענן ללקוחות SMB',
+        'ניהול סביבות ותשתיות לקוחות מרובים',
+        'יישום שיטות עבודה מומלצות באבטחה במערכות לקוחות',
       ],
     },
   },
@@ -72,7 +70,7 @@ export const experience: Experience[] = [
   },
   {
     company: { en: 'Microsoft', he: 'מיקרוסופט' },
-    role: { en: 'Premier Support Engineer', he: 'מהנדס תמיכת Premier' },
+    role: { en: 'Support Engineer', he: 'מהנדס תמיכה' },
     period: 'Jan 2016 — Dec 2016',
     description: {
       en: 'Top-tier support for major enterprises and Premier customers — working within strict SLAs and customer-success expectations.',

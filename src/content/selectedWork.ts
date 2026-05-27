@@ -24,8 +24,8 @@ export const selectedWorkContent = {
     he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שכדאי להעריך לפיהם.',
   },
   intro: {
-    en: 'Three projects that show how the same person can move between applied AI, a customer-facing workflow, and a piece of personal product engineering.',
-    he: 'שלושה פרויקטים שמראים איך אותו אדם נע בין AI יישומי, תהליך מול לקוח, וחתיכת הנדסת מוצר אישית.',
+    en: 'Three projects that show applied AI as something to actually ship — a hiring-workflow tool, a persona chat experiment, and this site you are reading.',
+    he: 'שלושה פרויקטים שמראים AI יישומי בתור משהו שמשלחים לפרודקשן — כלי לתהליכי גיוס, ניסוי עם פרסונות, והאתר שאתה קורא עכשיו.',
   },
   items: [
     {
@@ -61,26 +61,26 @@ export const selectedWorkContent = {
       id: 'whatsai',
       name: 'whatsai',
       eyebrow: {
-        en: 'Customer-facing automation · Messaging-native',
-        he: 'אוטומציה מול לקוח · ערוץ מסרים',
+        en: 'Applied AI · Persona chat',
+        he: 'AI יישומי · צ׳אט פרסונות',
       },
       summary: {
-        en: 'A messaging-focused AI assistant that lives where users already are — bringing conversational workflows and automation directly into WhatsApp.',
-        he: 'עוזר AI ממוקד מסרים שחי איפה שהמשתמשים כבר נמצאים — מביא תהליכי שיחה ואוטומציה ישירות לתוך WhatsApp.',
+        en: 'AI Persona Chat — a small web app for talking to different LLM-backed personas, with API routes that keep the model key on the server.',
+        he: 'AI Persona Chat — אפליקציית ווב קטנה לשיחה עם פרסונות מבוססות־LLM, עם ראוטי שרת ששומרים את מפתח המודל מחוץ ללקוח.',
       },
       proofBullets: {
         en: [
-          'Meets users on the platform they already use — no new surface to learn.',
-          'Connects messaging, automation, and AI response into one practical flow.',
-          'Customer-facing AI aimed at real day-to-day workflows, not demos.',
+          'Switch between personas to converse with distinct LLM-backed characters.',
+          'Server-side API routes keep the Gemini key off the client, even in dev.',
+          'Side project shipped end-to-end — Vite + React, deployed on Vercel.',
         ],
         he: [
-          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם — בלי ממשק חדש ללמוד.',
-          'מחבר מסרים, אוטומציה ותגובת AI לזרימה אחת פרקטית.',
-          'AI מול לקוח לעבודה יומיומית אמיתית — לא דמואים.',
+          'מעבר בין פרסונות לשיחה עם דמויות שונות מבוססות־LLM.',
+          'ראוטים בצד שרת שומרים את מפתח ה־Gemini הרחק מהלקוח, גם בפיתוח.',
+          'פרויקט צד שנשלח מקצה לקצה — Vite + React, פרוס ב־Vercel.',
         ],
       },
-      tags: ['TypeScript', 'WhatsApp', 'AI Assistant', 'Automation'],
+      tags: ['TypeScript', 'React', 'Vite', 'Gemini', 'Vercel'],
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
         { label: 'live', href: 'https://whatsai.yishaik.com' },
