@@ -1,4 +1,5 @@
 export interface Experience {
+  slug: string;
   company: { en: string; he: string };
   role: { en: string; he: string };
   period: string;
@@ -8,6 +9,7 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    slug: 'profero',
     company: { en: 'Profero', he: 'פרופרו' },
     role: { en: 'IT Manager', he: 'מנהל IT' },
     period: 'Jun 2024 — Aug 2025',
@@ -27,6 +29,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'abra',
     company: { en: 'abra', he: 'אברה' },
     role: { en: 'IT Specialist', he: 'מומחה IT' },
     period: 'Sep 2020 — May 2024',
@@ -48,6 +51,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'claroty',
     company: { en: 'Claroty', he: 'קלרוטי' },
     role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה Tier 3' },
     period: 'Sep 2017 — Oct 2019',
@@ -69,6 +73,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'microsoft',
     company: { en: 'Microsoft', he: 'מיקרוסופט' },
     role: { en: 'Support Engineer', he: 'מהנדס תמיכה' },
     period: 'Jan 2016 — Dec 2016',
@@ -90,6 +95,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'secure-islands',
     company: { en: 'Secure Islands Technologies (acquired by Microsoft)', he: 'Secure Islands (נרכשה ע״י מיקרוסופט)' },
     role: { en: 'Post-Sales Engineer', he: 'מהנדס פוסט־סייל' },
     period: 'Sep 2012 — Jul 2016',
@@ -111,6 +117,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'ajax-union',
     company: { en: 'Ajax Union Inc', he: 'Ajax Union Inc' },
     role: { en: 'IT & Networks', he: 'IT ורשתות' },
     period: 'Feb 2011 — Feb 2012',
@@ -132,6 +139,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'malam',
     company: { en: 'Malam', he: 'מלם' },
     role: { en: 'PC & Network Technical Support', he: 'תמיכה טכנית מחשבים ורשתות' },
     period: 'Oct 2008 — Aug 2010',
@@ -153,6 +161,7 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'bh-comtec',
     company: { en: 'B.H. Comtec', he: 'B.H. Comtec' },
     role: { en: 'PC Hardware Technician', he: 'טכנאי חומרה' },
     period: 'Dec 2007 — Sep 2008',

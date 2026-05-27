@@ -21,7 +21,7 @@ const ctas = isHe
   ? { primary: 'בוא נדבר', secondary: 'ראה עבודות' }
   : { primary: 'Start a conversation', secondary: 'See selected work' };
 
-const openForLabel = isHe ? 'פתוח ל' : 'Open for';
+const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for · jump to proof';
 ---
 
 <section id="cover" class="section page-shell pt-28 lg:pt-36">
@@ -54,11 +54,19 @@ const openForLabel = isHe ? 'פתוח ל' : 'Open for';
       </p>
       <ul class="mt-4 divide-y divide-[color:var(--color-rule)] border-y border-[color:var(--color-rule)]">
         {roleTracks.map((track) => (
-          <li class="flex items-baseline gap-4 py-3">
-            <span class="mono text-[0.7rem] tracking-[0.12em] text-accent shrink-0 w-6">
-              {track.code}
-            </span>
-            <span class="text-sm text-ink leading-snug">{track.label[locale]}</span>
+          <li>
+            <a
+              href={track.href}
+              class="group flex items-baseline gap-4 py-3 transition-colors hover:text-accent"
+            >
+              <span class="mono text-[0.7rem] tracking-[0.12em] text-accent shrink-0 w-6 group-hover:text-ink transition-colors">
+                {track.code}
+              </span>
+              <span class="text-sm text-ink leading-snug group-hover:text-accent transition-colors">
+                {track.label[locale]}
+              </span>
+              <span aria-hidden="true" class="ml-auto text-muted group-hover:text-accent transition-colors text-xs">↗</span>
+            </a>
           </li>
         ))}
       </ul>

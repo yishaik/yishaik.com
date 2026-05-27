@@ -38,11 +38,19 @@ Earlier roles include IT and networks at Ajax Union, PC and network support at M
 
 Alongside professional roles, hands-on engineering work on applied AI systems, automations, and internal tools — often Hebrew-first.
 
+## How I work (in his own words)
+
+- I turn messy ideas, workflows, and constraints into clear systems, architectures, and execution plans.
+- I build practical AI automations that connect real tools, real data, and real business processes.
+- I care about reliability: logging, permissions, fallback paths, and human approval where it matters.
+- I move fast, but I prefer durable solutions over fragile demos.
+- I think across product, infrastructure, UX, and operations — not just code.
+
 ## Selected work
 
-- TailorCV — CV-tailoring assistant that maps job requirements to real experience with guardrails. https://github.com/yishaik/TailorCV — https://tailor-cv-tau.vercel.app
-- whatsai — Messaging-native AI assistant inside WhatsApp; conversational automation. https://github.com/yishaik/whatsai — https://whatsai.yishaik.com
-- yishaik.com — Bilingual personal site, this domain; Astro + Tailwind. https://github.com/yishaik/yishaik.com
+- TailorCV — CV-tailoring assistant that maps job requirements to real experience while keeping the output factual (built-in fabrication guard). Status: live, active. https://github.com/yishaik/TailorCV — https://tailor-cv-tau.vercel.app
+- whatsai — AI Persona Chat, a small Vite + React + Gemini web app with server-side API routes (keys stay off the client). Status: live, experiment. https://github.com/yishaik/whatsai — https://whatsai.yishaik.com
+- yishaik.com — Bilingual personal site, this domain; Astro + Tailwind. https://github.com/yishaik/yishaik.com — https://yishaik.com
 
 ## Tools used day-to-day
 

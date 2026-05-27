@@ -5,17 +5,26 @@ interface WorkLink {
   href: string;
 }
 
+export interface ArchitectureFlow {
+  steps: LocalizedText[];
+  caption: LocalizedText;
+}
+
 export interface SelectedWorkItem {
   id: string;
   name: string;
   eyebrow: LocalizedText;
+  problem: LocalizedText;
   summary: LocalizedText;
   proofBullets: {
     en: string[];
     he: string[];
   };
   tags: string[];
+  status: LocalizedText;
+  built: LocalizedText;
   links?: WorkLink[];
+  architecture?: ArchitectureFlow;
 }
 
 export const selectedWorkContent = {
@@ -27,6 +36,12 @@ export const selectedWorkContent = {
     en: 'Three projects that show applied AI as something to actually ship — a hiring-workflow tool, a persona chat experiment, and this site you are reading.',
     he: 'שלושה פרויקטים שמראים AI יישומי בתור משהו שמשלחים לפרודקשן — כלי לתהליכי גיוס, ניסוי עם פרסונות, והאתר שאתה קורא עכשיו.',
   },
+  labels: {
+    problem: { en: 'Problem', he: 'בעיה' },
+    stack: { en: 'Stack', he: 'מחסנית' },
+    status: { en: 'Status', he: 'סטטוס' },
+    built: { en: 'Built', he: 'בנייה' },
+  },
   items: [
     {
       id: 'tailorcv',
@@ -34,6 +49,10 @@ export const selectedWorkContent = {
       eyebrow: {
         en: 'Applied AI · Hiring workflow',
         he: 'AI יישומי · תהליך גיוס',
+      },
+      problem: {
+        en: 'Candidates and recruiters need CVs tailored to a specific job without fabricating experience.',
+        he: 'מועמדים ומגייסים צריכים קורות חיים מותאמים למשרה מבלי לבדות ניסיון.',
       },
       summary: {
         en: 'A CV-tailoring assistant that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
@@ -52,10 +71,25 @@ export const selectedWorkContent = {
         ],
       },
       tags: ['Python', 'FastAPI', 'React', 'Gemini', 'Applied AI'],
+      status: { en: 'Live · active', he: 'באוויר · פעיל' },
+      built: { en: 'Solo', he: 'סולו' },
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/TailorCV' },
         { label: 'live', href: 'https://tailor-cv-tau.vercel.app' },
       ],
+      architecture: {
+        steps: [
+          { en: 'CV + Job spec', he: 'קו״ח + משרה' },
+          { en: 'Extract facts & requirements', he: 'חילוץ עובדות ודרישות' },
+          { en: 'Map evidence ↔ requirements', he: 'מיפוי עדויות לדרישות' },
+          { en: 'Rewrite (fabrication guard)', he: 'כתיבה מחדש (חסם הזיות)' },
+          { en: 'Tailored CV + cover letter', he: 'קו״ח + מכתב מותאמים' },
+        ],
+        caption: {
+          en: 'Every step is anchored in evidence — the guardrail blocks any claim not present in the source CV.',
+          he: 'כל שלב מעוגן בעדות — ה־guardrail חוסם כל הצהרה שלא קיימת בקו״ח המקור.',
+        },
+      },
     },
     {
       id: 'whatsai',
@@ -63,6 +97,10 @@ export const selectedWorkContent = {
       eyebrow: {
         en: 'Applied AI · Persona chat',
         he: 'AI יישומי · צ׳אט פרסונות',
+      },
+      problem: {
+        en: 'A small playground for switching between AI personas without leaking the API key to the client.',
+        he: 'מגרש משחקים קטן למעבר בין פרסונות AI בלי לחשוף את ה־API key ללקוח.',
       },
       summary: {
         en: 'AI Persona Chat — a small web app for talking to different LLM-backed personas, with API routes that keep the model key on the server.',
@@ -81,6 +119,8 @@ export const selectedWorkContent = {
         ],
       },
       tags: ['TypeScript', 'React', 'Vite', 'Gemini', 'Vercel'],
+      status: { en: 'Live · experiment', he: 'באוויר · ניסוי' },
+      built: { en: 'Solo', he: 'סולו' },
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
         { label: 'live', href: 'https://whatsai.yishaik.com' },
@@ -92,6 +132,10 @@ export const selectedWorkContent = {
       eyebrow: {
         en: 'Personal product · Bilingual platform',
         he: 'מוצר אישי · פלטפורמה דו־לשונית',
+      },
+      problem: {
+        en: 'A bilingual personal site that surfaces positioning, work, and proof in one clear place.',
+        he: 'אתר אישי דו־לשוני שמרכז מיצוב, עבודות והוכחות במקום אחד וברור.',
       },
       summary: {
         en: 'This site — a bilingual surface that curates positioning, work, and proof in one clear place.',
@@ -110,6 +154,8 @@ export const selectedWorkContent = {
         ],
       },
       tags: ['Astro', 'Tailwind', 'Bilingual', 'SEO'],
+      status: { en: 'Live · active', he: 'באוויר · פעיל' },
+      built: { en: 'Solo', he: 'סולו' },
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/yishaik.com' },
         { label: 'live', href: 'https://yishaik.com' },

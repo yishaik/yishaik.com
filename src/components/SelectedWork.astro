@@ -12,10 +12,12 @@ const isHe = locale === 'he';
 const labels = isHe
   ? { repo: 'ריפו', live: 'דמו חי' }
   : { repo: 'Repository', live: 'Live demo' };
+
+const meta = selectedWorkContent.labels;
 ---
 
 <section id="work" class="section page-shell">
-  <p class="section-label mb-10">02 / {isHe ? 'עבודות נבחרות' : 'Selected work'}</p>
+  <p class="section-label mb-10">03 / {isHe ? 'עבודות נבחרות' : 'Selected work'}</p>
 
   <div class="grid gap-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-14">
     <div class="lg:sticky lg:top-28 lg:self-start">
@@ -25,7 +27,7 @@ const labels = isHe
 
     <div>
       {selectedWorkContent.items.map((item, i) => (
-        <article class="work-card">
+        <article id={`work-${item.id}`} class="work-card scroll-mt-28">
           <div>
             <div class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
               {String(i + 1).padStart(2, '0')} · {item.eyebrow[locale]}
@@ -38,7 +40,51 @@ const labels = isHe
 
           <div>
             <p class="prose-body">{item.summary[locale]}</p>
-            <ul class="mt-5 space-y-2.5">
+
+            <dl class="mt-5 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[7rem_1fr] border-y border-[color:var(--color-rule)] py-4">
+              <dt class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted">
+                {meta.problem[locale]}
+              </dt>
+              <dd class="text-ink-soft leading-6">{item.problem[locale]}</dd>
+
+              <dt class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted">
+                {meta.stack[locale]}
+              </dt>
+              <dd class="text-ink-soft leading-6">{item.tags.join(' · ')}</dd>
+
+              <dt class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted">
+                {meta.status[locale]}
+              </dt>
+              <dd class="text-ink-soft leading-6">{item.status[locale]}</dd>
+
+              <dt class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted">
+                {meta.built[locale]}
+              </dt>
+              <dd class="text-ink-soft leading-6">{item.built[locale]}</dd>
+            </dl>
+
+            {item.architecture && (
+              <figure class="mt-6">
+                <div class="flow-diagram" role="img" aria-label={item.architecture.caption[locale]}>
+                  {item.architecture.steps.map((step, idx) => (
+                    <>
+                      <span class="flow-step">
+                        <span class="mono flow-num">{String(idx + 1).padStart(2, '0')}</span>
+                        <span class="flow-label">{step[locale]}</span>
+                      </span>
+                      {idx < item.architecture.steps.length - 1 && (
+                        <span aria-hidden="true" class="flow-arrow">→</span>
+                      )}
+                    </>
+                  ))}
+                </div>
+                <figcaption class="mt-3 text-xs leading-6 text-muted">
+                  {item.architecture.caption[locale]}
+                </figcaption>
+              </figure>
+            )}
+
+            <ul class="mt-6 space-y-2.5">
               {item.proofBullets[locale].map((bullet) => (
                 <li class="flex gap-3 text-sm leading-6 text-muted">
                   <span class="mono text-accent select-none" aria-hidden="true">—</span>
