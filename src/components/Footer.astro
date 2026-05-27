@@ -11,11 +11,9 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-[color:var(--color-rule)] mt-0">
-  <div class="page-shell flex flex-col gap-3 py-10 mono text-[0.72rem] tracking-[0.08em] text-muted sm:flex-row sm:items-center sm:justify-between">
+  <div class="page-shell flex flex-col gap-3 py-8 mono text-[0.7rem] tracking-[0.08em] text-muted sm:flex-row sm:items-center sm:justify-between">
     <p>&copy; {year} · Yishai Kaminsky · {isHe ? 'כל הזכויות שמורות' : 'All rights reserved'}</p>
     <p>
-      <span>{isHe ? 'בנוי עם' : 'Built with'} Astro · Tailwind · Fraunces</span>
-      <span class="mx-2 text-accent">·</span>
       <a href="#cover" class="link-underline">{isHe ? 'חזרה למעלה ↑' : 'Back to top ↑'}</a>
     </p>
   </div>

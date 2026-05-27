@@ -23,7 +23,7 @@ const mailtoBody = isHe
 const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
 
 const channels = [
-  { key: 'WHATSAPP', label: whatsappDisplay, href: whatsappHref, primary: true },
+  { key: 'WHATSAPP', label: whatsappDisplay, href: whatsappHref },
   { key: 'EMAIL', label: emailAddress, href: mailtoHref },
   { key: 'LINKEDIN', label: 'linkedin.com/in/yishaik', href: 'https://www.linkedin.com/in/yishaik/' },
   { key: 'GITHUB', label: 'github.com/yishaik', href: 'https://github.com/yishaik' },
@@ -32,37 +32,36 @@ const channels = [
 
 const openFor = isHe
   ? [
-      'תפקידי AI systems ואוטומציה',
-      'תפקידי internal tools או technical operations',
-      'שיחות מגייסים ושיחות hiring רציניות',
+      'Customer Success engineering, implementation, TAM',
+      'ניהול IT, תפעול טכני, תפקידי infrastructure',
+      'הנדסת AI, אוטומציה, סוכנים וכלים פנימיים',
+      'פרויקטים עצמאיים וייעוץ ממוקד',
     ]
   : [
-      'AI systems and automation roles',
-      'Internal tools or technical operations work',
-      'Recruiter outreach and hiring conversations',
+      'Customer Success engineering, implementation, TAM',
+      'IT management, technical operations, infrastructure',
+      'AI engineering, automation, agents, internal tools',
+      'Independent project work and focused consulting',
     ];
 ---
 
 <section id="contact" class="section page-shell">
-  <div class="mb-10 flex items-baseline justify-between gap-6">
-    <span class="section-code">§05 / {isHe ? 'צור קשר' : 'CONTACT'}</span>
-    <span class="eyebrow hidden sm:inline">{isHe ? 'השלב הבא' : 'Next step'}</span>
-  </div>
+  <p class="section-label mb-10">05 / {isHe ? 'צור קשר' : 'Contact'}</p>
 
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-16">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-14">
     <div>
       <h2 class="display display-md max-w-2xl">
         {isHe
-          ? 'אם יש התאמה, בוא נדבר.'
-          : 'If the fit is relevant, let’s talk.'}
+          ? 'אם יש התאמה — בוא נדבר.'
+          : 'If the fit feels right — let’s talk.'}
       </h2>
-      <p class="prose-lede mt-6 max-w-xl">
+      <p class="prose-lede mt-5 max-w-xl">
         {isHe
-          ? 'פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד, ועבודה מערכתית סביב AI, אוטומציה, כלים פנימיים ו־technical operations.'
-          : 'Open to conversations about full-time roles, focused consulting, and systems work across AI, automation, internal tools, and technical operations.'}
+          ? 'פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד ועבודה מערכתית סביב Customer Success, IT, AI ואוטומציה.'
+          : 'Open to conversations about full-time roles, focused consulting, and systems work across Customer Success, IT, AI, and automation.'}
       </p>
 
-      <div class="mt-10 flex flex-wrap items-center gap-3">
+      <div class="mt-8 flex flex-wrap items-center gap-3">
         <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-accent">
           <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01a1.09 1.09 0 0 0-.792.371c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.695.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347Zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.824 9.824 0 0 1 6.988 2.896 9.821 9.821 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.886Zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .162 5.335.16 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
@@ -74,15 +73,15 @@ const openFor = isHe
         </a>
       </div>
 
-      <dl class="mt-10 divide-y divide-[color:var(--color-rule)] border-y border-[color:var(--color-rule)] max-w-xl">
+      <dl class="mt-9 divide-y divide-[color:var(--color-rule)] border-y border-[color:var(--color-rule)] max-w-xl">
         {channels.map((c) => (
           <a
             href={c.href}
             target={c.href.startsWith('http') ? '_blank' : undefined}
             rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline gap-4 py-4 transition-colors hover:text-accent"
+            class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline gap-4 py-3.5 transition-colors hover:text-accent"
           >
-            <dt class="mono text-[0.7rem] tracking-[0.18em] uppercase text-muted group-hover:text-accent transition-colors">
+            <dt class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted group-hover:text-accent transition-colors">
               {c.key}
             </dt>
             <dd class="text-sm text-ink group-hover:text-accent transition-colors break-all">
@@ -95,7 +94,7 @@ const openFor = isHe
     </div>
 
     <aside class="lg:pt-2">
-      <p class="mono text-[0.7rem] tracking-[0.18em] uppercase text-accent">
+      <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
         {isHe ? 'פתוח ל' : 'Open for'}
       </p>
       <ul class="mt-4 space-y-3 border-t border-[color:var(--color-rule)] pt-4">

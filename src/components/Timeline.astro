@@ -11,23 +11,18 @@ const isHe = locale === 'he';
 ---
 
 <section id="experience" class="section page-shell">
-  <div class="mb-10 flex items-baseline justify-between gap-6">
-    <span class="section-code">§03 / {isHe ? 'ניסיון' : 'EXPERIENCE'}</span>
-    <span class="eyebrow hidden sm:inline">
-      {isHe ? `${experience.length} תפקידים · 17+ שנים` : `${experience.length} roles · 17+ years`}
-    </span>
-  </div>
+  <p class="section-label mb-10">03 / {isHe ? 'ניסיון' : 'Experience'}</p>
 
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-16 mb-10 lg:mb-14">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-14 mb-10 lg:mb-12">
     <h2 class="display display-md max-w-xl">
       {isHe
-        ? 'רצף ארוך של תפקידים ב־IT, enterprise support, ענן ותפעול טכני.'
-        : 'A long arc of IT, enterprise support, cloud, and technical operations roles.'}
+        ? 'רצף ארוך של תפקידים — תמיכה, פוסט־סייל, IT ותפעול טכני.'
+        : 'A long arc of customer-facing engineering, support, IT, and operations roles.'}
     </h2>
-    <p class="prose-body max-w-xl lg:pt-4">
+    <p class="prose-body max-w-xl lg:pt-3">
       {isHe
-        ? 'ההיסטוריה הזו חשובה כי היא מצמצמת את הפער בין רעיון למציאות תפעולית — העבודה הנוכחית ב־AI ואוטומציה עומדת על בסיס אמיתי של הפעלה.'
-        : 'This history matters because it reduces the gap between idea and production reality — the current AI and automation work sits on a real operational foundation.'}
+        ? 'ההיסטוריה הזו חשובה כי היא מסבירה למה ה־AI יישומי שאני בונה עומד על קרקע אמיתית: מי הלקוח, מה עובר עליו, ומה אומר באמת "להפעיל בפרודקשן".'
+        : 'This history matters because it explains why the applied AI work sits on real ground: who the customer is, what they actually live with, and what "run it in production" actually means.'}
     </p>
   </div>
 
@@ -35,7 +30,7 @@ const isHe = locale === 'he';
     {experience.map((exp) => (
       <article class="entry">
         <header>
-          <p class="mono text-xs tracking-[0.1em] text-muted">{exp.period}</p>
+          <p class="mono text-xs tracking-[0.08em] text-muted">{exp.period}</p>
         </header>
         <div>
           <h3 class="display text-xl text-ink leading-tight">{exp.role[locale]}</h3>

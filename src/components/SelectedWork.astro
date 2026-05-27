@@ -10,31 +10,28 @@ const { locale } = Astro.props;
 const isHe = locale === 'he';
 
 const labels = isHe
-  ? { repo: 'ריפו', live: 'דמו חי', arrow: '←' }
-  : { repo: 'Repository', live: 'Live demo', arrow: '→' };
+  ? { repo: 'ריפו', live: 'דמו חי' }
+  : { repo: 'Repository', live: 'Live demo' };
 ---
 
 <section id="work" class="section page-shell">
-  <div class="mb-10 flex items-baseline justify-between gap-6">
-    <span class="section-code">§02 / {isHe ? 'עבודות נבחרות' : 'SELECTED WORK'}</span>
-    <span class="eyebrow hidden sm:inline">{isHe ? 'שלוש הוכחות' : 'Three proofs'}</span>
-  </div>
+  <p class="section-label mb-10">02 / {isHe ? 'עבודות נבחרות' : 'Selected work'}</p>
 
-  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)] lg:gap-16">
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-14">
     <div class="lg:sticky lg:top-28 lg:self-start">
       <h2 class="display display-md">{selectedWorkContent.title[locale]}</h2>
-      <p class="prose-body mt-6 max-w-md">{selectedWorkContent.intro[locale]}</p>
+      <p class="prose-body mt-5 max-w-md">{selectedWorkContent.intro[locale]}</p>
     </div>
 
     <div>
       {selectedWorkContent.items.map((item, i) => (
         <article class="work-card">
           <div>
-            <div class="mono text-[0.7rem] tracking-[0.18em] uppercase text-accent">
+            <div class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
               {String(i + 1).padStart(2, '0')} · {item.eyebrow[locale]}
             </div>
             <h3 class="display text-3xl lg:text-4xl mt-3 text-ink">{item.name}</h3>
-            <div class="mt-5 flex flex-wrap gap-1.5">
+            <div class="mt-4 flex flex-wrap gap-1.5">
               {item.tags.map((tag) => <span class="tag">{tag}</span>)}
             </div>
           </div>
@@ -59,7 +56,7 @@ const labels = isHe
                     rel="noopener noreferrer"
                     class="group inline-flex items-baseline gap-2 text-sm link-underline"
                   >
-                    <span class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted group-hover:text-accent transition-colors">
+                    <span class="mono text-[0.7rem] tracking-[0.12em] uppercase text-muted group-hover:text-accent transition-colors">
                       {link.label === 'repo' ? labels.repo : labels.live}
                     </span>
                     <span class="text-ink">
