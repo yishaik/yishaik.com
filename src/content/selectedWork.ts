@@ -29,12 +29,12 @@ export interface SelectedWorkItem {
 
 export const selectedWorkContent = {
   title: {
-    en: 'A small set of proofs — work and code worth evaluating.',
-    he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שכדאי להעריך לפיהם.',
+    en: 'Proofs worth evaluating.',
+    he: 'הוכחות שכדאי להעריך לפיהן.',
   },
   intro: {
-    en: 'Three projects that show applied AI as something to actually ship — a hiring-workflow tool, a persona chat experiment, and this site you are reading.',
-    he: 'שלושה פרויקטים שמראים AI יישומי בתור משהו שמשלחים לפרודקשן — כלי לתהליכי גיוס, ניסוי עם פרסונות, והאתר שאתה קורא עכשיו.',
+    en: 'Three projects shipped end-to-end — a hiring tool, a persona chat, and this site.',
+    he: 'שלושה פרויקטים שנשלחו מקצה לקצה — כלי גיוס, צ׳אט פרסונות, והאתר הזה.',
   },
   labels: {
     problem: { en: 'Problem', he: 'בעיה' },
@@ -51,23 +51,21 @@ export const selectedWorkContent = {
         he: 'AI יישומי · תהליך גיוס',
       },
       problem: {
-        en: 'Candidates and recruiters need CVs tailored to a specific job without fabricating experience.',
-        he: 'מועמדים ומגייסים צריכים קורות חיים מותאמים למשרה מבלי לבדות ניסיון.',
+        en: 'Tailor CVs to a job without fabricating experience.',
+        he: 'התאמת קו״ח למשרה — בלי לבדות ניסיון.',
       },
       summary: {
-        en: 'A CV-tailoring assistant that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
-        he: 'עוזר להתאמת קורות חיים שממפה דרישות משרה לניסיון אמיתי, תוך שמירה על פלט מדויק, שימושי ומוגבל היטב.',
+        en: 'Maps job requirements to real experience, with a fabrication guard that blocks any claim not in the source CV.',
+        he: 'ממפה דרישות משרה לניסיון אמיתי, עם חסם הזיות שחוסם כל הצהרה שלא קיימת בקו״ח המקור.',
       },
       proofBullets: {
         en: [
-          'Product thinking, guardrails, and credibility-aware AI output.',
-          'Turns messy hiring inputs into a structured, repeatable workflow.',
-          'Bridges applied AI with a clear business use case.',
+          'Product thinking + guardrails on top of LLM output.',
+          'Messy hiring inputs → structured, repeatable workflow.',
         ],
         he: [
-          'חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
-          'הופך קלט גיוסי מבולגן לזרימת עבודה מסודרת וחוזרת.',
-          'מחבר בין AI יישומי לבין צורך עסקי ברור.',
+          'חשיבה מוצרית ו־guardrails מעל פלט LLM.',
+          'קלט גיוסי מבולגן → זרימת עבודה מסודרת וחוזרת.',
         ],
       },
       tags: ['Python', 'FastAPI', 'React', 'Gemini', 'Applied AI'],
@@ -99,23 +97,21 @@ export const selectedWorkContent = {
         he: 'AI יישומי · צ׳אט פרסונות',
       },
       problem: {
-        en: 'A small playground for switching between AI personas without leaking the API key to the client.',
-        he: 'מגרש משחקים קטן למעבר בין פרסונות AI בלי לחשוף את ה־API key ללקוח.',
+        en: 'Switch between AI personas without leaking the API key client-side.',
+        he: 'מעבר בין פרסונות AI בלי לחשוף את ה־API key ללקוח.',
       },
       summary: {
-        en: 'AI Persona Chat — a small web app for talking to different LLM-backed personas, with API routes that keep the model key on the server.',
-        he: 'AI Persona Chat — אפליקציית ווב קטנה לשיחה עם פרסונות מבוססות־LLM, עם ראוטי שרת ששומרים את מפתח המודל מחוץ ללקוח.',
+        en: 'A small web app for chatting with LLM-backed personas — API routes keep the model key on the server.',
+        he: 'אפליקציית ווב קטנה לשיחה עם פרסונות LLM — ראוטי שרת שומרים את מפתח המודל בצד השרת.',
       },
       proofBullets: {
         en: [
-          'Switch between personas to converse with distinct LLM-backed characters.',
-          'Server-side API routes keep the Gemini key off the client, even in dev.',
-          'Side project shipped end-to-end — Vite + React, deployed on Vercel.',
+          'Server-side routes keep the Gemini key off the client.',
+          'Shipped end-to-end — Vite + React on Vercel.',
         ],
         he: [
-          'מעבר בין פרסונות לשיחה עם דמויות שונות מבוססות־LLM.',
-          'ראוטים בצד שרת שומרים את מפתח ה־Gemini הרחק מהלקוח, גם בפיתוח.',
-          'פרויקט צד שנשלח מקצה לקצה — Vite + React, פרוס ב־Vercel.',
+          'ראוטים בצד שרת שומרים את מפתח Gemini מחוץ ללקוח.',
+          'נשלח מקצה לקצה — Vite + React על Vercel.',
         ],
       },
       tags: ['TypeScript', 'React', 'Vite', 'Gemini', 'Vercel'],
@@ -134,23 +130,21 @@ export const selectedWorkContent = {
         he: 'מוצר אישי · פלטפורמה דו־לשונית',
       },
       problem: {
-        en: 'A bilingual personal site that surfaces positioning, work, and proof in one clear place.',
-        he: 'אתר אישי דו־לשוני שמרכז מיצוב, עבודות והוכחות במקום אחד וברור.',
+        en: 'Surface positioning, work, and proof in one bilingual place.',
+        he: 'לרכז מיצוב, עבודות והוכחות במקום אחד דו־לשוני.',
       },
       summary: {
-        en: 'This site — a bilingual surface that curates positioning, work, and proof in one clear place.',
-        he: 'האתר הזה — פלטפורמה דו־לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
+        en: 'This site — bilingual, accessible, fast, and tuned for SEO. An ongoing product, not a static profile.',
+        he: 'האתר הזה — דו־לשוני, נגיש, מהיר, ומכוון ל־SEO. מוצר מתפתח, לא פרופיל סטטי.',
       },
       proofBullets: {
         en: [
-          'Information design, bilingual UX, and clear positioning.',
-          'Built with Astro and Tailwind — tuned for accessibility, speed, and SEO.',
-          'An ongoing personal product, not a static profile.',
+          'Astro + Tailwind, bilingual UX, accessibility-first.',
+          'Tuned for speed and SEO.',
         ],
         he: [
-          'עיצוב מידע, חוויית משתמש דו־לשונית ומיצוב ברור.',
-          'נבנה ב־Astro ו־Tailwind — עם דגש על נגישות, ביצועים ו־SEO.',
-          'מוצר אישי מתפתח — לא פרופיל סטטי.',
+          'Astro + Tailwind, UX דו־לשוני, נגישות קודם.',
+          'מכוון לביצועים ול־SEO.',
         ],
       },
       tags: ['Astro', 'Tailwind', 'Bilingual', 'SEO'],
