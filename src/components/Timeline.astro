@@ -9,56 +9,64 @@ interface Props {
 const { locale } = Astro.props;
 const isHe = locale === 'he';
 
-// Uniform monochrome marks. Microsoft keeps its recognizable four-square glyph;
-// the rest use clean monogram initials in matching badges.
+// Real logos sourced online (rendered monochrome for cohesion); the rest use
+// uniform monogram badges.
+const logos: Record<string, string> = {
+  microsoft: '/logos/microsoft.svg',
+  claroty: '/logos/claroty.png',
+  profero: '/logos/profero.svg',
+  'ajax-union': '/logos/ajax-union.svg',
+};
+
 const monograms: Record<string, string> = {
-  profero: 'P',
   abra: 'ab',
-  claroty: 'C',
   'secure-islands': 'SI',
-  'ajax-union': 'AU',
   malam: 'M',
   'bh-comtec': 'BH',
 };
+
+// Early-career roles are condensed (no bullet list) to keep the page short.
+const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
 ---
 
 <section id="experience" class="tile tile-experience">
   <div class="section-header reveal">
-    <p class="section-label">04 / {isHe ? 'ניסיון' : 'Experience'}</p>
-    <h2 class="display display-lg mt-4 max-w-3xl">
+    <p class="section-label">02 / {isHe ? 'ניסיון' : 'Experience'}</p>
+    <h2 class="display display-lg mt-4">
       {isHe
-        ? 'רצף ארוך של תפקידים — תמיכה, פוסט־סייל, IT ותפעול טכני.'
-        : 'A long arc of customer-facing engineering, support, IT, and operations roles.'}
+        ? 'רצף ארוך של תפקידים — תמיכה, פוסט־סייל, IT ותפעול.'
+        : 'A long arc of customer-facing engineering, support, IT, and operations.'}
     </h2>
-    <p class="prose-body mt-4 max-w-2xl">
-      {isHe
-        ? 'ההיסטוריה הזו חשובה כי היא מסבירה למה ה־AI יישומי שאני בונה עומד על קרקע אמיתית: מי הלקוח, מה עובר עליו, ומה אומר באמת "להפעיל בפרודקשן".'
-        : 'This history matters because it explains why the applied AI work sits on real ground: who the customer is, what they actually live with, and what "run it in production" actually means.'}
-    </p>
   </div>
 
   <div class="border-t border-[color:var(--color-rule)]">
     {experience.map((exp) => (
       <article id={`exp-${exp.slug}`} class="entry scroll-mt-28 reveal">
-        <span class="logo-badge" aria-hidden="true">
-          {exp.slug === 'microsoft' ? (
-            <svg viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="10" height="10" fill="#F25022" />
-              <rect x="12" y="1" width="10" height="10" fill="#7FBA00" />
-              <rect x="1" y="12" width="10" height="10" fill="#00A4EF" />
-              <rect x="12" y="12" width="10" height="10" fill="#FFB900" />
-            </svg>
+        <div class="entry-logo-cell">
+          {logos[exp.slug] ? (
+            <img
+              class="entry-logo"
+              src={logos[exp.slug]}
+              alt={`${exp.company[locale]} logo`}
+              loading="lazy"
+              decoding="async"
+              width="120"
+              height="32"
+            />
           ) : (
-            monograms[exp.slug] ?? exp.company[locale].slice(0, 1)
+            <span class="logo-badge" aria-hidden="true">
+              {monograms[exp.slug] ?? exp.company[locale].slice(0, 1)}
+            </span>
           )}
-        </span>
-        <p class="entry-period">{exp.period}</p>
-        <div>
+        </div>
+
+        <div class="entry-body">
+          <p class="entry-period">{exp.period}</p>
           <h3 class="entry-role">{exp.role[locale]}</h3>
           <p class="entry-company">{exp.company[locale]}</p>
-          <p class="mt-3 text-[0.95rem] leading-7 text-ink-soft">{exp.description[locale]}</p>
-          {exp.highlights[locale].length > 0 && (
-            <ul class="mt-4 space-y-1.5">
+          <p class="mt-2.5 text-[0.95rem] leading-7 text-ink-soft">{exp.description[locale]}</p>
+          {!condensed.has(exp.slug) && exp.highlights[locale].length > 0 && (
+            <ul class="mt-3 space-y-1.5">
               {exp.highlights[locale].map((h) => (
                 <li class="flex gap-3 text-[0.92rem] leading-6 text-muted">
                   <span class="text-accent pt-1.5 select-none shrink-0" aria-hidden="true">

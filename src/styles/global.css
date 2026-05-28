@@ -35,7 +35,7 @@
   color-scheme: light;
   --display-font: var(--font-family-display);
   --body-font: var(--font-family-sans);
-  --measure: 44rem;
+  --measure: 50rem;
 }
 
 [dir="rtl"] {
@@ -120,7 +120,7 @@ main {
 .tile,
 .section {
   position: relative;
-  padding-block: 3.25rem;
+  padding-block: 2.75rem;
   border-top: 1px solid var(--color-rule);
   scroll-margin-top: 5rem;
 }
@@ -133,7 +133,7 @@ main {
 
 @media (min-width: 768px) {
   .tile,
-  .section { padding-block: 4rem; }
+  .section { padding-block: 3.5rem; }
 }
 
 /* span classes from the previous layout are intentionally inert now */
@@ -460,31 +460,83 @@ main {
 .entry {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.55rem;
-  padding: 1.5rem 0;
+  gap: 0.7rem;
+  padding: 1.4rem 0;
   border-bottom: 1px solid var(--color-rule);
 }
 
 .entry:last-child { border-bottom: none; }
 
-@media (min-width: 700px) {
+@media (min-width: 640px) {
   .entry {
-    grid-template-columns: 2.5rem minmax(7rem, 9rem) 1fr;
-    gap: 0 1.4rem;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0 1.75rem;
     align-items: start;
-    padding: 1.6rem 0;
+    padding: 1.5rem 0;
   }
 }
 
+.entry-logo-cell { padding-top: 0.2rem; }
+
+.entry-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 1.55rem;
+  object-fit: contain;
+  object-position: left top;
+  opacity: 0.7;
+  filter: brightness(0) saturate(100%);   /* normalize brand colors to ink */
+  transition: opacity 180ms ease;
+}
+
+.dark .entry-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+[dir="rtl"] .entry-logo { object-position: right top; }
+
+.entry:hover .entry-logo { opacity: 1; }
+
+/* ====== Hero "previously at" logo strip ====== */
+
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+.strip-logo {
+  display: block;
+  width: auto;
+  height: 1.35rem;
+  max-width: 7.5rem;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: brightness(0) saturate(100%);
+  transition: opacity 200ms ease;
+}
+
+.dark .strip-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.62;
+}
+
+.logo-strip:hover .strip-logo { opacity: 0.4; }
+.logo-strip .strip-logo:hover { opacity: 1; }
+
 .entry .entry-period {
   font-family: var(--font-family-mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   letter-spacing: 0.01em;
   color: var(--color-muted);
-  padding-top: 0.2rem;
 }
 
 .entry .entry-role {
+  margin-top: 0.35rem;
   font-family: var(--display-font);
   font-weight: 600;
   font-size: 1.05rem;

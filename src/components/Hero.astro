@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/index';
-import { heroContent, roleTracks } from '../content/homepageContent';
+import { heroContent } from '../content/homepageContent';
 
 interface Props {
   locale: Locale;
@@ -9,7 +9,7 @@ interface Props {
 const { locale } = Astro.props;
 const isHe = locale === 'he';
 
-// Headline split so the closing phrase can carry the animated gradient accent.
+// Headline split so the closing phrase reads as a quiet, dimmed continuation.
 const headlineLead = isHe
   ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — '
   : 'Customer Success engineering, IT management, and applied AI — ';
@@ -18,14 +18,22 @@ const headlineAccent = isHe
   : 'built and operated end-to-end.';
 
 const ctas = isHe
-  ? { primary: 'בוא נדבר', secondary: 'ראה עבודות' }
-  : { primary: 'Start a conversation', secondary: 'See selected work' };
+  ? { primary: 'בוא נדבר', secondary: 'הניסיון שלי' }
+  : { primary: 'Start a conversation', secondary: 'View experience' };
 
 const statusText = isHe
   ? 'פתוח לתפקידים חדשים · ישראל · מרחוק־פרוש'
   : 'Open to new roles · Israel · Remote-friendly';
 
-const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for · jump to proof';
+const prevLabel = isHe ? 'בעבר ב־' : 'Previously at';
+
+// Recognizable brands worked for, shown as a monochrome credibility strip.
+const prevLogos = [
+  { src: '/logos/microsoft.svg', name: 'Microsoft' },
+  { src: '/logos/claroty.png', name: 'Claroty' },
+  { src: '/logos/profero.svg', name: 'Profero' },
+  { src: '/logos/ajax-union.svg', name: 'Ajax Union' },
+];
 
 const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
 ---
@@ -45,7 +53,7 @@ const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
     ))}
   </div>
 
-  <h1 class="display display-xl max-w-5xl reveal" style="--reveal-delay:120ms">
+  <h1 class="display display-xl reveal" style="--reveal-delay:120ms">
     {headlineLead}<span class="text-gradient">{headlineAccent}</span>
   </h1>
 
@@ -53,27 +61,30 @@ const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
     {heroContent.intro[locale]}
   </p>
 
-  <div class="mt-6 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
+  <div class="mt-7 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
     <a href="#contact" class="btn btn-primary">
       {ctas.primary}
       <span aria-hidden="true">→</span>
     </a>
-    <a href="#work" class="btn btn-ghost">
+    <a href="#experience" class="btn btn-ghost">
       {ctas.secondary}
       <span aria-hidden="true">↓</span>
     </a>
   </div>
 
-  <div class="mt-8 lg:mt-10 reveal" style="--reveal-delay:360ms">
-    <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-3">
-      {openForLabel}
-    </p>
-    <div class="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
-      {roleTracks.map((track, i) => (
-        <a href={track.href} class="track-card reveal" style={`--reveal-delay:${400 + i * 70}ms`}>
-          <span class="track-code" aria-hidden="true">{track.code}</span>
-          <span class="track-label">{track.label[locale]}</span>
-        </a>
+  <div class="mt-9 reveal" style="--reveal-delay:360ms">
+    <p class="eyebrow mb-3.5">{prevLabel}</p>
+    <div class="logo-strip">
+      {prevLogos.map((logo) => (
+        <img
+          class="strip-logo"
+          src={logo.src}
+          alt={logo.name}
+          loading="lazy"
+          decoding="async"
+          width="120"
+          height="28"
+        />
       ))}
     </div>
   </div>

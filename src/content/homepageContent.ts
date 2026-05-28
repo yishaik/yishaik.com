@@ -45,7 +45,7 @@ export const roleTracks: RoleTrack[] = [
   },
   {
     code: 'AI',
-    href: '#work-tailorcv',
+    href: '#skills',
     label: {
       en: 'AI engineering, automation, internal tools, agent workflows',
       he: 'הנדסת AI, אוטומציה, כלים פנימיים, סוכנים',
