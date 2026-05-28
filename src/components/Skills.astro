@@ -11,31 +11,30 @@ const isHe = locale === 'he';
 ---
 
 <section id="skills" class="section page-shell">
-  <p class="section-label mb-10">05 / {isHe ? 'מיומנויות' : 'Skills'}</p>
-
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] lg:gap-14 mb-10 lg:mb-12">
-    <h2 class="display display-md max-w-xl">
+  <div class="section-header">
+    <p class="section-label">05 / {isHe ? 'מיומנויות' : 'Skills'}</p>
+    <h2 class="display display-lg mt-4 max-w-3xl">
       {isHe
         ? 'הערימה היומיומית — מהשפה ועד לתשתית.'
         : 'The day-to-day stack — from language to infrastructure.'}
     </h2>
-    <p class="prose-body max-w-xl lg:pt-3">
+    <p class="prose-body mt-4 max-w-2xl">
       {isHe
         ? 'לא רשימה שאפתנית — רק הכלים שאני עובד איתם באופן שוטף בבנייה, באוטומציה ובהפעלה.'
         : 'Not an aspirational list — just the tools I actually work with day-to-day across building, automation, and operations.'}
     </p>
   </div>
 
-  <div class="border-t border-[color:var(--color-rule)]">
+  <div class="grid gap-4 md:grid-cols-2">
     {skillCategories.map((cat, i) => (
-      <div class="grid gap-4 border-b border-[color:var(--color-rule)] py-5 md:grid-cols-[minmax(10rem,12rem)_1fr] md:gap-12 md:py-7">
-        <div>
-          <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
+      <div class="card">
+        <div class="flex items-baseline justify-between gap-3">
+          <h3 class="display text-base font-semibold text-ink">{cat.name[locale]}</h3>
+          <span class="mono text-[0.65rem] tracking-[0.14em] uppercase text-muted">
             {String(i + 1).padStart(2, '0')}
-          </p>
-          <h3 class="display text-lg text-ink mt-2">{cat.name[locale]}</h3>
+          </span>
         </div>
-        <div class="flex flex-wrap gap-1.5 md:items-center">
+        <div class="mt-4 flex flex-wrap gap-1.5">
           {cat.skills.map((skill) => (
             <span class="tag tag-accent">{skill}</span>
           ))}
