@@ -1,11 +1,34 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#FCFBF8"/>
-  <rect x="48" y="48" width="1104" height="534" rx="28" fill="#F5F1EA" stroke="rgba(22,22,22,0.10)"/>
-  <rect x="92" y="92" width="84" height="36" rx="18" fill="#E8EEFf"/>
-  <text x="116" y="116" fill="#163EAF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.18em">YK</text>
-  <text x="92" y="210" fill="#161616" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700">Yishai Kaminsky</text>
-  <text x="92" y="284" fill="#161616" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">Practical AI systems, automations, and internal tools</text>
-  <text x="92" y="332" fill="#5F6368" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">grounded in real IT, infrastructure, and operations.</text>
-  <text x="92" y="414" fill="#5F6368" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500">yishaik.com</text>
-  <text x="92" y="458" fill="#5F6368" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500">AI • Automation • Internal Tools • Technical Operations</text>
+  <rect width="1200" height="630" fill="#f6f2eb"/>
+  <rect x="48" y="48" width="1104" height="534" rx="2" fill="none" stroke="rgba(26,23,20,0.10)"/>
+
+  <g font-family="JetBrains Mono, ui-monospace, Menlo, monospace" font-size="14" fill="#6e655a" letter-spacing="2.2">
+    <text x="92" y="120" font-weight="500">YISHAI KAMINSKY · YISHAIK.COM</text>
+  </g>
+
+  <g font-family="Fraunces, Georgia, serif" fill="#1a1714">
+    <text x="92" y="240" font-size="64" font-weight="400" letter-spacing="-1.2">Customer Success engineering,</text>
+    <text x="92" y="310" font-size="64" font-weight="400" letter-spacing="-1.2">IT management, and applied AI</text>
+  </g>
+
+  <text x="92" y="370" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="400" fill="#6e655a" letter-spacing="-0.2">
+    Built and operated end-to-end. 17+ years.
+  </text>
+
+  <line x1="92" y1="450" x2="1108" y2="450" stroke="rgba(26,23,20,0.12)" stroke-width="1"/>
+
+  <g font-family="JetBrains Mono, ui-monospace, Menlo, monospace" font-size="16" letter-spacing="1.8">
+    <text x="92"  y="498" fill="#8a4a2a" font-weight="500">CS</text>
+    <text x="142" y="498" fill="#1a1714">Customer Success</text>
+    <text x="382" y="498" fill="#8a4a2a" font-weight="500">IT</text>
+    <text x="432" y="498" fill="#1a1714">IT management</text>
+    <text x="660" y="498" fill="#8a4a2a" font-weight="500">AI</text>
+    <text x="710" y="498" fill="#1a1714">AI engineering</text>
+    <text x="940" y="498" fill="#8a4a2a" font-weight="500">··</text>
+    <text x="990" y="498" fill="#1a1714">Independent</text>
+  </g>
+
+  <text x="92" y="555" font-family="Inter, Arial, sans-serif" font-size="16" fill="#6e655a">
+    Israel · Remote-friendly · Open to new roles
+  </text>
 </svg>

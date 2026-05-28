@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../i18n/index';
 import { selectedWorkContent } from '../content/selectedWork';
+import TailorCvFlow from './TailorCvFlow.astro';
 
 interface Props {
   locale: Locale;
@@ -10,59 +11,57 @@ const { locale } = Astro.props;
 const isHe = locale === 'he';
 
 const labels = isHe
-  ? { repo: 'ריפו', live: 'דמו חי', arrow: '←' }
-  : { repo: 'Repository', live: 'Live demo', arrow: '→' };
+  ? { repo: 'ריפו', live: 'דמו' }
+  : { repo: 'Repository', live: 'Live demo' };
+
+const meta = selectedWorkContent.labels;
 ---
 
 <section id="work" class="section page-shell">
-  <div class="mb-10 flex items-baseline justify-between gap-6">
-    <span class="section-code">§02 / {isHe ? 'עבודות נבחרות' : 'SELECTED WORK'}</span>
-    <span class="eyebrow hidden sm:inline">{isHe ? 'שלוש הוכחות' : 'Three proofs'}</span>
+  <div class="section-header">
+    <p class="section-label">03 / {isHe ? 'עבודות נבחרות' : 'Selected work'}</p>
+    <h2 class="display display-lg mt-4 max-w-3xl">{selectedWorkContent.title[locale]}</h2>
+    <p class="prose-lede mt-4 max-w-2xl">{selectedWorkContent.intro[locale]}</p>
   </div>
 
-  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)] lg:gap-16">
-    <div class="lg:sticky lg:top-28 lg:self-start">
-      <h2 class="display display-md">{selectedWorkContent.title[locale]}</h2>
-      <p class="prose-body mt-6 max-w-md">{selectedWorkContent.intro[locale]}</p>
-    </div>
-
-    <div>
-      {selectedWorkContent.items.map((item, i) => (
-        <article class="work-card">
+  <div class="grid gap-6">
+    {selectedWorkContent.items.map((item, i) => (
+      <article id={`work-${item.id}`} class="card card-interactive scroll-mt-28">
+        <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.8fr)] lg:gap-10">
           <div>
-            <div class="mono text-[0.7rem] tracking-[0.18em] uppercase text-accent">
+            <p class="mono text-[0.66rem] tracking-[0.16em] uppercase text-accent">
               {String(i + 1).padStart(2, '0')} · {item.eyebrow[locale]}
-            </div>
-            <h3 class="display text-3xl lg:text-4xl mt-3 text-ink">{item.name}</h3>
-            <div class="mt-5 flex flex-wrap gap-1.5">
+            </p>
+            <h3 class="display display-md mt-3">{item.name}</h3>
+            <div class="mt-4 flex flex-wrap gap-1.5">
               {item.tags.map((tag) => <span class="tag">{tag}</span>)}
             </div>
-          </div>
 
-          <div>
-            <p class="prose-body">{item.summary[locale]}</p>
-            <ul class="mt-5 space-y-2.5">
-              {item.proofBullets[locale].map((bullet) => (
-                <li class="flex gap-3 text-sm leading-6 text-muted">
-                  <span class="mono text-accent select-none" aria-hidden="true">—</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
+            <dl class="mt-5 grid gap-x-4 gap-y-1.5 text-sm grid-cols-[5.5rem_1fr]">
+              <dt class="mono text-[0.65rem] tracking-[0.14em] uppercase text-muted self-start mt-0.5">
+                {meta.status[locale]}
+              </dt>
+              <dd class="text-ink-soft">{item.status[locale]}</dd>
+
+              <dt class="mono text-[0.65rem] tracking-[0.14em] uppercase text-muted self-start mt-0.5">
+                {meta.built[locale]}
+              </dt>
+              <dd class="text-ink-soft">{item.built[locale]}</dd>
+            </dl>
 
             {item.links && item.links.length > 0 && (
-              <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+              <div class="mt-5 flex flex-col gap-2">
                 {item.links.map((link) => (
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group inline-flex items-baseline gap-2 text-sm link-underline"
+                    class="group inline-flex items-baseline gap-2 text-sm"
                   >
-                    <span class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted group-hover:text-accent transition-colors">
+                    <span class="mono text-[0.65rem] tracking-[0.14em] uppercase text-muted w-12 shrink-0 group-hover:text-accent transition-colors">
                       {link.label === 'repo' ? labels.repo : labels.live}
                     </span>
-                    <span class="text-ink">
+                    <span class="text-ink link-underline">
                       {link.href.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                     </span>
                     <span aria-hidden="true" class="text-muted group-hover:text-accent transition-colors">↗</span>
@@ -71,8 +70,30 @@ const labels = isHe
               </div>
             )}
           </div>
-        </article>
-      ))}
-    </div>
+
+          <div>
+            <p class="text-[0.96rem] leading-7 text-ink-soft">{item.summary[locale]}</p>
+
+            <div class="mt-5 grid gap-2 text-sm grid-cols-[5.5rem_1fr]">
+              <p class="mono text-[0.65rem] tracking-[0.14em] uppercase text-muted self-start mt-0.5">
+                {meta.problem[locale]}
+              </p>
+              <p class="text-muted leading-6">{item.problem[locale]}</p>
+            </div>
+
+            {item.id === 'tailorcv' && <TailorCvFlow locale={locale} />}
+
+            <ul class="mt-6 space-y-2.5">
+              {item.proofBullets[locale].map((bullet) => (
+                <li class="flex gap-3 text-sm leading-6 text-muted">
+                  <span class="mono text-accent shrink-0" aria-hidden="true">→</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))}
   </div>
 </section>

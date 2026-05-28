@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/index';
-import { heroContent } from '../content/homepageContent';
+import { heroContent, roleTracks } from '../content/homepageContent';
 
 interface Props {
   locale: Locale;
@@ -9,67 +9,54 @@ interface Props {
 const { locale } = Astro.props;
 const isHe = locale === 'he';
 
-// Build a headline with an emphasized word wrapped in <em>
-const headlineWithAccent = isHe
-  ? 'מערכות <em>AI פרקטיות</em>, אוטומציות וכלים פנימיים — עם עומק אמיתי ב־IT, תשתיות ותפעול.'
-  : 'Practical <em>AI systems</em>, automations, and internal tools — grounded in real IT, infrastructure, and operations.';
+const headline = isHe
+  ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — בנייה והפעלה מקצה לקצה.'
+  : 'Customer Success engineering, IT management, and applied AI — built and operated end-to-end.';
 
-const quickFacts = isHe
-  ? [
-      { key: 'BASED', value: 'ישראל · מרחוק־פרוש' },
-      { key: 'STATUS', value: 'פתוח לתפקידים חדשים' },
-      { key: 'FOCUS', value: 'AI · אוטומציה · IT' },
-    ]
-  : [
-      { key: 'BASED', value: 'Israel · Remote-friendly' },
-      { key: 'STATUS', value: 'Open to new roles' },
-      { key: 'FOCUS', value: 'AI · Automation · IT' },
-    ];
+const ctas = isHe
+  ? { primary: 'בוא נדבר', secondary: 'ראה עבודות' }
+  : { primary: 'Start a conversation', secondary: 'See selected work' };
+
+const statusText = isHe
+  ? 'פתוח לתפקידים חדשים · ישראל · מרחוק־פרוש'
+  : 'Open to new roles · Israel · Remote-friendly';
+
+const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for · jump to proof';
 ---
 
-<section id="cover" class="section page-shell pt-32 lg:pt-40 relative">
-  <div class="flex flex-col gap-10 lg:gap-14">
-    <div class="flex items-center justify-between gap-6">
-      <span class="section-code">§00 / COVER</span>
-      <span class="eyebrow hidden sm:inline">
-        {isHe ? 'תיק אישי · גרסה 2026' : 'Personal Dossier · Edition 2026'}
-      </span>
-    </div>
+<section id="cover" class="section page-shell pt-28 lg:pt-32">
+  <p class="eyebrow mb-5">{heroContent.kicker[locale]}</p>
 
-    <div class="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)] lg:items-end">
-      <div>
-        <p class="eyebrow mb-5">{heroContent.kicker[locale]}</p>
-        <h1 class="display display-lg" set:html={headlineWithAccent}></h1>
-        <p class="prose-lede mt-8 max-w-2xl">
-          {heroContent.intro[locale]}
-        </p>
-        <div class="mt-10 flex flex-wrap items-center gap-3">
-          <a href="#contact" class="btn btn-primary">
-            {isHe ? 'בוא נדבר' : 'Start a conversation'}
-            <span aria-hidden="true">→</span>
-          </a>
-          <a href="#work" class="btn btn-ghost">
-            {isHe ? 'ראה עבודות' : 'See selected work'}
-          </a>
-        </div>
-      </div>
+  <h1 class="display display-xl max-w-4xl">{headline}</h1>
 
-      <aside class="lg:pb-2">
-        <hr class="rule mb-5" />
-        <dl class="grid gap-3">
-          {quickFacts.map((f) => (
-            <div class="flex items-baseline justify-between gap-4">
-              <dt class="mono text-[0.68rem] tracking-[0.18em] uppercase text-muted">{f.key}</dt>
-              <dd class="text-sm text-ink">{f.value}</dd>
-            </div>
-          ))}
-        </dl>
-        <hr class="rule mt-5" />
-        <p class="mt-5 text-sm text-muted">
-          <span class="mono text-accent">↓</span>
-          {isHe ? ' גלול לתוכן המלא' : ' Scroll for the full dossier'}
-        </p>
-      </aside>
+  <p class="prose-lede mt-6 max-w-2xl">{heroContent.intro[locale]}</p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3">
+    <a href="#contact" class="btn btn-primary">
+      {ctas.primary}
+      <span aria-hidden="true">→</span>
+    </a>
+    <a href="#work" class="btn btn-ghost">
+      {ctas.secondary}
+    </a>
+  </div>
+
+  <p class="mt-7 inline-flex items-center gap-2 mono text-xs text-muted">
+    <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+    {statusText}
+  </p>
+
+  <div class="mt-12 lg:mt-16">
+    <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-4">
+      {openForLabel}
+    </p>
+    <div class="grid gap-3 sm:grid-cols-2">
+      {roleTracks.map((track) => (
+        <a href={track.href} class="track-card">
+          <span class="track-code" aria-hidden="true">{track.code}</span>
+          <span class="track-label">{track.label[locale]}</span>
+        </a>
+      ))}
     </div>
   </div>
 </section>

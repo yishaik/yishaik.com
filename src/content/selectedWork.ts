@@ -5,27 +5,42 @@ interface WorkLink {
   href: string;
 }
 
+export interface ArchitectureFlow {
+  steps: LocalizedText[];
+  caption: LocalizedText;
+}
+
 export interface SelectedWorkItem {
   id: string;
   name: string;
   eyebrow: LocalizedText;
+  problem: LocalizedText;
   summary: LocalizedText;
   proofBullets: {
     en: string[];
     he: string[];
   };
   tags: string[];
+  status: LocalizedText;
+  built: LocalizedText;
   links?: WorkLink[];
+  architecture?: ArchitectureFlow;
 }
 
 export const selectedWorkContent = {
   title: {
-    en: 'A small set of proof — work and code to be evaluated by.',
-    he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שחשוב לי שיעריכו אצלי.',
+    en: 'A small set of proofs — work and code worth evaluating.',
+    he: 'סט קטן וממוקד של הוכחות — עבודות וקוד שכדאי להעריך לפיהם.',
   },
   intro: {
-    en: 'Instead of a generic gallery, a few projects and repositories that best demonstrate systems thinking, implementation depth, and the ability to connect AI to real operational work.',
-    he: 'במקום גלריית פרויקטים כללית, כמה עבודות וריפוזיטוריז שמדגימים הכי טוב חשיבה מערכתית, עומק ביצוע, ויכולת לחבר AI לעבודה תפעולית אמיתית.',
+    en: 'Three projects that show applied AI as something to actually ship — a hiring-workflow tool, a persona chat experiment, and this site you are reading.',
+    he: 'שלושה פרויקטים שמראים AI יישומי בתור משהו שמשלחים לפרודקשן — כלי לתהליכי גיוס, ניסוי עם פרסונות, והאתר שאתה קורא עכשיו.',
+  },
+  labels: {
+    problem: { en: 'Problem', he: 'בעיה' },
+    stack: { en: 'Stack', he: 'מחסנית' },
+    status: { en: 'Status', he: 'סטטוס' },
+    built: { en: 'Built', he: 'בנייה' },
   },
   items: [
     {
@@ -35,84 +50,115 @@ export const selectedWorkContent = {
         en: 'Applied AI · Hiring workflow',
         he: 'AI יישומי · תהליך גיוס',
       },
+      problem: {
+        en: 'Candidates and recruiters need CVs tailored to a specific job without fabricating experience.',
+        he: 'מועמדים ומגייסים צריכים קורות חיים מותאמים למשרה מבלי לבדות ניסיון.',
+      },
       summary: {
-        en: 'A recruiter-facing CV tailoring system that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
-        he: 'מערכת התאמת קורות חיים שממפה דרישות משרה לניסיון אמיתי, תוך שמירה על פלט מדויק, שימושי ומוגבל היטב.',
+        en: 'A CV-tailoring assistant that maps job requirements to real experience while keeping the output factual, useful, and constrained.',
+        he: 'עוזר להתאמת קורות חיים שממפה דרישות משרה לניסיון אמיתי, תוך שמירה על פלט מדויק, שימושי ומוגבל היטב.',
       },
       proofBullets: {
         en: [
-          'Shows product thinking, guardrails, and credibility-aware AI output.',
+          'Product thinking, guardrails, and credibility-aware AI output.',
           'Turns messy hiring inputs into a structured, repeatable workflow.',
           'Bridges applied AI with a clear business use case.',
         ],
         he: [
           'חשיבה מוצרית, guardrails, ופלט AI שמודע לאמינות.',
-          'הופך קלט גיוסי מבולגן לזרימת עבודה מסודרת.',
-          'מחבר בין AI יישומי, צורך עסקי ברור וקהל יעד ברור.',
+          'הופך קלט גיוסי מבולגן לזרימת עבודה מסודרת וחוזרת.',
+          'מחבר בין AI יישומי לבין צורך עסקי ברור.',
         ],
       },
       tags: ['Python', 'FastAPI', 'React', 'Gemini', 'Applied AI'],
+      status: { en: 'Live · active', he: 'באוויר · פעיל' },
+      built: { en: 'Solo', he: 'סולו' },
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/TailorCV' },
         { label: 'live', href: 'https://tailor-cv-tau.vercel.app' },
+      ],
+      architecture: {
+        steps: [
+          { en: 'CV + Job spec', he: 'קו״ח + משרה' },
+          { en: 'Extract facts & requirements', he: 'חילוץ עובדות ודרישות' },
+          { en: 'Map evidence ↔ requirements', he: 'מיפוי עדויות לדרישות' },
+          { en: 'Rewrite (fabrication guard)', he: 'כתיבה מחדש (חסם הזיות)' },
+          { en: 'Tailored CV + cover letter', he: 'קו״ח + מכתב מותאמים' },
+        ],
+        caption: {
+          en: 'Every step is anchored in evidence — the guardrail blocks any claim not present in the source CV.',
+          he: 'כל שלב מעוגן בעדות — ה־guardrail חוסם כל הצהרה שלא קיימת בקו״ח המקור.',
+        },
+      },
+    },
+    {
+      id: 'whatsai',
+      name: 'whatsai',
+      eyebrow: {
+        en: 'Applied AI · Persona chat',
+        he: 'AI יישומי · צ׳אט פרסונות',
+      },
+      problem: {
+        en: 'A small playground for switching between AI personas without leaking the API key to the client.',
+        he: 'מגרש משחקים קטן למעבר בין פרסונות AI בלי לחשוף את ה־API key ללקוח.',
+      },
+      summary: {
+        en: 'AI Persona Chat — a small web app for talking to different LLM-backed personas, with API routes that keep the model key on the server.',
+        he: 'AI Persona Chat — אפליקציית ווב קטנה לשיחה עם פרסונות מבוססות־LLM, עם ראוטי שרת ששומרים את מפתח המודל מחוץ ללקוח.',
+      },
+      proofBullets: {
+        en: [
+          'Switch between personas to converse with distinct LLM-backed characters.',
+          'Server-side API routes keep the Gemini key off the client, even in dev.',
+          'Side project shipped end-to-end — Vite + React, deployed on Vercel.',
+        ],
+        he: [
+          'מעבר בין פרסונות לשיחה עם דמויות שונות מבוססות־LLM.',
+          'ראוטים בצד שרת שומרים את מפתח ה־Gemini הרחק מהלקוח, גם בפיתוח.',
+          'פרויקט צד שנשלח מקצה לקצה — Vite + React, פרוס ב־Vercel.',
+        ],
+      },
+      tags: ['TypeScript', 'React', 'Vite', 'Gemini', 'Vercel'],
+      status: { en: 'Live · experiment', he: 'באוויר · ניסוי' },
+      built: { en: 'Solo', he: 'סולו' },
+      links: [
+        { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
+        { label: 'live', href: 'https://whatsai.yishaik.com' },
       ],
     },
     {
       id: 'yishaik-com',
       name: 'yishaik.com',
       eyebrow: {
-        en: 'Bilingual personal platform',
-        he: 'פלטפורמה אישית דו־לשונית',
+        en: 'Personal product · Bilingual platform',
+        he: 'מוצר אישי · פלטפורמה דו־לשונית',
+      },
+      problem: {
+        en: 'A bilingual personal site that surfaces positioning, work, and proof in one clear place.',
+        he: 'אתר אישי דו־לשוני שמרכז מיצוב, עבודות והוכחות במקום אחד וברור.',
       },
       summary: {
-        en: 'My personal site — a bilingual surface where I curate positioning, work, and proof in a single clear place.',
-        he: 'האתר האישי שלי — פלטפורמה דו־לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
+        en: 'This site — a bilingual surface that curates positioning, work, and proof in one clear place.',
+        he: 'האתר הזה — פלטפורמה דו־לשונית שמרכזת מיצוב, עבודות והוכחות במקום אחד ברור.',
       },
       proofBullets: {
         en: [
-          'Attention to information design, bilingual UX, and clear positioning.',
-          'Built with Astro and Tailwind, tuned for accessibility and speed.',
-          'An ongoing personal product — not a static profile.',
+          'Information design, bilingual UX, and clear positioning.',
+          'Built with Astro and Tailwind — tuned for accessibility, speed, and SEO.',
+          'An ongoing personal product, not a static profile.',
         ],
         he: [
-          'דגש על עיצוב מידע, חוויית משתמש דו־לשונית ומיצוב ברור.',
-          'נבנה ב-Astro ו-Tailwind, עם דגש על נגישות וביצועים.',
+          'עיצוב מידע, חוויית משתמש דו־לשונית ומיצוב ברור.',
+          'נבנה ב־Astro ו־Tailwind — עם דגש על נגישות, ביצועים ו־SEO.',
           'מוצר אישי מתפתח — לא פרופיל סטטי.',
         ],
       },
       tags: ['Astro', 'Tailwind', 'Bilingual', 'SEO'],
+      status: { en: 'Live · active', he: 'באוויר · פעיל' },
+      built: { en: 'Solo', he: 'סולו' },
       links: [
         { label: 'repo', href: 'https://github.com/yishaik/yishaik.com' },
         { label: 'live', href: 'https://yishaik.com' },
-      ],
-    },
-    {
-      id: 'whatsai',
-      name: 'whatsai',
-      eyebrow: {
-        en: 'Messaging-native AI automation',
-        he: 'אוטומציית AI ממוקדת מסרים',
-      },
-      summary: {
-        en: 'A messaging-focused AI assistant that brings conversational workflows and automation directly into WhatsApp.',
-        he: 'עוזר AI ממוקד מסרים שמביא תהליכי שיחה ואוטומציה ישירות לתוך WhatsApp.',
-      },
-      proofBullets: {
-        en: [
-          'Meets users on the platform they already use — no new surface to learn.',
-          'Connects messaging, automation, and AI response into one practical flow.',
-          'Applied AI aimed at real day-to-day workflows, not demos.',
-        ],
-        he: [
-          'פוגש משתמשים בפלטפורמה שכבר קיימת אצלם — בלי ממשק חדש ללמוד.',
-          'מחבר מסרים, אוטומציה ותגובת AI לזרימה אחת פרקטית.',
-          'AI יישומי שמכוון לעבודה יומיומית אמיתית.',
-        ],
-      },
-      tags: ['TypeScript', 'WhatsApp', 'AI Assistant', 'Automation'],
-      links: [
-        { label: 'repo', href: 'https://github.com/yishaik/whatsai' },
-        { label: 'live', href: 'https://whatsai.yishaik.com' },
       ],
     },
   ] satisfies SelectedWorkItem[],

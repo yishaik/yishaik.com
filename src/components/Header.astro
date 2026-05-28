@@ -10,29 +10,54 @@ interface Props {
 const { locale } = Astro.props;
 const altLocale = getAlternateLocale(locale);
 const altPath = getLocalePath(altLocale);
+const isHe = locale === 'he';
+
+const navItems = isHe
+  ? [
+      { href: '#about', label: 'אודות' },
+      { href: '#how-i-work', label: 'איך אני עובד' },
+      { href: '#work', label: 'עבודות' },
+      { href: '#experience', label: 'ניסיון' },
+      { href: '#contact', label: 'צור קשר' },
+    ]
+  : [
+      { href: '#about', label: 'About' },
+      { href: '#how-i-work', label: 'How I work' },
+      { href: '#work', label: 'Work' },
+      { href: '#experience', label: 'Experience' },
+      { href: '#contact', label: 'Contact' },
+    ];
 ---
 
 <header id="site-header" class="fixed inset-x-0 top-0 z-30 transition-[background,border-color,backdrop-filter] duration-200">
-  <div class="page-shell flex h-16 items-center justify-between">
-    <a href={getLocalePath(locale)} class="mono text-xs tracking-[0.14em] uppercase text-ink hover:text-accent transition-colors">
+  <div class="page-shell flex h-16 items-center justify-between gap-4">
+    <a href={getLocalePath(locale)} class="mono text-xs tracking-[0.12em] uppercase text-ink hover:text-accent transition-colors">
       <span class="inline-flex items-center gap-2">
         <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
         Yishai&nbsp;Kaminsky
       </span>
     </a>
 
+    <nav class="hidden md:flex items-center gap-5 text-sm">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-muted hover:text-ink transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
     <div class="flex items-center gap-1.5">
-      <a
-        href="#contact"
-        class="btn btn-ghost btn-sm hidden sm:inline-flex"
-      >
+      <a href="#contact" class="btn btn-ghost btn-sm md:hidden">
         {t(locale, 'nav.contact')}
       </a>
-      <div class="mx-1 h-5 w-px bg-rule hidden sm:block" style="background:var(--color-rule)"></div>
+      <div class="mx-1 h-5 w-px hidden sm:block" style="background:var(--color-rule)"></div>
       <ThemeToggle client:load />
       <a
         href={altPath}
-        class="mono rounded-full border border-[color:var(--color-rule)] px-3 py-1.5 text-[0.72rem] tracking-[0.12em] uppercase text-ink hover:border-[color:var(--color-accent)] hover:text-accent transition-colors"
+        class="mono rounded-md border border-[color:var(--color-rule)] px-2.5 py-1.5 text-[0.7rem] tracking-[0.1em] uppercase text-ink hover:border-[color:var(--color-ink)] transition-colors"
       >
         {t(locale, 'lang.switch')}
       </a>
@@ -45,8 +70,8 @@ const altPath = getLocalePath(altLocale);
   const scroll = () => {
     if (!header) return;
     if (window.scrollY > 12) {
-      header.style.background = 'color-mix(in srgb, var(--color-paper) 82%, transparent)';
-      header.style.backdropFilter = 'blur(12px)';
+      header.style.background = 'color-mix(in srgb, var(--color-paper) 85%, transparent)';
+      header.style.backdropFilter = 'blur(10px)';
       header.style.borderBottom = '1px solid var(--color-rule)';
     } else {
       header.style.background = 'transparent';

@@ -23,7 +23,7 @@ const mailtoBody = isHe
 const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
 
 const channels = [
-  { key: 'WHATSAPP', label: whatsappDisplay, href: whatsappHref, primary: true },
+  { key: 'WHATSAPP', label: whatsappDisplay, href: whatsappHref },
   { key: 'EMAIL', label: emailAddress, href: mailtoHref },
   { key: 'LINKEDIN', label: 'linkedin.com/in/yishaik', href: 'https://www.linkedin.com/in/yishaik/' },
   { key: 'GITHUB', label: 'github.com/yishaik', href: 'https://github.com/yishaik' },
@@ -32,38 +32,76 @@ const channels = [
 
 const openFor = isHe
   ? [
-      'תפקידי AI systems ואוטומציה',
-      'תפקידי internal tools או technical operations',
-      'שיחות מגייסים ושיחות hiring רציניות',
+      'Customer Success engineering, implementation, TAM',
+      'ניהול IT, תפעול טכני, תפקידי infrastructure',
+      'הנדסת AI, אוטומציה, סוכנים וכלים פנימיים',
+      'פרויקטים עצמאיים וייעוץ ממוקד',
     ]
   : [
-      'AI systems and automation roles',
-      'Internal tools or technical operations work',
-      'Recruiter outreach and hiring conversations',
+      'Customer Success engineering, implementation, TAM',
+      'IT management, technical operations, infrastructure',
+      'AI engineering, automation, agents, internal tools',
+      'Independent project work and focused consulting',
     ];
+
+const bios = {
+  oneLine: {
+    en: 'Yishai Kaminsky — IT manager and engineer building practical AI automations across customer success, IT, and applied AI.',
+    he: 'ישי קמינסקי — מנהל IT ומהנדס שבונה אוטומציות AI פרקטיות, על הציר של Customer Success, IT ו־AI יישומי.',
+  },
+  short: {
+    en: 'Yishai Kaminsky is an IT manager and systems engineer with 17+ years across customer-facing engineering, IT management, and applied AI. He has shipped roles at Microsoft, Claroty, Secure Islands, abra, and Profero, and builds AI tools and automations under his own name. Based in Israel; open to remote, hybrid, and on-site work.',
+    he: 'ישי קמינסקי הוא מנהל IT ומהנדס מערכות עם 17+ שנים בהנדסה מול לקוחות, ניהול IT ו־AI יישומי. עבר תפקידים במיקרוסופט, קלרוטי, Secure Islands, אברה ופרופרו, ובונה כלי AI ואוטומציות תחת השם שלו. מבוסס בישראל; פתוח לעבודה מרחוק, היברידית ובמשרד.',
+  },
+  long: {
+    en: 'Yishai Kaminsky is an IT manager and systems engineer who has spent 17+ years working at the intersection of customer-facing engineering, IT and operations, and applied AI. His professional roles span Microsoft (Premier-tier customer support), Secure Islands Technologies (post-sales engineering for international financial and legal institutions), Claroty (Tier 3 escalations for an OT/IoT cybersecurity platform), abra (multi-client cloud IT and security services), and Profero (IT management at a cyber incident-response firm). Alongside professional roles he builds practical AI tools and automations — including TailorCV, a CV-tailoring assistant with built-in fabrication guards, and whatsai, a small AI persona chat experiment. He cares about reliability — logging, permissions, fallback paths, and human approval where it matters — and prefers durable solutions over fragile demos. Bilingual in English and Hebrew. Based in Israel; open to full-time, hybrid, remote, or on-site work in the Tel Aviv area.',
+    he: 'ישי קמינסקי הוא מנהל IT ומהנדס מערכות, עם 17+ שנים בצומת של הנדסה מול לקוחות, IT ותפעול, ו־AI יישומי. בין התפקידים: תמיכה ללקוחות Premier במיקרוסופט, הנדסת פוסט־סייל ב־Secure Islands במוסדות פיננסיים ומשפטיים בינלאומיים, אסקלציות Tier 3 בקלרוטי בפלטפורמת אבטחת OT/IoT, מתן שירותי IT ואבטחת ענן ללקוחות מרובים באברה, וניהול IT בפרופרו — חברת תגובה לאירועי סייבר. במקביל לעבודה המקצועית בונה כלי AI ואוטומציות — כולל TailorCV, עוזר להתאמת קו״ח עם חסם הזיות מובנה, ו־whatsai, ניסוי קטן של צ׳אט עם פרסונות AI. חשובה לו אמינות — לוגים, הרשאות, מסלולי fallback ואישור אנושי איפה שצריך — ומעדיף פתרונות עמידים על פני דמואים שבירים. דו־לשוני (אנגלית ועברית). מבוסס בישראל; פתוח לעבודה במשרה מלאה, היברידית, מרחוק או במשרד באזור תל אביב.',
+  },
+};
+
+const bioLabels = isHe
+  ? {
+      title: 'ביוגרפיות לשימוש חוזר',
+      hint: 'העתק והדבק — לכותרת ב־LinkedIn, מייל גיוס, פאנל, או דף אירוע.',
+      oneLine: 'שורה אחת',
+      short: 'קצרה (~50 מילים)',
+      long: 'ארוכה (~150 מילים)',
+      copy: 'העתק',
+      copied: 'הועתק',
+    }
+  : {
+      title: 'Reusable bios',
+      hint: 'Copy-paste — for a LinkedIn headline, recruiter email, panel intro, or event page.',
+      oneLine: 'One-line',
+      short: 'Short (~50 words)',
+      long: 'Long (~150 words)',
+      copy: 'Copy',
+      copied: 'Copied',
+    };
+
+const altLocale = isHe ? 'en' : 'he';
+const altLocaleLabel = isHe ? 'English' : 'עברית';
 ---
 
 <section id="contact" class="section page-shell">
-  <div class="mb-10 flex items-baseline justify-between gap-6">
-    <span class="section-code">§05 / {isHe ? 'צור קשר' : 'CONTACT'}</span>
-    <span class="eyebrow hidden sm:inline">{isHe ? 'השלב הבא' : 'Next step'}</span>
+  <div class="section-header">
+    <p class="section-label">06 / {isHe ? 'צור קשר' : 'Contact'}</p>
+    <h2 class="display display-lg mt-4 max-w-3xl">
+      {isHe
+        ? 'אם יש התאמה — בוא נדבר.'
+        : 'If the fit feels right — let’s talk.'}
+    </h2>
+    <p class="prose-lede mt-4 max-w-2xl">
+      {isHe
+        ? 'פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד ועבודה מערכתית סביב Customer Success, IT, AI ואוטומציה.'
+        : 'Open to conversations about full-time roles, focused consulting, and systems work across Customer Success, IT, AI, and automation.'}
+    </p>
   </div>
 
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,0.4fr)] lg:gap-16">
+  <div class="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
     <div>
-      <h2 class="display display-md max-w-2xl">
-        {isHe
-          ? 'אם יש התאמה, בוא נדבר.'
-          : 'If the fit is relevant, let’s talk.'}
-      </h2>
-      <p class="prose-lede mt-6 max-w-xl">
-        {isHe
-          ? 'פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד, ועבודה מערכתית סביב AI, אוטומציה, כלים פנימיים ו־technical operations.'
-          : 'Open to conversations about full-time roles, focused consulting, and systems work across AI, automation, internal tools, and technical operations.'}
-      </p>
-
-      <div class="mt-10 flex flex-wrap items-center gap-3">
-        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+      <div class="flex flex-wrap items-center gap-3">
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01a1.09 1.09 0 0 0-.792.371c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.695.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347Zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.824 9.824 0 0 1 6.988 2.896 9.821 9.821 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.886Zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .162 5.335.16 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
           </svg>
@@ -74,38 +112,102 @@ const openFor = isHe
         </a>
       </div>
 
-      <dl class="mt-10 divide-y divide-[color:var(--color-rule)] border-y border-[color:var(--color-rule)] max-w-xl">
+      <dl class="mt-8 grid gap-2 max-w-xl">
         {channels.map((c) => (
           <a
             href={c.href}
             target={c.href.startsWith('http') ? '_blank' : undefined}
             rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline gap-4 py-4 transition-colors hover:text-accent"
+            class="card card-interactive flex items-baseline gap-4 !py-3.5 !px-4"
           >
-            <dt class="mono text-[0.7rem] tracking-[0.18em] uppercase text-muted group-hover:text-accent transition-colors">
+            <dt class="mono text-[0.66rem] tracking-[0.14em] uppercase text-muted w-20 shrink-0">
               {c.key}
             </dt>
-            <dd class="text-sm text-ink group-hover:text-accent transition-colors break-all">
-              {c.label}
-            </dd>
-            <span aria-hidden="true" class="text-muted group-hover:text-accent transition-colors">↗</span>
+            <dd class="text-sm text-ink flex-1 break-all">{c.label}</dd>
+            <span aria-hidden="true" class="text-muted">↗</span>
           </a>
         ))}
       </dl>
+
+      <details class="bios mt-8 max-w-2xl group">
+        <summary class="cursor-pointer card !py-4 flex items-center justify-between gap-4">
+          <span>
+            <span class="mono text-[0.66rem] tracking-[0.14em] uppercase text-accent">{bioLabels.title}</span>
+            <span class="mt-1 block text-sm text-muted">{bioLabels.hint}</span>
+          </span>
+          <span class="mono text-xs text-muted group-open:rotate-90 transition-transform" aria-hidden="true">›</span>
+        </summary>
+
+        <div class="mt-3 space-y-3">
+          {([
+            { key: 'oneLine', label: bioLabels.oneLine, text: bios.oneLine[locale] },
+            { key: 'short', label: bioLabels.short, text: bios.short[locale] },
+            { key: 'long', label: bioLabels.long, text: bios.long[locale] },
+          ] as const).map((bio) => (
+            <div class="bio-block">
+              <div class="flex items-baseline justify-between gap-3">
+                <p class="mono text-[0.66rem] tracking-[0.14em] uppercase text-muted">{bio.label}</p>
+                <button
+                  type="button"
+                  data-copy-bio={bio.text}
+                  data-copy-label={bioLabels.copy}
+                  data-copied-label={bioLabels.copied}
+                  class="mono text-[0.66rem] tracking-[0.12em] uppercase text-ink hover:text-accent transition-colors"
+                >
+                  {bioLabels.copy}
+                </button>
+              </div>
+              <p class="mt-2.5 text-sm leading-6 text-ink-soft whitespace-pre-line">{bio.text}</p>
+            </div>
+          ))}
+          <p class="text-xs text-muted">
+            {isHe ? 'גם זמין ב' : 'Also available in'} <a href={isHe ? '/' : '/he/'} class="link-underline text-ink">{altLocaleLabel}</a>.
+          </p>
+        </div>
+      </details>
     </div>
 
-    <aside class="lg:pt-2">
-      <p class="mono text-[0.7rem] tracking-[0.18em] uppercase text-accent">
-        {isHe ? 'פתוח ל' : 'Open for'}
-      </p>
-      <ul class="mt-4 space-y-3 border-t border-[color:var(--color-rule)] pt-4">
-        {openFor.map((item) => (
-          <li class="flex gap-3 text-sm leading-6 text-muted">
-            <span class="mono text-accent select-none" aria-hidden="true">+</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+    <aside>
+      <div class="card">
+        <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
+          {isHe ? 'פתוח ל' : 'Open for'}
+        </p>
+        <ul class="mt-4 space-y-3">
+          {openFor.map((item) => (
+            <li class="flex gap-3 text-sm leading-6 text-ink-soft">
+              <span class="mono text-accent shrink-0" aria-hidden="true">+</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-bio]').forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = btn.dataset.copyBio ?? '';
+      const copyLabel = btn.dataset.copyLabel ?? 'Copy';
+      const copiedLabel = btn.dataset.copiedLabel ?? 'Copied';
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = btn.textContent;
+        btn.textContent = copiedLabel;
+        setTimeout(() => {
+          btn.textContent = original ?? copyLabel;
+        }, 1600);
+      } catch {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try { document.execCommand('copy'); } finally { document.body.removeChild(textarea); }
+      }
+    });
+  });
+</script>

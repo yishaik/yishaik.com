@@ -1,4 +1,5 @@
 export interface Experience {
+  slug: string;
   company: { en: string; he: string };
   role: { en: string; he: string };
   period: string;
@@ -8,31 +9,33 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    slug: 'profero',
     company: { en: 'Profero', he: 'פרופרו' },
     role: { en: 'IT Manager', he: 'מנהל IT' },
     period: 'Jun 2024 — Aug 2025',
     description: {
-      en: 'Managing IT operations and infrastructure.',
-      he: 'ניהול תפעול IT ותשתיות.',
+      en: 'Managing IT operations and infrastructure at a cybersecurity incident-response firm.',
+      he: 'ניהול תפעול IT ותשתיות בחברת תגובה לאירועי סייבר.',
     },
     highlights: {
       en: [
         'IT management and operations oversight',
-        'Remote team coordination',
+        'Cloud and endpoint administration for a distributed team',
       ],
       he: [
         'ניהול IT ופיקוח על תפעול',
-        'תיאום צוות מרחוק',
+        'ניהול ענן ונקודות קצה לצוות מבוזר',
       ],
     },
   },
   {
+    slug: 'abra',
     company: { en: 'abra', he: 'אברה' },
     role: { en: 'IT Specialist', he: 'מומחה IT' },
     period: 'Sep 2020 — May 2024',
     description: {
-      en: 'Providing cloud IT and security services for small and medium businesses.',
-      he: 'מתן שירותי IT ואבטחת ענן לעסקים קטנים ובינוניים.',
+      en: 'Delivered cloud IT and security services to SMB clients — combining hands-on delivery with customer-facing work.',
+      he: 'מתן שירותי IT ואבטחת ענן ללקוחות SMB — שילוב של ביצוע hands-on ועבודה ישירה מול לקוחות.',
     },
     highlights: {
       en: [
@@ -48,127 +51,127 @@ export const experience: Experience[] = [
     },
   },
   {
+    slug: 'claroty',
     company: { en: 'Claroty', he: 'קלרוטי' },
     role: { en: 'Tier 3 Support Engineer', he: 'מהנדס תמיכה Tier 3' },
     period: 'Sep 2017 — Oct 2019',
     description: {
-      en: 'Senior technical support engineering for an OT/IoT cybersecurity platform.',
-      he: 'הנדסת תמיכה טכנית בכירה לפלטפורמת אבטחת סייבר OT/IoT.',
+      en: 'Senior escalation engineer for an OT/IoT cybersecurity platform — owning the hardest issues end-to-end with enterprise customers.',
+      he: 'מהנדס אסקלציה בכיר לפלטפורמת אבטחת OT/IoT — אחריות מקצה לקצה על תקלות מורכבות מול לקוחות ארגוניים.',
     },
     highlights: {
       en: [
-        'Provided Tier 3 escalation support for enterprise customers',
-        'Diagnosed and resolved complex platform and network issues',
-        'Collaborated with R&D on product bugs and improvements',
+        'Tier 3 escalation owner for enterprise customers — diagnosis, fix, and post-incident follow-up',
+        'Bridged customers and R&D on platform bugs, network issues, and product improvements',
+        'Customer-facing throughout: status updates, root-cause writeups, and remediation plans',
       ],
       he: [
-        'תמיכת Tier 3 ללקוחות ארגוניים',
-        'אבחון ופתרון בעיות פלטפורמה ורשת מורכבות',
-        'שיתוף פעולה עם R&D על באגים ושיפורי מוצר',
+        'אחריות על אסקלציות Tier 3 ללקוחות ארגוניים — אבחון, פתרון ומעקב פוסט־אירוע',
+        'גישור בין לקוחות ל־R&D סביב באגים, בעיות רשת ושיפורי מוצר',
+        'עבודה מול לקוחות לאורך כל התהליך: עדכוני סטטוס, סיכומי root-cause ותוכניות תיקון',
       ],
     },
   },
   {
+    slug: 'microsoft',
     company: { en: 'Microsoft', he: 'מיקרוסופט' },
     role: { en: 'Support Engineer', he: 'מהנדס תמיכה' },
     period: 'Jan 2016 — Dec 2016',
     description: {
-      en: 'Top level support to major enterprises and premier customers according to SLA.',
-      he: 'תמיכה ברמה הגבוהה ביותר לארגונים גדולים ולקוחות פרימיום בהתאם ל-SLA.',
+      en: 'Top-tier support for major enterprises and Premier customers — working within strict SLAs and customer-success expectations.',
+      he: 'תמיכה ברמה הגבוהה ביותר ללקוחות ארגוניים ו־Premier — עבודה תחת SLA הדוק וציפיות גבוהות של customer success.',
     },
     highlights: {
       en: [
-        'Enterprise and premier customer support per SLA',
-        'Built a support knowledge center',
-        'Managed migration from start-up to enterprise processes',
+        'Enterprise and Premier customer support under SLA — accountable for resolution and communication',
+        'Built an internal support knowledge center used by the team',
+        'Helped migrate processes from a startup model to enterprise-grade support practices',
       ],
       he: [
-        'תמיכה ללקוחות ארגוניים ופרימיום בהתאם ל-SLA',
-        'הקמת מרכז ידע לתמיכה',
-        'ניהול מעבר מתהליכי סטארט-אפ לארגון',
+        'תמיכה ללקוחות ארגוניים ו־Premier תחת SLA — אחריות על פתרון ועל תקשורת מול הלקוח',
+        'הקמת מרכז ידע פנימי לתמיכה לשימוש הצוות',
+        'סיוע במעבר מתהליכי סטארט־אפ לעבודה ברמת ארגון',
       ],
     },
   },
   {
+    slug: 'secure-islands',
     company: { en: 'Secure Islands Technologies (acquired by Microsoft)', he: 'Secure Islands (נרכשה ע״י מיקרוסופט)' },
-    role: { en: 'Post Sales Engineer', he: 'מהנדס פוסט-סייל' },
+    role: { en: 'Post-Sales Engineer', he: 'מהנדס פוסט־סייל' },
     period: 'Sep 2012 — Jul 2016',
     description: {
-      en: 'Implementation and integration of data security software in major international financial and legal institutions.',
-      he: 'הטמעה ואינטגרציה של תוכנת אבטחת מידע במוסדות פיננסיים ומשפטיים בינלאומיים מובילים.',
+      en: 'Implementation and integration of data-security software at major international financial and legal institutions — long-form customer-facing engineering.',
+      he: 'הטמעה ואינטגרציה של תוכנת אבטחת מידע במוסדות פיננסיים ומשפטיים בינלאומיים מובילים — עבודת הנדסה ממושכת מול לקוחות.',
     },
     highlights: {
       en: [
-        'Integration and implementation at international financial and legal institutions',
-        'B2B client support in Israel and abroad',
-        'Manual software testing',
-        'On-site integration and high-level client support',
+        'Integration and implementation engineer at international financial and legal institutions',
+        'On-site and remote B2B customer engineering across Israel and abroad',
+        'Bridge between customers and the product team — software testing, feedback, escalation',
       ],
       he: [
-        'אינטגרציה והטמעה במוסדות פיננסיים ומשפטיים בינלאומיים',
-        'תמיכת לקוחות B2B בישראל ובחו״ל',
-        'בדיקות תוכנה ידניות',
-        'אינטגרציה באתר הלקוח ותמיכה ברמה גבוהה',
+        'מהנדס אינטגרציה והטמעה במוסדות פיננסיים ומשפטיים בינלאומיים',
+        'תמיכת לקוחות B2B באתר ומרחוק, בארץ ובחו״ל',
+        'גישור בין הלקוח לצוות המוצר — בדיקות תוכנה, פידבק ואסקלציה',
       ],
     },
   },
   {
+    slug: 'ajax-union',
     company: { en: 'Ajax Union Inc', he: 'Ajax Union Inc' },
-    role: { en: 'IT and Networks', he: 'IT ורשתות' },
+    role: { en: 'IT & Networks', he: 'IT ורשתות' },
     period: 'Feb 2011 — Feb 2012',
     description: {
-      en: 'IT infrastructure and network management.',
-      he: 'ניהול תשתיות IT ורשתות.',
+      en: 'Hands-on IT infrastructure and network management for a US-based marketing agency.',
+      he: 'ניהול תשתיות IT ורשתות hands-on עבור סוכנות שיווק אמריקאית.',
     },
     highlights: {
       en: [
-        'Network monitoring',
-        'VoIP implementation',
-        'Data center environment setup',
-        'Cloud and Google Apps management',
+        'Network monitoring and VoIP implementation',
+        'Data center environment setup and ongoing operations',
+        'Cloud and Google Apps administration',
       ],
       he: [
-        'ניטור רשתות',
-        'הטמעת VoIP',
-        'הקמת סביבת מרכז נתונים',
-        'ניהול ענן ו-Google Apps',
+        'ניטור רשתות ויישום VoIP',
+        'הקמת סביבת מרכז נתונים ותפעול שוטף',
+        'ניהול ענן ו־Google Apps',
       ],
     },
   },
   {
+    slug: 'malam',
     company: { en: 'Malam', he: 'מלם' },
-    role: { en: 'PC and Network Technical Support', he: 'תמיכה טכנית מחשבים ורשתות' },
+    role: { en: 'PC & Network Technical Support', he: 'תמיכה טכנית מחשבים ורשתות' },
     period: 'Oct 2008 — Aug 2010',
     description: {
-      en: 'Technical troubleshooting within a large government office with over 500 workstations.',
-      he: 'פתרון תקלות טכניות במשרד ממשלתי גדול עם למעלה מ-500 תחנות עבודה.',
+      en: 'Technical troubleshooting in a large government office with over 500 workstations.',
+      he: 'פתרון תקלות טכניות במשרד ממשלתי גדול עם למעלה מ־500 תחנות עבודה.',
     },
     highlights: {
       en: [
-        'Image creation, system crashes, and data recoveries',
-        'System and network issue resolution in high-stress environment',
-        'Authored user-friendly guide for non-IT users',
-        'Researched rare troubleshooting problems',
+        'Imaging, crash recovery, and data restoration at scale',
+        'System and network troubleshooting in a high-stress environment',
+        'Authored a user-friendly guide for non-technical users',
       ],
       he: [
-        'יצירת תמונות מערכת, טיפול בקריסות ושחזור נתונים',
+        'הקמת תמונות מערכת, התאוששות מקריסות ושחזור נתונים בקנה מידה גדול',
         'פתרון תקלות מערכת ורשת בסביבה לחוצה',
         'כתיבת מדריך ידידותי למשתמשים שאינם אנשי IT',
-        'מחקר בעיות פתרון תקלות נדירות',
       ],
     },
   },
   {
+    slug: 'bh-comtec',
     company: { en: 'B.H. Comtec', he: 'B.H. Comtec' },
     role: { en: 'PC Hardware Technician', he: 'טכנאי חומרה' },
     period: 'Dec 2007 — Sep 2008',
     description: {
-      en: 'Identification and repair of hardware malfunctions in desktop and laptop computers.',
-      he: 'זיהוי ותיקון תקלות חומרה במחשבים נייחים וניידים.',
+      en: 'Diagnosis and repair of hardware faults on desktops and laptops.',
+      he: 'אבחון ותיקון תקלות חומרה במחשבים נייחים וניידים.',
     },
     highlights: {
       en: [
-        'Hardware malfunction diagnosis and repair',
+        'Hardware fault diagnosis and repair',
         'Software and hardware installation',
       ],
       he: [
