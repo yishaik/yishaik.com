@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../i18n/index';
-import { getLocalePath, getAlternateLocale, t } from '../i18n/index';
+import { getLocalePath, getAlternateLocale } from '../i18n/index';
+import { general } from '../content/site';
 import ThemeToggle from './ThemeToggle.tsx';
 
 interface Props {
@@ -10,21 +11,13 @@ interface Props {
 const { locale } = Astro.props;
 const altLocale = getAlternateLocale(locale);
 const altPath = getLocalePath(altLocale);
-const isHe = locale === 'he';
 
-const navItems = isHe
-  ? [
-      { href: '#about', label: 'אודות' },
-      { href: '#experience', label: 'ניסיון' },
-      { href: '#skills', label: 'מיומנויות' },
-      { href: '#contact', label: 'צור קשר' },
-    ]
-  : [
-      { href: '#about', label: 'About' },
-      { href: '#experience', label: 'Experience' },
-      { href: '#skills', label: 'Skills' },
-      { href: '#contact', label: 'Contact' },
-    ];
+const navItems = [
+  { href: '#about', label: general.nav.about[locale] },
+  { href: '#experience', label: general.nav.experience[locale] },
+  { href: '#skills', label: general.nav.skills[locale] },
+  { href: '#contact', label: general.nav.contact[locale] },
+];
 ---
 
 <header id="site-header" class="fixed inset-x-0 top-0 z-30 transition-[background,border-color,backdrop-filter] duration-200">
@@ -34,7 +27,7 @@ const navItems = isHe
       class="inline-flex items-center gap-2 text-[0.92rem] font-medium text-ink hover:text-accent transition-colors"
     >
       <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
-      Yishai&nbsp;Kaminsky
+      {general.name.en}
     </a>
 
     <nav class="hidden md:flex items-center gap-5 text-sm">
@@ -51,7 +44,7 @@ const navItems = isHe
 
     <div class="flex items-center gap-1.5">
       <a href="#contact" class="btn btn-ghost btn-sm md:hidden">
-        {t(locale, 'nav.contact')}
+        {general.nav.contact[locale]}
       </a>
       <div class="mx-1 h-5 w-px hidden sm:block" style="background:var(--color-rule)"></div>
       <ThemeToggle client:load />
@@ -59,7 +52,7 @@ const navItems = isHe
         href={altPath}
         class="mono rounded-md border border-[color:var(--color-rule)] px-2 py-1 text-[0.72rem] text-muted transition-colors hover:text-ink hover:border-[color:var(--color-ink)]"
       >
-        {t(locale, 'lang.switch')}
+        {general.langSwitch[locale]}
       </a>
     </div>
   </div>

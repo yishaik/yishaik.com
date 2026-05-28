@@ -1,0 +1,59 @@
+{
+  "label": { "en": "Contact", "he": "צור קשר" },
+  "heading": {
+    "en": "If the fit feels right — let’s talk.",
+    "he": "אם יש התאמה — בוא נדבר."
+  },
+  "lede": {
+    "en": "Open to conversations about full-time roles, focused consulting, and systems work across Customer Success, IT, AI, and automation.",
+    "he": "פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד ועבודה מערכתית סביב Customer Success, IT, AI ואוטומציה."
+  },
+  "email": "yishai.k@gmail.com",
+  "whatsappNumber": "972526457008",
+  "whatsappDisplay": "+972 52-645-7008",
+  "whatsappMessage": {
+    "en": "Hi Yishai, I found you through your site",
+    "he": "היי ישי, הגעתי מהאתר שלך"
+  },
+  "mailtoSubject": {
+    "en": "Inquiry from yishaik.com",
+    "he": "פנייה מהאתר yishaik.com"
+  },
+  "mailtoBody": {
+    "en": "Hi Yishai,\n\nI am reaching out through your website regarding...\n",
+    "he": "היי ישי,\n\nאני פונה דרך האתר שלך לגבי...\n"
+  },
+  "whatsappCta": { "en": "Message on WhatsApp", "he": "שלח הודעת WhatsApp" },
+  "emailCta": { "en": "Open email draft", "he": "פתח טיוטת אימייל" },
+  "channels": [
+    { "key": "LINKEDIN", "label": "linkedin.com/in/yishaik", "href": "https://www.linkedin.com/in/yishaik/" },
+    { "key": "GITHUB", "label": "github.com/yishaik", "href": "https://github.com/yishaik" },
+    { "key": "TELEGRAM", "label": "t.me/yishai_k", "href": "https://t.me/yishai_k" }
+  ],
+  "openForLabel": { "en": "Open for", "he": "פתוח ל" },
+  "openFor": [
+    { "en": "Customer Success engineering, implementation, TAM", "he": "Customer Success engineering, implementation, TAM" },
+    { "en": "IT management, technical operations, infrastructure", "he": "ניהול IT, תפעול טכני, תפקידי infrastructure" },
+    { "en": "AI engineering, automation, agents, internal tools", "he": "הנדסת AI, אוטומציה, סוכנים וכלים פנימיים" },
+    { "en": "Independent project work and focused consulting", "he": "פרויקטים עצמאיים וייעוץ ממוקד" }
+  ],
+  "biosTitle": { "en": "Reusable bios", "he": "ביוגרפיות לשימוש חוזר" },
+  "biosHint": {
+    "en": "Copy-paste — for a LinkedIn headline, recruiter email, panel intro, or event page.",
+    "he": "העתק והדבק — לכותרת ב־LinkedIn, מייל גיוס, פאנל, או דף אירוע."
+  },
+  "bios": {
+    "oneLine": {
+      "en": "Yishai Kaminsky — IT manager and engineer building practical AI automations across customer success, IT, and applied AI.",
+      "he": "ישי קמינסקי — מנהל IT ומהנדס שבונה אוטומציות AI פרקטיות, על הציר של Customer Success, IT ו־AI יישומי."
+    },
+    "short": {
+      "en": "Yishai Kaminsky is an IT manager and systems engineer with 17+ years across customer-facing engineering, IT management, and applied AI. He has shipped roles at Microsoft, Claroty, Secure Islands, abra, and Profero, and builds AI tools and automations under his own name. Based in Israel; open to remote, hybrid, and on-site work.",
+      "he": "ישי קמינסקי הוא מנהל IT ומהנדס מערכות עם 17+ שנים בהנדסה מול לקוחות, ניהול IT ו־AI יישומי. עבר תפקידים במיקרוסופט, קלרוטי, Secure Islands, אברה ופרופרו, ובונה כלי AI ואוטומציות תחת השם שלו. מבוסס בישראל; פתוח לעבודה מרחוק, היברידית ובמשרד."
+    },
+    "long": {
+      "en": "Yishai Kaminsky is an IT manager and systems engineer who has spent 17+ years working at the intersection of customer-facing engineering, IT and operations, and applied AI. His professional roles span Microsoft (Premier-tier customer support), Secure Islands Technologies (post-sales engineering for international financial and legal institutions), Claroty (Tier 3 escalations for an OT/IoT cybersecurity platform), abra (multi-client cloud IT and security services), and Profero (IT management at a cyber incident-response firm). Alongside professional roles he builds practical AI tools and automations — including TailorCV, a CV-tailoring assistant with built-in fabrication guards, and whatsai, a small AI persona chat experiment. He cares about reliability — logging, permissions, fallback paths, and human approval where it matters — and prefers durable solutions over fragile demos. Bilingual in English and Hebrew. Based in Israel; open to full-time, hybrid, remote, or on-site work in the Tel Aviv area.",
+      "he": "ישי קמינסקי הוא מנהל IT ומהנדס מערכות, עם 17+ שנים בצומת של הנדסה מול לקוחות, IT ותפעול, ו־AI יישומי. בין התפקידים: תמיכה ללקוחות Premier במיקרוסופט, הנדסת פוסט־סייל ב־Secure Islands במוסדות פיננסיים ומשפטיים בינלאומיים, אסקלציות Tier 3 בקלרוטי בפלטפורמת אבטחת OT/IoT, מתן שירותי IT ואבטחת ענן ללקוחות מרובים באברה, וניהול IT בפרופרו — חברת תגובה לאירועי סייבר. במקביל לעבודה המקצועית בונה כלי AI ואוטומציות — כולל TailorCV, עוזר להתאמת קו״ח עם חסם הזיות מובנה, ו־whatsai, ניסוי קטן של צ׳אט עם פרסונות AI. חשובה לו אמינות — לוגים, הרשאות, מסלולי fallback ואישור אנושי איפה שצריך — ומעדיף פתרונות עמידים על פני דמואים שבירים. דו־לשוני (אנגלית ועברית). מבוסס בישראל; פתוח לעבודה במשרה מלאה, היברידית, מרחוק או במשרד באזור תל אביב."
+    }
+  }
+}

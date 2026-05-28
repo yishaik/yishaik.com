@@ -1,0 +1,99 @@
+{
+  "label": { "en": "Skills", "he": "מיומנויות" },
+  "heading": {
+    "en": "The day-to-day stack — from language to infrastructure.",
+    "he": "הערימה היומיומית — מהשפה ועד לתשתית."
+  },
+  "lede": {
+    "en": "Not an aspirational list — just the tools I actually work with day-to-day across building, automation, and operations.",
+    "he": "לא רשימה שאפתנית — רק הכלים שאני עובד איתם באופן שוטף בבנייה, באוטומציה ובהפעלה."
+  },
+  "categories": [
+    {
+      "name": {
+        "en": "Programming Languages",
+        "he": "שפות תכנות"
+      },
+      "skills": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "Kotlin",
+        "SQL",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "name": {
+        "en": "AI & Agents",
+        "he": "AI וסוכנים"
+      },
+      "skills": [
+        "CrewAI",
+        "LangChain",
+        "OpenAI API",
+        "Claude API",
+        "Google Gemini",
+        "Multi-Agent Systems",
+        "RAG"
+      ]
+    },
+    {
+      "name": {
+        "en": "Frontend",
+        "he": "צד לקוח"
+      },
+      "skills": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Tailwind CSS",
+        "Material UI",
+        "Jetpack Compose"
+      ]
+    },
+    {
+      "name": {
+        "en": "Backend",
+        "he": "צד שרת"
+      },
+      "skills": [
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "n8n",
+        "Telegram Bot API",
+        "REST APIs"
+      ]
+    },
+    {
+      "name": {
+        "en": "Infrastructure",
+        "he": "תשתיות"
+      },
+      "skills": [
+        "Docker",
+        "Cloudflare",
+        "GitHub Actions",
+        "Traefik",
+        "CI/CD",
+        "Linux"
+      ]
+    },
+    {
+      "name": {
+        "en": "Databases & Tools",
+        "he": "בסיסי נתונים וכלים"
+      },
+      "skills": [
+        "PostgreSQL",
+        "Redis",
+        "Airtable",
+        "MongoDB",
+        "Room DB",
+        "Dify",
+        "Langfuse"
+      ]
+    }
+  ]
+}

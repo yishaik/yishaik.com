@@ -1,32 +1,23 @@
 ---
 import type { Locale } from '../i18n/index';
-import { skillCategories } from '../content/skills';
+import { skillsContent } from '../content/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const isHe = locale === 'he';
 ---
 
 <section id="skills" class="tile tile-skills">
   <div class="section-header reveal">
-    <p class="section-label">03 / {isHe ? 'מיומנויות' : 'Skills'}</p>
-    <h2 class="display display-lg mt-4 max-w-3xl">
-      {isHe
-        ? 'הערימה היומיומית — מהשפה ועד לתשתית.'
-        : 'The day-to-day stack — from language to infrastructure.'}
-    </h2>
-    <p class="prose-body mt-4 max-w-2xl">
-      {isHe
-        ? 'לא רשימה שאפתנית — רק הכלים שאני עובד איתם באופן שוטף בבנייה, באוטומציה ובהפעלה.'
-        : 'Not an aspirational list — just the tools I actually work with day-to-day across building, automation, and operations.'}
-    </p>
+    <p class="section-label">03 / {skillsContent.label[locale]}</p>
+    <h2 class="display display-lg mt-4 max-w-3xl">{skillsContent.heading[locale]}</h2>
+    <p class="prose-body mt-4 max-w-2xl">{skillsContent.lede[locale]}</p>
   </div>
 
   <div class="grid gap-3">
-    {skillCategories.map((cat, i) => (
+    {skillsContent.categories.map((cat, i) => (
       <div class="card reveal" style={`--reveal-delay:${(i % 2) * 80}ms`}>
         <div class="flex items-baseline justify-between gap-3">
           <h3 class="display text-base font-semibold text-ink">{cat.name[locale]}</h3>

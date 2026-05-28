@@ -1,93 +1,41 @@
 ---
 import type { Locale } from '../i18n/index';
-import { experience } from '../content/experience';
+import { experienceContent } from '../content/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const isHe = locale === 'he';
-
-// Real logos sourced online (rendered monochrome for cohesion); the rest use
-// uniform monogram badges.
-// Wide wordmark logos — rendered monochrome for cohesion.
-const logos: Record<string, string> = {
-  microsoft: '/logos/microsoft.svg',
-  claroty: '/logos/claroty.png',
-  profero: '/logos/profero.svg',
-  'ajax-union': '/logos/ajax-union.svg',
-  abra: '/logos/abra.svg',
-  malam: '/logos/malam.svg',
-};
-
-// Square raster logo — shown avatar-style in its original colors.
-const rasterLogos: Record<string, string> = {
-  'secure-islands': '/logos/secure-islands.jpeg',
-};
-
-// Wide raster logo on a white background — shown on a small light chip.
-const chipLogos: Record<string, string> = {
-  'bh-comtec': '/logos/bh-comtec.jpg',
-};
-
-const monograms: Record<string, string> = {};
-
-// Early-career roles are condensed (no bullet list) to keep the page short.
-const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
+const items = experienceContent.items;
 ---
 
 <section id="experience" class="tile tile-experience">
   <div class="section-header reveal">
-    <p class="section-label">02 / {isHe ? 'ניסיון' : 'Experience'}</p>
-    <h2 class="display display-lg mt-4">
-      {isHe
-        ? 'רצף ארוך של תפקידים — תמיכה, פוסט־סייל, IT ותפעול.'
-        : 'A long arc of customer-facing engineering, support, IT, and operations.'}
-    </h2>
+    <p class="section-label">02 / {experienceContent.label[locale]}</p>
+    <h2 class="display display-lg mt-4">{experienceContent.heading[locale]}</h2>
   </div>
 
   <div class="border-t border-[color:var(--color-rule)]">
-    {experience.map((exp) => (
+    {items.map((exp) => (
       <article id={`exp-${exp.slug}`} class="entry scroll-mt-28 reveal">
         <div class="entry-logo-cell">
-          {logos[exp.slug] ? (
-            <img
-              class="entry-logo"
-              src={logos[exp.slug]}
-              alt={`${exp.company[locale]} logo`}
-              loading="lazy"
-              decoding="async"
-              width="120"
-              height="32"
-            />
-          ) : rasterLogos[exp.slug] ? (
+          {exp.logo && exp.logoType === 'wordmark' && (
+            <img class="entry-logo" src={exp.logo} alt={`${exp.company[locale]} logo`} loading="lazy" decoding="async" width="120" height="32" />
+          )}
+          {exp.logo && exp.logoType === 'square' && (
             <span class="logo-badge logo-badge-img">
-              <img
-                class="entry-logo-raster"
-                src={rasterLogos[exp.slug]}
-                alt={`${exp.company[locale]} logo`}
-                loading="lazy"
-                decoding="async"
-                width="40"
-                height="40"
-              />
+              <img class="entry-logo-raster" src={exp.logo} alt={`${exp.company[locale]} logo`} loading="lazy" decoding="async" width="40" height="40" />
             </span>
-          ) : chipLogos[exp.slug] ? (
+          )}
+          {exp.logo && exp.logoType === 'chip' && (
             <span class="logo-chip">
-              <img
-                class="entry-logo-chip"
-                src={chipLogos[exp.slug]}
-                alt={`${exp.company[locale]} logo`}
-                loading="lazy"
-                decoding="async"
-                width="120"
-                height="32"
-              />
+              <img class="entry-logo-chip" src={exp.logo} alt={`${exp.company[locale]} logo`} loading="lazy" decoding="async" width="120" height="32" />
             </span>
-          ) : (
+          )}
+          {(!exp.logo || exp.logoType === 'monogram') && (
             <span class="logo-badge" aria-hidden="true">
-              {monograms[exp.slug] ?? exp.company[locale].slice(0, 1)}
+              {exp.monogram || exp.company[locale].slice(0, 2)}
             </span>
           )}
         </div>
@@ -97,7 +45,7 @@ const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
           <h3 class="entry-role">{exp.role[locale]}</h3>
           <p class="entry-company">{exp.company[locale]}</p>
           <p class="mt-2.5 text-[0.95rem] leading-7 text-ink-soft">{exp.description[locale]}</p>
-          {!condensed.has(exp.slug) && exp.highlights[locale].length > 0 && (
+          {!exp.condensed && exp.highlights[locale].length > 0 && (
             <ul class="mt-3 space-y-1.5">
               {exp.highlights[locale].map((h) => (
                 <li class="flex gap-3 text-[0.92rem] leading-6 text-muted">

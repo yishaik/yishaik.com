@@ -1,0 +1,24 @@
+{
+  "name": { "en": "Yishai Kaminsky", "he": "ישי קמינסקי" },
+  "meta": {
+    "title": {
+      "en": "Customer Success engineering, IT management, and applied AI",
+      "he": "הנדסת Customer Success, ניהול IT ו־AI יישומי"
+    },
+    "subtitle": {
+      "en": "Seventeen years across customer-facing engineering, IT management, and applied AI — building systems and running them in production.",
+      "he": "17 שנים של עבודה מול לקוחות, ניהול IT ו־AI יישומי — בנייה והפעלה של מערכות, מקצה לקצה."
+    }
+  },
+  "nav": {
+    "about": { "en": "About", "he": "אודות" },
+    "experience": { "en": "Experience", "he": "ניסיון" },
+    "skills": { "en": "Skills", "he": "מיומנויות" },
+    "contact": { "en": "Contact", "he": "צור קשר" }
+  },
+  "langSwitch": { "en": "עב", "he": "EN" },
+  "footer": {
+    "rights": { "en": "All rights reserved", "he": "כל הזכויות שמורות" },
+    "backToTop": { "en": "Back to top ↑", "he": "חזרה למעלה ↑" }
+  }
+}

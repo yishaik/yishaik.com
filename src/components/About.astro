@@ -1,105 +1,43 @@
 ---
 import type { Locale } from '../i18n/index';
+import { about } from '../content/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const isHe = locale === 'he';
-
-const narrative = isHe
-  ? [
-      'אני מהנדס ומנהל מערכות עם 17+ שנים, שעבר כל הדרך מתמיכה טכנית ב־Malam, דרך הנדסת פוסט־סייל ב־Secure Islands ותמיכת Premier במיקרוסופט, דרך אסקלציות Tier 3 ב־Claroty, אל ניהול IT ב־Profero. החוט המקשר: עבודה צמודה ללקוח ולמערכת, ואחריות אישית על הפתרון מהאפיון ועד לפרודקשן.',
-      'במקביל אני בונה מערכות AI יישומיות, אוטומציות וכלים פנימיים — לרוב בעברית, לרוב סביב בעיות עסקיות אמיתיות. היתרון שלי הוא הצלבה של שלושה דברים שלרוב מפוצלים בין שלושה אנשים: היכרות עם הלקוח, עומק תפעולי, ויכולת הנדסה.',
-    ]
-  : [
-      "I'm a systems engineer and IT manager with 17+ years across the customer-facing side of enterprise software — Malam tech support, Secure Islands post-sales engineering, Microsoft Premier support, Claroty Tier 3 escalations, and IT management at Profero. The through-line is close-to-the-customer, close-to-the-system work, with personal accountability for the outcome from scoping to production.",
-      'Alongside that, I build applied AI systems, automations, and internal tools — often Hebrew-first, almost always tied to a concrete business problem. The differentiator is the intersection of three things that usually live with three different people: knowing the customer, understanding the operational reality, and being able to engineer.',
-    ];
-
-const stats = isHe
-  ? [
-      { value: '17+', label: 'שנים ב־IT, support, ענן, ו־AI יישומי' },
-      { value: '8', label: 'ארגונים — מסטארט־אפ ל־enterprise' },
-      { value: '3', label: 'פרויקטים פעילים — applied AI ו־automation' },
-    ]
-  : [
-      { value: '17+', label: 'years across IT, support, cloud, applied AI' },
-      { value: '8', label: 'organizations — startup through enterprise' },
-      { value: '3', label: 'active projects — applied AI and automation' },
-    ];
-
-const tracks = isHe
-  ? [
-      {
-        code: 'CS',
-        title: 'עומק מול לקוחות',
-        body: 'שנים של תמיכה בכירה, פוסט־סייל והטמעה ב־Microsoft, Secure Islands ו־Claroty — אנשים אמיתיים, מערכות אמיתיות, SLA אמיתי.',
-      },
-      {
-        code: 'IT',
-        title: 'ניהול IT ותפעול טכני',
-        body: 'ניהול IT, תשתיות, ענן ו־endpoint — לאורך צרכי אבטחה ותפעול שוטף.',
-      },
-      {
-        code: 'AI',
-        title: 'AI יישומי, לא דמואים',
-        body: 'מערכות שעוזרות לצוותים לעבוד מהר יותר — RAG, סוכנים, אוטומציה — עם guardrails ועם מבט תפעולי.',
-      },
-    ]
-  : [
-      {
-        code: 'CS',
-        title: 'Customer-facing depth',
-        body: 'Years of senior support, post-sales, and implementation work at Microsoft, Secure Islands, and Claroty — real users, real systems, real SLAs.',
-      },
-      {
-        code: 'IT',
-        title: 'IT and technical operations',
-        body: 'IT management, infrastructure, cloud, and endpoint — across security and the day-to-day operational needs of a team.',
-      },
-      {
-        code: 'AI',
-        title: 'Applied AI, not demo AI',
-        body: 'Systems that help teams move — RAG, agents, automation — built with guardrails and an operational mindset.',
-      },
-    ];
 ---
 
 <section id="about" class="tile tile-about">
   <div class="section-header reveal">
-    <p class="section-label">01 / {isHe ? 'אודות' : 'About'}</p>
-    <h2 class="display display-lg mt-4">
-      {isHe
-        ? 'מהנדס שגם יודע לבנות וגם יודע להפעיל.'
-        : 'A builder who also knows how to operate.'}
-    </h2>
+    <p class="section-label">01 / {about.label[locale]}</p>
+    <h2 class="display display-lg mt-4">{about.heading[locale]}</h2>
   </div>
 
   <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)] lg:gap-14 items-start">
     <div class="space-y-4 prose-body max-w-2xl reveal">
-      {narrative.map((p) => <p>{p}</p>)}
+      {about.narrative.map((p) => <p>{p[locale]}</p>)}
     </div>
 
     <div class="grid gap-3">
-      {stats.map((s, i) => (
+      {about.stats.map((s, i) => (
         <div class="stat-card reveal" style={`--reveal-delay:${i * 90}ms`}>
           <p class="stat-num"><em>{s.value}</em></p>
-          <p class="stat-label">{s.label}</p>
+          <p class="stat-label">{s.label[locale]}</p>
         </div>
       ))}
     </div>
   </div>
 
   <div class="mt-12 grid gap-4 sm:grid-cols-3 lg:mt-14">
-    {tracks.map((t, i) => (
+    {about.tracks.map((t, i) => (
       <article class="card reveal" style={`--reveal-delay:${i * 90}ms`}>
         <div class="inline-flex items-center justify-center w-9 h-9 rounded-md bg-accent text-[#faf6ef] dark:text-[#1a1612] font-medium mono text-[0.75rem] tracking-wider">
           {t.code}
         </div>
-        <h3 class="display text-lg mt-4 text-ink">{t.title}</h3>
-        <p class="mt-2.5 text-sm leading-6 text-muted">{t.body}</p>
+        <h3 class="display text-lg mt-4 text-ink">{t.title[locale]}</h3>
+        <p class="mt-2.5 text-sm leading-6 text-muted">{t.body[locale]}</p>
       </article>
     ))}
   </div>

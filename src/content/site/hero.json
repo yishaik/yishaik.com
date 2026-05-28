@@ -1,0 +1,31 @@
+{
+  "status": {
+    "en": "Open to new roles · Israel · Remote-friendly",
+    "he": "פתוח לתפקידים חדשים · ישראל · מרחוק־פרוש"
+  },
+  "kicker": {
+    "en": "Customer Success · IT Management · AI Engineering · Independent project work",
+    "he": "Customer Success · ניהול IT · הנדסת AI · פרויקטים עצמאיים"
+  },
+  "headlineLead": {
+    "en": "Customer Success engineering, IT management, and applied AI — ",
+    "he": "הנדסת Customer Success, ניהול IT ו־AI יישומי — "
+  },
+  "headlineAccent": {
+    "en": "built and operated end-to-end.",
+    "he": "בנייה והפעלה מקצה לקצה."
+  },
+  "intro": {
+    "en": "Seventeen years across customer-facing engineering, IT management, and applied AI — the same person can scope the problem with the team, build the system, and operate it in production.",
+    "he": "17 שנים של עבודה מול לקוחות, ניהול IT והנדסת AI יישומית — אותו אדם יכול למפות את הבעיה מול הצוות, לבנות את הפתרון ולהפעיל אותו בפרודקשן."
+  },
+  "ctaPrimary": { "en": "Start a conversation", "he": "בוא נדבר" },
+  "ctaSecondary": { "en": "View experience", "he": "הניסיון שלי" },
+  "previouslyAtLabel": { "en": "Previously at", "he": "בעבר ב־" },
+  "previousLogos": [
+    { "name": "Microsoft", "src": "/logos/microsoft.svg" },
+    { "name": "Claroty", "src": "/logos/claroty.png" },
+    { "name": "Profero", "src": "/logos/profero.svg" },
+    { "name": "Ajax Union", "src": "/logos/ajax-union.svg" }
+  ]
+}

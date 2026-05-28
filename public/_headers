@@ -8,6 +8,11 @@
   Cross-Origin-Resource-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
 
+/admin/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: blob: https:; connect-src 'self' https://unpkg.com https://api.github.com https://raw.githubusercontent.com https://avatars.githubusercontent.com https://*.workers.dev https://*.pages.dev; frame-src 'self'; base-uri 'self'; form-action 'self' https://github.com
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cache-Control: no-store
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600

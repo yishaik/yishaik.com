@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../i18n/index';
+import { contact } from '../content/site';
 
 interface Props {
   locale: Locale;
@@ -8,94 +9,30 @@ interface Props {
 const { locale } = Astro.props;
 const isHe = locale === 'he';
 
-const emailAddress = 'yishai.k@gmail.com';
-const whatsappNumber = '972526457008';
-const whatsappDisplay = '+972 52-645-7008';
-const whatsappMessage = isHe
-  ? 'היי ישי, הגעתי מהאתר שלך'
-  : 'Hi Yishai, I found you through your site';
-const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-const mailtoSubject = isHe ? 'פנייה מהאתר yishaik.com' : 'Inquiry from yishaik.com';
-const mailtoBody = isHe
-  ? 'היי ישי,\n\nאני פונה דרך האתר שלך לגבי...\n'
-  : 'Hi Yishai,\n\nI am reaching out through your website regarding...\n';
-const mailtoHref = `mailto:${emailAddress}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+const whatsappHref = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage[locale])}`;
+const mailtoHref = `mailto:${contact.email}?subject=${encodeURIComponent(contact.mailtoSubject[locale])}&body=${encodeURIComponent(contact.mailtoBody[locale])}`;
 
 const channels = [
-  { key: 'WHATSAPP', label: whatsappDisplay, href: whatsappHref },
-  { key: 'EMAIL', label: emailAddress, href: mailtoHref },
-  { key: 'LINKEDIN', label: 'linkedin.com/in/yishaik', href: 'https://www.linkedin.com/in/yishaik/' },
-  { key: 'GITHUB', label: 'github.com/yishaik', href: 'https://github.com/yishaik' },
-  { key: 'TELEGRAM', label: 't.me/yishai_k', href: 'https://t.me/yishai_k' },
+  { key: 'WHATSAPP', label: contact.whatsappDisplay, href: whatsappHref },
+  { key: 'EMAIL', label: contact.email, href: mailtoHref },
+  ...contact.channels,
 ];
 
-const openFor = isHe
-  ? [
-      'Customer Success engineering, implementation, TAM',
-      'ניהול IT, תפעול טכני, תפקידי infrastructure',
-      'הנדסת AI, אוטומציה, סוכנים וכלים פנימיים',
-      'פרויקטים עצמאיים וייעוץ ממוקד',
-    ]
-  : [
-      'Customer Success engineering, implementation, TAM',
-      'IT management, technical operations, infrastructure',
-      'AI engineering, automation, agents, internal tools',
-      'Independent project work and focused consulting',
-    ];
-
-const bios = {
-  oneLine: {
-    en: 'Yishai Kaminsky — IT manager and engineer building practical AI automations across customer success, IT, and applied AI.',
-    he: 'ישי קמינסקי — מנהל IT ומהנדס שבונה אוטומציות AI פרקטיות, על הציר של Customer Success, IT ו־AI יישומי.',
-  },
-  short: {
-    en: 'Yishai Kaminsky is an IT manager and systems engineer with 17+ years across customer-facing engineering, IT management, and applied AI. He has shipped roles at Microsoft, Claroty, Secure Islands, abra, and Profero, and builds AI tools and automations under his own name. Based in Israel; open to remote, hybrid, and on-site work.',
-    he: 'ישי קמינסקי הוא מנהל IT ומהנדס מערכות עם 17+ שנים בהנדסה מול לקוחות, ניהול IT ו־AI יישומי. עבר תפקידים במיקרוסופט, קלרוטי, Secure Islands, אברה ופרופרו, ובונה כלי AI ואוטומציות תחת השם שלו. מבוסס בישראל; פתוח לעבודה מרחוק, היברידית ובמשרד.',
-  },
-  long: {
-    en: 'Yishai Kaminsky is an IT manager and systems engineer who has spent 17+ years working at the intersection of customer-facing engineering, IT and operations, and applied AI. His professional roles span Microsoft (Premier-tier customer support), Secure Islands Technologies (post-sales engineering for international financial and legal institutions), Claroty (Tier 3 escalations for an OT/IoT cybersecurity platform), abra (multi-client cloud IT and security services), and Profero (IT management at a cyber incident-response firm). Alongside professional roles he builds practical AI tools and automations — including TailorCV, a CV-tailoring assistant with built-in fabrication guards, and whatsai, a small AI persona chat experiment. He cares about reliability — logging, permissions, fallback paths, and human approval where it matters — and prefers durable solutions over fragile demos. Bilingual in English and Hebrew. Based in Israel; open to full-time, hybrid, remote, or on-site work in the Tel Aviv area.',
-    he: 'ישי קמינסקי הוא מנהל IT ומהנדס מערכות, עם 17+ שנים בצומת של הנדסה מול לקוחות, IT ותפעול, ו־AI יישומי. בין התפקידים: תמיכה ללקוחות Premier במיקרוסופט, הנדסת פוסט־סייל ב־Secure Islands במוסדות פיננסיים ומשפטיים בינלאומיים, אסקלציות Tier 3 בקלרוטי בפלטפורמת אבטחת OT/IoT, מתן שירותי IT ואבטחת ענן ללקוחות מרובים באברה, וניהול IT בפרופרו — חברת תגובה לאירועי סייבר. במקביל לעבודה המקצועית בונה כלי AI ואוטומציות — כולל TailorCV, עוזר להתאמת קו״ח עם חסם הזיות מובנה, ו־whatsai, ניסוי קטן של צ׳אט עם פרסונות AI. חשובה לו אמינות — לוגים, הרשאות, מסלולי fallback ואישור אנושי איפה שצריך — ומעדיף פתרונות עמידים על פני דמואים שבירים. דו־לשוני (אנגלית ועברית). מבוסס בישראל; פתוח לעבודה במשרה מלאה, היברידית, מרחוק או במשרד באזור תל אביב.',
-  },
-};
-
-const bioLabels = isHe
-  ? {
-      title: 'ביוגרפיות לשימוש חוזר',
-      hint: 'העתק והדבק — לכותרת ב־LinkedIn, מייל גיוס, פאנל, או דף אירוע.',
-      oneLine: 'שורה אחת',
-      short: 'קצרה (~50 מילים)',
-      long: 'ארוכה (~150 מילים)',
-      copy: 'העתק',
-      copied: 'הועתק',
-    }
-  : {
-      title: 'Reusable bios',
-      hint: 'Copy-paste — for a LinkedIn headline, recruiter email, panel intro, or event page.',
-      oneLine: 'One-line',
-      short: 'Short (~50 words)',
-      long: 'Long (~150 words)',
-      copy: 'Copy',
-      copied: 'Copied',
-    };
-
-const altLocale = isHe ? 'en' : 'he';
+const bioRows = [
+  { key: 'oneLine', label: isHe ? 'שורה אחת' : 'One-line', text: contact.bios.oneLine[locale] },
+  { key: 'short', label: isHe ? 'קצרה (~50 מילים)' : 'Short (~50 words)', text: contact.bios.short[locale] },
+  { key: 'long', label: isHe ? 'ארוכה (~150 מילים)' : 'Long (~150 words)', text: contact.bios.long[locale] },
+];
+const copyLabel = isHe ? 'העתק' : 'Copy';
+const copiedLabel = isHe ? 'הועתק' : 'Copied';
 const altLocaleLabel = isHe ? 'English' : 'עברית';
 ---
 
 <section id="contact" class="tile tile-contact">
   <div class="section-header reveal">
-    <p class="section-label">04 / {isHe ? 'צור קשר' : 'Contact'}</p>
-    <h2 class="display display-lg mt-4 max-w-3xl">
-      {isHe
-        ? 'אם יש התאמה — בוא נדבר.'
-        : 'If the fit feels right — let’s talk.'}
-    </h2>
-    <p class="prose-lede mt-4 max-w-2xl">
-      {isHe
-        ? 'פתוח לשיחות על תפקידי full-time, ייעוץ ממוקד ועבודה מערכתית סביב Customer Success, IT, AI ואוטומציה.'
-        : 'Open to conversations about full-time roles, focused consulting, and systems work across Customer Success, IT, AI, and automation.'}
-    </p>
+    <p class="section-label">04 / {contact.label[locale]}</p>
+    <h2 class="display display-lg mt-4 max-w-3xl">{contact.heading[locale]}</h2>
+    <p class="prose-lede mt-4 max-w-2xl">{contact.lede[locale]}</p>
   </div>
 
   <div class="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
@@ -105,10 +42,10 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
           <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01a1.09 1.09 0 0 0-.792.371c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.695.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347Zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.824 9.824 0 0 1 6.988 2.896 9.821 9.821 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.886Zm8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .162 5.335.16 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
           </svg>
-          {isHe ? 'שלח הודעת WhatsApp' : 'Message on WhatsApp'}
+          {contact.whatsappCta[locale]}
         </a>
         <a href={mailtoHref} class="btn btn-ghost">
-          {isHe ? 'פתח טיוטת אימייל' : 'Open email draft'}
+          {contact.emailCta[locale]}
         </a>
       </div>
 
@@ -132,29 +69,25 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
       <details class="bios mt-8 max-w-2xl group">
         <summary class="cursor-pointer card !py-4 flex items-center justify-between gap-4">
           <span>
-            <span class="mono text-[0.66rem] tracking-[0.14em] uppercase text-accent">{bioLabels.title}</span>
-            <span class="mt-1 block text-sm text-muted">{bioLabels.hint}</span>
+            <span class="mono text-[0.66rem] tracking-[0.14em] uppercase text-accent">{contact.biosTitle[locale]}</span>
+            <span class="mt-1 block text-sm text-muted">{contact.biosHint[locale]}</span>
           </span>
           <span class="mono text-xs text-muted group-open:rotate-90 transition-transform" aria-hidden="true">›</span>
         </summary>
 
         <div class="mt-3 space-y-3">
-          {([
-            { key: 'oneLine', label: bioLabels.oneLine, text: bios.oneLine[locale] },
-            { key: 'short', label: bioLabels.short, text: bios.short[locale] },
-            { key: 'long', label: bioLabels.long, text: bios.long[locale] },
-          ] as const).map((bio) => (
+          {bioRows.map((bio) => (
             <div class="bio-block">
               <div class="flex items-baseline justify-between gap-3">
                 <p class="mono text-[0.66rem] tracking-[0.14em] uppercase text-muted">{bio.label}</p>
                 <button
                   type="button"
                   data-copy-bio={bio.text}
-                  data-copy-label={bioLabels.copy}
-                  data-copied-label={bioLabels.copied}
+                  data-copy-label={copyLabel}
+                  data-copied-label={copiedLabel}
                   class="mono text-[0.66rem] tracking-[0.12em] uppercase text-ink hover:text-accent transition-colors"
                 >
-                  {bioLabels.copy}
+                  {copyLabel}
                 </button>
               </div>
               <p class="mt-2.5 text-sm leading-6 text-ink-soft whitespace-pre-line">{bio.text}</p>
@@ -170,13 +103,13 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
     <aside class="reveal" style="--reveal-delay:120ms">
       <div class="card">
         <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
-          {isHe ? 'פתוח ל' : 'Open for'}
+          {contact.openForLabel[locale]}
         </p>
         <ul class="mt-4 space-y-3">
-          {openFor.map((item) => (
+          {contact.openFor.map((item) => (
             <li class="flex gap-3 text-sm leading-6 text-ink-soft">
               <span class="mono text-accent shrink-0" aria-hidden="true">+</span>
-              <span>{item}</span>
+              <span>{item[locale]}</span>
             </li>
           ))}
         </ul>

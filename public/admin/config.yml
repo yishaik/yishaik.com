@@ -1,0 +1,232 @@
+backend:
+  name: github
+  repo: yishaik/yishaik.com
+  branch: main
+  # After deploying the GitHub OAuth worker (see ADMIN-SETUP.md), put its URL here:
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+
+# Uploaded logos/images land in public/logos and are referenced as /logos/...
+media_folder: "public/logos"
+public_folder: "/logos"
+
+# Save edits straight to main so the site rebuilds & deploys immediately.
+publish_mode: simple
+
+locale: en
+
+# --- reusable field groups (YAML anchors) -------------------------------
+# A bilingual one-line string (English + Hebrew):
+_loc: &loc
+  - { label: "English", name: en, widget: string }
+  - { label: "Hebrew (עברית)", name: he, widget: string, required: false }
+# A bilingual multi-line text:
+_loctext: &loctext
+  - { label: "English", name: en, widget: text }
+  - { label: "Hebrew (עברית)", name: he, widget: text, required: false }
+# ------------------------------------------------------------------------
+
+collections:
+  # ===================== GENERAL / NAV / FOOTER / SEO =====================
+  - name: general
+    label: "General · Nav · Footer · SEO"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: general
+        label: "General settings"
+        file: "src/content/site/general.json"
+        fields:
+          - { label: "Your name", name: name, widget: object, fields: *loc }
+          - label: "SEO / meta"
+            name: meta
+            widget: object
+            fields:
+              - { label: "Title (job line)", name: title, widget: object, fields: *loc }
+              - { label: "Description", name: subtitle, widget: object, fields: *loctext }
+          - label: "Navigation labels"
+            name: nav
+            widget: object
+            fields:
+              - { label: "About", name: about, widget: object, fields: *loc }
+              - { label: "Experience", name: experience, widget: object, fields: *loc }
+              - { label: "Skills", name: skills, widget: object, fields: *loc }
+              - { label: "Contact", name: contact, widget: object, fields: *loc }
+          - { label: "Language switch label (EN page shows / HE page shows)", name: langSwitch, widget: object, fields: *loc }
+          - label: "Footer"
+            name: footer
+            widget: object
+            fields:
+              - { label: "Rights text", name: rights, widget: object, fields: *loc }
+              - { label: "Back-to-top text", name: backToTop, widget: object, fields: *loc }
+
+  # ===================== HERO =====================
+  - name: hero
+    label: "Hero (top of page)"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: hero
+        label: "Hero"
+        file: "src/content/site/hero.json"
+        fields:
+          - { label: "Availability pill", name: status, widget: object, fields: *loc }
+          - { label: "Kicker (roles, separated by ·)", name: kicker, widget: object, fields: *loc }
+          - { label: "Headline — first part", name: headlineLead, widget: object, fields: *loctext }
+          - { label: "Headline — dimmed ending", name: headlineAccent, widget: object, fields: *loc }
+          - { label: "Intro paragraph", name: intro, widget: object, fields: *loctext }
+          - { label: "Primary button", name: ctaPrimary, widget: object, fields: *loc }
+          - { label: "Secondary button", name: ctaSecondary, widget: object, fields: *loc }
+          - { label: "“Previously at” label", name: previouslyAtLabel, widget: object, fields: *loc }
+          - label: "“Previously at” logos"
+            name: previousLogos
+            widget: list
+            label_singular: "logo"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Company name", name: name, widget: string }
+              - { label: "Logo image", name: src, widget: image }
+
+  # ===================== ABOUT =====================
+  - name: about
+    label: "About"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: about
+        label: "About"
+        file: "src/content/site/about.json"
+        fields:
+          - { label: "Section label", name: label, widget: object, fields: *loc }
+          - { label: "Heading", name: heading, widget: object, fields: *loc }
+          - label: "Narrative paragraphs"
+            name: narrative
+            widget: list
+            label_singular: "paragraph"
+            fields: *loctext
+          - label: "Stats"
+            name: stats
+            widget: list
+            label_singular: "stat"
+            summary: "{{fields.value}}"
+            fields:
+              - { label: "Number", name: value, widget: string }
+              - { label: "Label", name: label, widget: object, fields: *loc }
+          - label: "Tracks (CS / IT / AI cards)"
+            name: tracks
+            widget: list
+            label_singular: "track"
+            summary: "{{fields.code}}"
+            fields:
+              - { label: "Code (e.g. CS)", name: code, widget: string }
+              - { label: "Title", name: title, widget: object, fields: *loc }
+              - { label: "Body", name: body, widget: object, fields: *loctext }
+
+  # ===================== EXPERIENCE =====================
+  - name: experience
+    label: "Experience"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: experience
+        label: "Experience"
+        file: "src/content/site/experience.json"
+        fields:
+          - { label: "Section label", name: label, widget: object, fields: *loc }
+          - { label: "Heading", name: heading, widget: object, fields: *loc }
+          - label: "Roles"
+            name: items
+            widget: list
+            label_singular: "role"
+            summary: "{{fields.company.en}} — {{fields.role.en}}"
+            fields:
+              - { label: "Slug (id, no spaces)", name: slug, widget: string }
+              - { label: "Company", name: company, widget: object, fields: *loc }
+              - { label: "Role", name: role, widget: object, fields: *loc }
+              - { label: "Period (e.g. Jan 2016 — Dec 2016)", name: period, widget: string }
+              - { label: "Logo image", name: logo, widget: image, required: false }
+              - label: "Logo style"
+                name: logoType
+                widget: select
+                default: wordmark
+                options:
+                  - { label: "Wordmark (wide, monochrome)", value: wordmark }
+                  - { label: "Square (avatar, full color)", value: square }
+                  - { label: "Chip (logo on white card)", value: chip }
+                  - { label: "Monogram (text initials)", value: monogram }
+              - { label: "Monogram text (if no logo)", name: monogram, widget: string, required: false }
+              - { label: "Condensed (hide bullet points)", name: condensed, widget: boolean, default: false }
+              - { label: "Description", name: description, widget: object, fields: *loctext }
+              - label: "Highlights (bullet points)"
+                name: highlights
+                widget: object
+                fields:
+                  - { label: "English bullets", name: en, widget: list, field: { label: "Bullet", name: bullet, widget: string } }
+                  - { label: "Hebrew bullets", name: he, widget: list, required: false, field: { label: "Bullet", name: bullet, widget: string } }
+
+  # ===================== SKILLS =====================
+  - name: skills
+    label: "Skills"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: skills
+        label: "Skills"
+        file: "src/content/site/skills.json"
+        fields:
+          - { label: "Section label", name: label, widget: object, fields: *loc }
+          - { label: "Heading", name: heading, widget: object, fields: *loc }
+          - { label: "Intro", name: lede, widget: object, fields: *loctext }
+          - label: "Categories"
+            name: categories
+            widget: list
+            label_singular: "category"
+            summary: "{{fields.name.en}}"
+            fields:
+              - { label: "Category name", name: name, widget: object, fields: *loc }
+              - { label: "Skills", name: skills, widget: list, field: { label: "Skill", name: skill, widget: string } }
+
+  # ===================== CONTACT =====================
+  - name: contact
+    label: "Contact"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: contact
+        label: "Contact"
+        file: "src/content/site/contact.json"
+        fields:
+          - { label: "Section label", name: label, widget: object, fields: *loc }
+          - { label: "Heading", name: heading, widget: object, fields: *loc }
+          - { label: "Intro", name: lede, widget: object, fields: *loctext }
+          - { label: "Email address", name: email, widget: string }
+          - { label: "WhatsApp number (digits only)", name: whatsappNumber, widget: string }
+          - { label: "WhatsApp display number", name: whatsappDisplay, widget: string }
+          - { label: "WhatsApp prefilled message", name: whatsappMessage, widget: object, fields: *loc }
+          - { label: "Email subject", name: mailtoSubject, widget: object, fields: *loc }
+          - { label: "Email body", name: mailtoBody, widget: object, fields: *loctext }
+          - { label: "WhatsApp button text", name: whatsappCta, widget: object, fields: *loc }
+          - { label: "Email button text", name: emailCta, widget: object, fields: *loc }
+          - label: "Other channels"
+            name: channels
+            widget: list
+            label_singular: "channel"
+            summary: "{{fields.key}}"
+            fields:
+              - { label: "Label tag (e.g. LINKEDIN)", name: key, widget: string }
+              - { label: "Display text", name: label, widget: string }
+              - { label: "Link URL", name: href, widget: string }
+          - { label: "“Open for” label", name: openForLabel, widget: object, fields: *loc }
+          - label: "“Open for” items"
+            name: openFor
+            widget: list
+            label_singular: "item"
+            fields: *loc
+          - { label: "Bios box title", name: biosTitle, widget: object, fields: *loc }
+          - { label: "Bios box hint", name: biosHint, widget: object, fields: *loctext }
+          - label: "Reusable bios"
+            name: bios
+            widget: object
+            fields:
+              - { label: "One-line", name: oneLine, widget: object, fields: *loctext }
+              - { label: "Short (~50 words)", name: short, widget: object, fields: *loctext }
+              - { label: "Long (~150 words)", name: long, widget: object, fields: *loctext }

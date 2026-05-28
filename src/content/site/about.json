@@ -1,0 +1,57 @@
+{
+  "label": { "en": "About", "he": "אודות" },
+  "heading": {
+    "en": "A builder who also knows how to operate.",
+    "he": "מהנדס שגם יודע לבנות וגם יודע להפעיל."
+  },
+  "narrative": [
+    {
+      "en": "I'm a systems engineer and IT manager with 17+ years across the customer-facing side of enterprise software — Malam tech support, Secure Islands post-sales engineering, Microsoft Premier support, Claroty Tier 3 escalations, and IT management at Profero. The through-line is close-to-the-customer, close-to-the-system work, with personal accountability for the outcome from scoping to production.",
+      "he": "אני מהנדס ומנהל מערכות עם 17+ שנים, שעבר כל הדרך מתמיכה טכנית ב־Malam, דרך הנדסת פוסט־סייל ב־Secure Islands ותמיכת Premier במיקרוסופט, דרך אסקלציות Tier 3 ב־Claroty, אל ניהול IT ב־Profero. החוט המקשר: עבודה צמודה ללקוח ולמערכת, ואחריות אישית על הפתרון מהאפיון ועד לפרודקשן."
+    },
+    {
+      "en": "Alongside that, I build applied AI systems, automations, and internal tools — often Hebrew-first, almost always tied to a concrete business problem. The differentiator is the intersection of three things that usually live with three different people: knowing the customer, understanding the operational reality, and being able to engineer.",
+      "he": "במקביל אני בונה מערכות AI יישומיות, אוטומציות וכלים פנימיים — לרוב בעברית, לרוב סביב בעיות עסקיות אמיתיות. היתרון שלי הוא הצלבה של שלושה דברים שלרוב מפוצלים בין שלושה אנשים: היכרות עם הלקוח, עומק תפעולי, ויכולת הנדסה."
+    }
+  ],
+  "stats": [
+    {
+      "value": "17+",
+      "label": { "en": "years across IT, support, cloud, applied AI", "he": "שנים ב־IT, support, ענן, ו־AI יישומי" }
+    },
+    {
+      "value": "8",
+      "label": { "en": "organizations — startup through enterprise", "he": "ארגונים — מסטארט־אפ ל־enterprise" }
+    },
+    {
+      "value": "3",
+      "label": { "en": "active projects — applied AI and automation", "he": "פרויקטים פעילים — applied AI ו־automation" }
+    }
+  ],
+  "tracks": [
+    {
+      "code": "CS",
+      "title": { "en": "Customer-facing depth", "he": "עומק מול לקוחות" },
+      "body": {
+        "en": "Years of senior support, post-sales, and implementation work at Microsoft, Secure Islands, and Claroty — real users, real systems, real SLAs.",
+        "he": "שנים של תמיכה בכירה, פוסט־סייל והטמעה ב־Microsoft, Secure Islands ו־Claroty — אנשים אמיתיים, מערכות אמיתיות, SLA אמיתי."
+      }
+    },
+    {
+      "code": "IT",
+      "title": { "en": "IT and technical operations", "he": "ניהול IT ותפעול טכני" },
+      "body": {
+        "en": "IT management, infrastructure, cloud, and endpoint — across security and the day-to-day operational needs of a team.",
+        "he": "ניהול IT, תשתיות, ענן ו־endpoint — לאורך צרכי אבטחה ותפעול שוטף."
+      }
+    },
+    {
+      "code": "AI",
+      "title": { "en": "Applied AI, not demo AI", "he": "AI יישומי, לא דמואים" },
+      "body": {
+        "en": "Systems that help teams move — RAG, agents, automation — built with guardrails and an operational mindset.",
+        "he": "מערכות שעוזרות לצוותים לעבוד מהר יותר — RAG, סוכנים, אוטומציה — עם guardrails ועם מבט תפעולי."
+      }
+    }
+  ]
+}

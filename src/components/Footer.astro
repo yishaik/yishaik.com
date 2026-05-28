@@ -1,20 +1,20 @@
 ---
 import type { Locale } from '../i18n/index';
+import { general } from '../content/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const isHe = locale === 'he';
 const year = new Date().getFullYear();
 ---
 
 <footer class="relative z-[1] border-t border-[color:var(--color-rule)] mt-0">
   <div class="page-shell flex flex-col gap-3 py-8 mono text-[0.7rem] tracking-[0.08em] text-muted sm:flex-row sm:items-center sm:justify-between">
-    <p>&copy; {year} · Yishai Kaminsky · {isHe ? 'כל הזכויות שמורות' : 'All rights reserved'}</p>
+    <p>&copy; {year} · {general.name.en} · {general.footer.rights[locale]}</p>
     <p>
-      <a href="#cover" class="link-underline">{isHe ? 'חזרה למעלה ↑' : 'Back to top ↑'}</a>
+      <a href="#cover" class="link-underline">{general.footer.backToTop[locale]}</a>
     </p>
   </div>
 </footer>

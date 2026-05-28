@@ -1,47 +1,20 @@
 ---
 import type { Locale } from '../i18n/index';
-import { heroContent } from '../content/homepageContent';
+import { hero } from '../content/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const isHe = locale === 'he';
 
-// Headline split so the closing phrase reads as a quiet, dimmed continuation.
-const headlineLead = isHe
-  ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — '
-  : 'Customer Success engineering, IT management, and applied AI — ';
-const headlineAccent = isHe
-  ? 'בנייה והפעלה מקצה לקצה.'
-  : 'built and operated end-to-end.';
-
-const ctas = isHe
-  ? { primary: 'בוא נדבר', secondary: 'הניסיון שלי' }
-  : { primary: 'Start a conversation', secondary: 'View experience' };
-
-const statusText = isHe
-  ? 'פתוח לתפקידים חדשים · ישראל · מרחוק־פרוש'
-  : 'Open to new roles · Israel · Remote-friendly';
-
-const prevLabel = isHe ? 'בעבר ב־' : 'Previously at';
-
-// Recognizable brands worked for, shown as a monochrome credibility strip.
-const prevLogos = [
-  { src: '/logos/microsoft.svg', name: 'Microsoft' },
-  { src: '/logos/claroty.png', name: 'Claroty' },
-  { src: '/logos/profero.svg', name: 'Profero' },
-  { src: '/logos/ajax-union.svg', name: 'Ajax Union' },
-];
-
-const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
+const kickerParts = hero.kicker[locale].split('·').map((s) => s.trim());
 ---
 
 <section id="cover" class="tile tile-hero">
   <p class="status-pill reveal mb-5">
     <span class="status-dot" aria-hidden="true"></span>
-    {statusText}
+    {hero.status[locale]}
   </p>
 
   <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-5 reveal" style="--reveal-delay:60ms">
@@ -54,28 +27,28 @@ const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
   </div>
 
   <h1 class="display display-xl reveal" style="--reveal-delay:120ms">
-    {headlineLead}<span class="text-gradient">{headlineAccent}</span>
+    {hero.headlineLead[locale]}<span class="text-gradient">{hero.headlineAccent[locale]}</span>
   </h1>
 
   <p class="prose-lede mt-5 max-w-2xl reveal" style="--reveal-delay:200ms">
-    {heroContent.intro[locale]}
+    {hero.intro[locale]}
   </p>
 
   <div class="mt-7 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
     <a href="#contact" class="btn btn-primary">
-      {ctas.primary}
+      {hero.ctaPrimary[locale]}
       <span aria-hidden="true">→</span>
     </a>
     <a href="#experience" class="btn btn-ghost">
-      {ctas.secondary}
+      {hero.ctaSecondary[locale]}
       <span aria-hidden="true">↓</span>
     </a>
   </div>
 
   <div class="mt-9 reveal" style="--reveal-delay:360ms">
-    <p class="eyebrow mb-3.5">{prevLabel}</p>
+    <p class="eyebrow mb-3.5">{hero.previouslyAtLabel[locale]}</p>
     <div class="logo-strip">
-      {prevLogos.map((logo) => (
+      {hero.previousLogos.map((logo) => (
         <img
           class="strip-logo"
           src={logo.src}
