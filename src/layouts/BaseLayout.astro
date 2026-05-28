@@ -128,8 +128,8 @@ const jsonLdGraph = {
     <meta name="description" content={siteDescription} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#100d09" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f3ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
 
     <link rel="canonical" href={canonicalUrl} />
@@ -160,7 +160,7 @@ const jsonLdGraph = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
 
@@ -177,10 +177,7 @@ const jsonLdGraph = {
     </script>
   </head>
   <body>
-    <div class="ambient" aria-hidden="true">
-      <span class="glow glow-a"></span>
-      <span class="glow glow-b"></span>
-    </div>
+    <div class="ambient" aria-hidden="true"></div>
     <Header locale={locale} />
     <main>
       <slot />
