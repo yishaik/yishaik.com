@@ -9,9 +9,13 @@ interface Props {
 const { locale } = Astro.props;
 const isHe = locale === 'he';
 
-const headline = isHe
-  ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — בנייה והפעלה מקצה לקצה.'
-  : 'Customer Success engineering, IT management, and applied AI — built and operated end-to-end.';
+// Headline split so the closing phrase can carry the animated gradient accent.
+const headlineLead = isHe
+  ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — '
+  : 'Customer Success engineering, IT management, and applied AI — ';
+const headlineAccent = isHe
+  ? 'בנייה והפעלה מקצה לקצה.'
+  : 'built and operated end-to-end.';
 
 const ctas = isHe
   ? { primary: 'בוא נדבר', secondary: 'ראה עבודות' }
@@ -22,37 +26,51 @@ const statusText = isHe
   : 'Open to new roles · Israel · Remote-friendly';
 
 const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for · jump to proof';
+
+const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
 ---
 
-<section id="cover" class="section page-shell pt-28 lg:pt-32">
-  <p class="eyebrow mb-5">{heroContent.kicker[locale]}</p>
+<section id="cover" class="section page-shell pt-28 lg:pt-36">
+  <p class="status-pill reveal mb-7">
+    <span class="status-dot" aria-hidden="true"></span>
+    {statusText}
+  </p>
 
-  <h1 class="display display-xl max-w-4xl">{headline}</h1>
+  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-6 reveal" style="--reveal-delay:60ms">
+    {kickerParts.map((part, i) => (
+      <>
+        {i > 0 && <span class="text-accent/60 mono text-[0.7rem]" aria-hidden="true">/</span>}
+        <span class="eyebrow">{part}</span>
+      </>
+    ))}
+  </div>
 
-  <p class="prose-lede mt-6 max-w-2xl">{heroContent.intro[locale]}</p>
+  <h1 class="display display-xl max-w-5xl reveal" style="--reveal-delay:120ms">
+    {headlineLead}<span class="text-gradient">{headlineAccent}</span>
+  </h1>
 
-  <div class="mt-8 flex flex-wrap items-center gap-3">
+  <p class="prose-lede mt-7 max-w-2xl reveal" style="--reveal-delay:200ms">
+    {heroContent.intro[locale]}
+  </p>
+
+  <div class="mt-9 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
     <a href="#contact" class="btn btn-primary">
       {ctas.primary}
       <span aria-hidden="true">→</span>
     </a>
     <a href="#work" class="btn btn-ghost">
       {ctas.secondary}
+      <span aria-hidden="true">↓</span>
     </a>
   </div>
 
-  <p class="mt-7 inline-flex items-center gap-2 mono text-xs text-muted">
-    <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
-    {statusText}
-  </p>
-
-  <div class="mt-12 lg:mt-16">
+  <div class="mt-14 lg:mt-20 reveal" style="--reveal-delay:360ms">
     <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-4">
       {openForLabel}
     </p>
     <div class="grid gap-3 sm:grid-cols-2">
-      {roleTracks.map((track) => (
-        <a href={track.href} class="track-card">
+      {roleTracks.map((track, i) => (
+        <a href={track.href} class="track-card reveal" style={`--reveal-delay:${400 + i * 70}ms`}>
           <span class="track-code" aria-hidden="true">{track.code}</span>
           <span class="track-label">{track.label[locale]}</span>
         </a>

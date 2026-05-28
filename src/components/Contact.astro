@@ -84,7 +84,7 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
 ---
 
 <section id="contact" class="section page-shell">
-  <div class="section-header">
+  <div class="section-header reveal">
     <p class="section-label">06 / {isHe ? 'צור קשר' : 'Contact'}</p>
     <h2 class="display display-lg mt-4 max-w-3xl">
       {isHe
@@ -99,7 +99,7 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
   </div>
 
   <div class="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
-    <div>
+    <div class="reveal">
       <div class="flex flex-wrap items-center gap-3">
         <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -167,7 +167,7 @@ const altLocaleLabel = isHe ? 'English' : 'עברית';
       </details>
     </div>
 
-    <aside>
+    <aside class="reveal" style="--reveal-delay:120ms">
       <div class="card">
         <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-accent">
           {isHe ? 'פתוח ל' : 'Open for'}

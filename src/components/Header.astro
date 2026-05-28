@@ -42,7 +42,8 @@ const navItems = isHe
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="text-muted hover:text-ink transition-colors"
+          data-nav-link={item.href.replace('#', '')}
+          class="nav-link"
         >
           {item.label}
         </a>
@@ -70,8 +71,8 @@ const navItems = isHe
   const scroll = () => {
     if (!header) return;
     if (window.scrollY > 12) {
-      header.style.background = 'color-mix(in srgb, var(--color-paper) 85%, transparent)';
-      header.style.backdropFilter = 'blur(10px)';
+      header.style.background = 'color-mix(in srgb, var(--color-paper) 82%, transparent)';
+      header.style.backdropFilter = 'blur(12px)';
       header.style.borderBottom = '1px solid var(--color-rule)';
     } else {
       header.style.background = 'transparent';
@@ -81,4 +82,27 @@ const navItems = isHe
   };
   window.addEventListener('scroll', scroll, { passive: true });
   scroll();
+
+  // Scroll-spy: highlight the nav item for the section currently in view.
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'));
+  const sectionIds = navLinks.map((l) => l.dataset.navLink).filter(Boolean) as string[];
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (sections.length && 'IntersectionObserver' in window) {
+    const setActive = (id: string) => {
+      navLinks.forEach((l) => l.classList.toggle('is-active', l.dataset.navLink === id));
+    };
+    const spy = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => spy.observe(s));
+  }
 </script>
