@@ -11,7 +11,7 @@ const isHe = locale === 'he';
 ---
 
 <section id="experience" class="section page-shell">
-  <div class="section-header">
+  <div class="section-header reveal">
     <p class="section-label">04 / {isHe ? 'ניסיון' : 'Experience'}</p>
     <h2 class="display display-lg mt-4 max-w-3xl">
       {isHe
@@ -27,7 +27,7 @@ const isHe = locale === 'he';
 
   <div class="border-t border-[color:var(--color-rule)]">
     {experience.map((exp) => (
-      <article id={`exp-${exp.slug}`} class="entry scroll-mt-28">
+      <article id={`exp-${exp.slug}`} class="entry scroll-mt-28 reveal">
         <header>
           <p class="entry-period">{exp.period}</p>
         </header>

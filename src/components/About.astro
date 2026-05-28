@@ -68,7 +68,7 @@ const tracks = isHe
 ---
 
 <section id="about" class="section page-shell">
-  <div class="section-header">
+  <div class="section-header reveal">
     <p class="section-label">01 / {isHe ? 'אודות' : 'About'}</p>
     <h2 class="display display-lg mt-4">
       {isHe
@@ -78,13 +78,13 @@ const tracks = isHe
   </div>
 
   <div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)] lg:gap-14 items-start">
-    <div class="space-y-4 prose-body max-w-2xl">
+    <div class="space-y-4 prose-body max-w-2xl reveal">
       {narrative.map((p) => <p>{p}</p>)}
     </div>
 
     <div class="grid gap-3">
-      {stats.map((s) => (
-        <div class="stat-card">
+      {stats.map((s, i) => (
+        <div class="stat-card reveal" style={`--reveal-delay:${i * 90}ms`}>
           <p class="stat-num"><em>{s.value}</em></p>
           <p class="stat-label">{s.label}</p>
         </div>
@@ -93,8 +93,8 @@ const tracks = isHe
   </div>
 
   <div class="mt-12 grid gap-4 sm:grid-cols-3 lg:mt-14">
-    {tracks.map((t) => (
-      <article class="card">
+    {tracks.map((t, i) => (
+      <article class="card reveal" style={`--reveal-delay:${i * 90}ms`}>
         <div class="inline-flex items-center justify-center w-9 h-9 rounded-md bg-accent text-[#faf6ef] dark:text-[#1a1612] font-medium mono text-[0.75rem] tracking-wider">
           {t.code}
         </div>
