@@ -33,10 +33,9 @@ const navItems = isHe
   <div class="page-shell flex h-16 items-center justify-between gap-4">
     <a
       href={getLocalePath(locale)}
-      class="mono text-[0.72rem] font-bold tracking-[0.12em] uppercase text-ink inline-flex items-center gap-2 border-2 border-[color:var(--color-ink)] bg-[color:var(--color-paper-soft)] px-2.5 py-1.5 transition-transform hover:-translate-y-0.5"
-      style="box-shadow:3px 3px 0 var(--shadow-hard)"
+      class="inline-flex items-center gap-2 text-[0.92rem] font-medium text-ink hover:text-accent transition-colors"
     >
-      <span class="inline-block h-2 w-2 bg-accent border border-[color:var(--color-ink)]"></span>
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
       Yishai&nbsp;Kaminsky
     </a>
 
@@ -60,7 +59,7 @@ const navItems = isHe
       <ThemeToggle client:load />
       <a
         href={altPath}
-        class="mono border-2 border-[color:var(--color-ink)] bg-[color:var(--color-paper-soft)] px-2.5 py-1.5 text-[0.7rem] font-bold tracking-[0.1em] uppercase text-ink transition-colors hover:bg-accent hover:text-[color:var(--on-accent,#f3f3ee)]"
+        class="mono rounded-md border border-[color:var(--color-rule)] px-2 py-1 text-[0.72rem] text-muted transition-colors hover:text-ink hover:border-[color:var(--color-ink)]"
       >
         {t(locale, 'lang.switch')}
       </a>
@@ -73,13 +72,13 @@ const navItems = isHe
   const scroll = () => {
     if (!header) return;
     if (window.scrollY > 12) {
-      header.style.background = 'color-mix(in srgb, var(--color-paper) 88%, transparent)';
-      header.style.backdropFilter = 'blur(10px)';
-      header.style.borderBottom = '2px solid var(--color-ink)';
+      header.style.background = 'color-mix(in srgb, var(--color-paper) 80%, transparent)';
+      header.style.backdropFilter = 'blur(12px)';
+      header.style.borderBottom = '1px solid var(--color-rule)';
     } else {
       header.style.background = 'transparent';
       header.style.backdropFilter = 'none';
-      header.style.borderBottom = '2px solid transparent';
+      header.style.borderBottom = '1px solid transparent';
     }
   };
   window.addEventListener('scroll', scroll, { passive: true });
