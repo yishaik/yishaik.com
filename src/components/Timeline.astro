@@ -11,17 +11,22 @@ const isHe = locale === 'he';
 
 // Real logos sourced online (rendered monochrome for cohesion); the rest use
 // uniform monogram badges.
+// Wide wordmark logos — rendered monochrome for cohesion.
 const logos: Record<string, string> = {
   microsoft: '/logos/microsoft.svg',
   claroty: '/logos/claroty.png',
   profero: '/logos/profero.svg',
   'ajax-union': '/logos/ajax-union.svg',
+  abra: '/logos/abra.svg',
+  malam: '/logos/malam.svg',
+};
+
+// Square raster logo — shown avatar-style in its original colors.
+const rasterLogos: Record<string, string> = {
+  'secure-islands': '/logos/secure-islands.jpeg',
 };
 
 const monograms: Record<string, string> = {
-  abra: 'ab',
-  'secure-islands': 'SI',
-  malam: 'M',
   'bh-comtec': 'BH',
 };
 
@@ -53,6 +58,18 @@ const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
               width="120"
               height="32"
             />
+          ) : rasterLogos[exp.slug] ? (
+            <span class="logo-badge logo-badge-img">
+              <img
+                class="entry-logo-raster"
+                src={rasterLogos[exp.slug]}
+                alt={`${exp.company[locale]} logo`}
+                loading="lazy"
+                decoding="async"
+                width="40"
+                height="40"
+              />
+            </span>
           ) : (
             <span class="logo-badge" aria-hidden="true">
               {monograms[exp.slug] ?? exp.company[locale].slice(0, 1)}
