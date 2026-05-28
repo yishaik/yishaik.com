@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/index';
-import { heroContent, roleTracks } from '../content/homepageContent';
+import { heroContent } from '../content/homepageContent';
 
 interface Props {
   locale: Locale;
@@ -10,18 +10,16 @@ const { locale } = Astro.props;
 const isHe = locale === 'he';
 
 const headline = isHe
-  ? 'הנדסת Customer Success, ניהול IT ו־AI יישומי — בנייה והפעלה מקצה לקצה.'
-  : 'Customer Success engineering, IT management, and applied AI — built and operated end-to-end.';
+  ? 'בונה והוגה מערכות — מ־Customer Success ועד AI יישומי.'
+  : 'Building and operating systems — from Customer Success to applied AI.';
 
 const ctas = isHe
-  ? { primary: 'בוא נדבר', secondary: 'ראה עבודות' }
-  : { primary: 'Start a conversation', secondary: 'See selected work' };
+  ? { primary: 'דבר איתי', secondary: 'ראה עבודות' }
+  : { primary: 'Hire me', secondary: 'See work' };
 
 const statusText = isHe
-  ? 'פתוח לתפקידים חדשים · ישראל · מרחוק־פרוש'
-  : 'Open to new roles · Israel · Remote-friendly';
-
-const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for · jump to proof';
+  ? 'פתוח לתפקידים · ישראל · מרחוק או היברידי'
+  : 'Open to roles · Israel · Remote or hybrid';
 ---
 
 <section id="cover" class="section page-shell pt-28 lg:pt-32">
@@ -45,18 +43,4 @@ const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for �
     <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
     {statusText}
   </p>
-
-  <div class="mt-12 lg:mt-16">
-    <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-4">
-      {openForLabel}
-    </p>
-    <div class="grid gap-3 sm:grid-cols-2">
-      {roleTracks.map((track) => (
-        <a href={track.href} class="track-card">
-          <span class="track-code" aria-hidden="true">{track.code}</span>
-          <span class="track-label">{track.label[locale]}</span>
-        </a>
-      ))}
-    </div>
-  </div>
 </section>
