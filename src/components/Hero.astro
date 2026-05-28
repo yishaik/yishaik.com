@@ -30,13 +30,13 @@ const openForLabel = isHe ? 'פתוח ל · קפוץ להוכחה' : 'Open for �
 const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
 ---
 
-<section id="cover" class="section page-shell pt-28 lg:pt-36">
-  <p class="status-pill reveal mb-7">
+<section id="cover" class="tile tile-hero">
+  <p class="status-pill reveal mb-5">
     <span class="status-dot" aria-hidden="true"></span>
     {statusText}
   </p>
 
-  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-6 reveal" style="--reveal-delay:60ms">
+  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-5 reveal" style="--reveal-delay:60ms">
     {kickerParts.map((part, i) => (
       <>
         {i > 0 && <span class="text-accent/60 mono text-[0.7rem]" aria-hidden="true">/</span>}
@@ -49,11 +49,11 @@ const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
     {headlineLead}<span class="text-gradient">{headlineAccent}</span>
   </h1>
 
-  <p class="prose-lede mt-7 max-w-2xl reveal" style="--reveal-delay:200ms">
+  <p class="prose-lede mt-5 max-w-2xl reveal" style="--reveal-delay:200ms">
     {heroContent.intro[locale]}
   </p>
 
-  <div class="mt-9 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
+  <div class="mt-6 flex flex-wrap items-center gap-3 reveal" style="--reveal-delay:280ms">
     <a href="#contact" class="btn btn-primary">
       {ctas.primary}
       <span aria-hidden="true">→</span>
@@ -64,11 +64,11 @@ const kickerParts = heroContent.kicker[locale].split('·').map((s) => s.trim());
     </a>
   </div>
 
-  <div class="mt-14 lg:mt-20 reveal" style="--reveal-delay:360ms">
-    <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-4">
+  <div class="mt-8 lg:mt-10 reveal" style="--reveal-delay:360ms">
+    <p class="mono text-[0.7rem] tracking-[0.14em] uppercase text-muted mb-3">
       {openForLabel}
     </p>
-    <div class="grid gap-3 sm:grid-cols-2">
+    <div class="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
       {roleTracks.map((track, i) => (
         <a href={track.href} class="track-card reveal" style={`--reveal-delay:${400 + i * 70}ms`}>
           <span class="track-code" aria-hidden="true">{track.code}</span>

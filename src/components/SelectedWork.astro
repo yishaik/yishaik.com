@@ -17,14 +17,14 @@ const labels = isHe
 const meta = selectedWorkContent.labels;
 ---
 
-<section id="work" class="section page-shell">
+<section id="work" class="tile tile-work">
   <div class="section-header reveal">
     <p class="section-label">03 / {isHe ? 'עבודות נבחרות' : 'Selected work'}</p>
     <h2 class="display display-lg mt-4 max-w-3xl">{selectedWorkContent.title[locale]}</h2>
     <p class="prose-lede mt-4 max-w-2xl">{selectedWorkContent.intro[locale]}</p>
   </div>
 
-  <div class="grid gap-6">
+  <div class="grid gap-4">
     {selectedWorkContent.items.map((item, i) => (
       <article id={`work-${item.id}`} class="card card-interactive scroll-mt-28 reveal">
         <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.8fr)] lg:gap-10">

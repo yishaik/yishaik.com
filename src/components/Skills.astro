@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const isHe = locale === 'he';
 ---
 
-<section id="skills" class="section page-shell">
+<section id="skills" class="tile tile-skills">
   <div class="section-header reveal">
     <p class="section-label">05 / {isHe ? 'מיומנויות' : 'Skills'}</p>
     <h2 class="display display-lg mt-4 max-w-3xl">
@@ -25,7 +25,7 @@ const isHe = locale === 'he';
     </p>
   </div>
 
-  <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-3">
     {skillCategories.map((cat, i) => (
       <div class="card reveal" style={`--reveal-delay:${(i % 2) * 80}ms`}>
         <div class="flex items-baseline justify-between gap-3">

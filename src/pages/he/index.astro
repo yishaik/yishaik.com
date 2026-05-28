@@ -12,11 +12,15 @@ const locale = 'he' as const;
 ---
 
 <BaseLayout locale={locale}>
-  <Hero locale={locale} />
-  <About locale={locale} />
-  <HowIWork locale={locale} />
-  <SelectedWork locale={locale} />
-  <Timeline locale={locale} />
-  <Skills locale={locale} />
-  <Contact locale={locale} />
+  <div class="bento-shell">
+    <div class="bento">
+      <Hero locale={locale} />
+      <About locale={locale} />
+      <HowIWork locale={locale} />
+      <SelectedWork locale={locale} />
+      <Timeline locale={locale} />
+      <Skills locale={locale} />
+      <Contact locale={locale} />
+    </div>
+  </div>
 </BaseLayout>

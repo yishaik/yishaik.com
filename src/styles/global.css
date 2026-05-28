@@ -27,9 +27,9 @@
   --color-accent-deep: #1414c8;
   --color-accent-tint: #e0e0ff;
 
-  /* Brutalist type stack — wide grotesque + true mono */
+  /* Brutalist type stack — Space Grotesk display + true mono */
   --font-family-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-  --font-family-display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Archivo', ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --font-family-hebrew: 'Heebo', ui-sans-serif, system-ui, sans-serif;
 }
@@ -166,13 +166,87 @@ main {
   .section-header { margin-bottom: 3.5rem; }
 }
 
+/* ====== Bento grid — connected brutalist mosaic ====== */
+
+.bento-shell {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 5.5rem 1.25rem 3rem;
+}
+
+@media (min-width: 640px) {
+  .bento-shell { padding-inline: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .bento-shell { padding: 6.5rem 3rem 4rem; }
+}
+
+/* The grid background = ink; the 2px gap reveals it as shared gridlines. */
+.bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--border-w);
+  background: var(--color-ink);
+  border: var(--border-w) solid var(--color-ink);
+  box-shadow: 10px 10px 0 var(--shadow-hard);
+}
+
+@media (min-width: 1024px) {
+  .bento { grid-template-columns: repeat(6, 1fr); }
+}
+
+.tile {
+  position: relative;
+  background: var(--color-paper);
+  padding: 1.5rem;
+  min-width: 0;
+  scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .tile { padding: 2rem 2.25rem; }
+}
+
+.tile > .section-header {
+  margin-bottom: 1.35rem;
+}
+
+/* Column spans — below lg = single-column stack; lg = 6-col mosaic */
+@media (min-width: 1024px) {
+  .tile-hero       { grid-column: span 6; }
+  .tile-about      { grid-column: span 4; }
+  .tile-howiwork   { grid-column: span 2; }
+  .tile-work       { grid-column: span 6; }
+  .tile-experience { grid-column: span 4; }
+  .tile-skills     { grid-column: span 2; }
+  .tile-contact    { grid-column: span 6; }
+}
+
+/* Inside the mosaic, nested cards lose their float-shadow so the grid itself
+   carries the depth — they read as flat bordered sub-cells. */
+.tile .card,
+.tile .stat-card,
+.tile .track-card,
+.tile .bio-block,
+.tile .arch-frame {
+  box-shadow: none;
+}
+
+.tile .card-interactive:hover,
+.tile .stat-card:hover,
+.tile .track-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--shadow-hard);
+}
+
 /* ====== Typography ====== */
 
 .display {
   font-family: var(--display-font);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.0;
+  line-height: 1.02;
   color: var(--color-ink);
   text-wrap: balance;
 }
@@ -184,10 +258,10 @@ main {
 }
 
 .display-xl {
-  font-size: clamp(2.9rem, 7.5vw, 6rem);
-  font-weight: 900;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
@@ -198,9 +272,9 @@ main {
 }
 
 .display-lg {
-  font-size: clamp(2rem, 4.4vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1.0;
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.04;
   letter-spacing: -0.035em;
 }
 
@@ -434,9 +508,9 @@ main {
 
 .stat-card .stat-num {
   font-family: var(--display-font);
-  font-weight: 900;
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  line-height: 0.9;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 3.6vw, 2.9rem);
+  line-height: 0.95;
   color: var(--color-ink);
   letter-spacing: -0.04em;
 }
@@ -586,8 +660,8 @@ main {
 
 .entry .entry-role {
   font-family: var(--display-font);
-  font-weight: 800;
-  font-size: 1.15rem;
+  font-weight: 700;
+  font-size: 1.12rem;
   color: var(--color-ink);
   letter-spacing: -0.02em;
 }
