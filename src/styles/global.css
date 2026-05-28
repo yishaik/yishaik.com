@@ -582,6 +582,26 @@ main {
   object-fit: cover;
 }
 
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--color-rule);
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  max-width: 6.5rem;
+}
+
+.entry-logo-chip {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 1.05rem;
+  object-fit: contain;
+}
+
 .entry:hover .logo-badge {
   border-color: color-mix(in srgb, var(--color-ink) 25%, transparent);
   color: var(--color-ink);

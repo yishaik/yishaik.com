@@ -26,9 +26,12 @@ const rasterLogos: Record<string, string> = {
   'secure-islands': '/logos/secure-islands.jpeg',
 };
 
-const monograms: Record<string, string> = {
-  'bh-comtec': 'BH',
+// Wide raster logo on a white background — shown on a small light chip.
+const chipLogos: Record<string, string> = {
+  'bh-comtec': '/logos/bh-comtec.jpg',
 };
+
+const monograms: Record<string, string> = {};
 
 // Early-career roles are condensed (no bullet list) to keep the page short.
 const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
@@ -68,6 +71,18 @@ const condensed = new Set(['ajax-union', 'malam', 'bh-comtec']);
                 decoding="async"
                 width="40"
                 height="40"
+              />
+            </span>
+          ) : chipLogos[exp.slug] ? (
+            <span class="logo-chip">
+              <img
+                class="entry-logo-chip"
+                src={chipLogos[exp.slug]}
+                alt={`${exp.company[locale]} logo`}
+                loading="lazy"
+                decoding="async"
+                width="120"
+                height="32"
               />
             </span>
           ) : (
